@@ -1,9 +1,12 @@
 package math;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Pentagon extends Polygone {
     Point buttomRight, buttomLeft, mediumRight, mediumLeft, top;
     Segment buttom, left, right, topLeft, topRight;
-    double faitageValue;
+    double faitageValue, thetaLeft, thetaRight;
 
     public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top) {
         this.buttomRight = buttomRight;
@@ -12,6 +15,18 @@ public class Pentagon extends Polygone {
         this.mediumLeft = mediumLeft;
         this.top = top;
         setSegments();
+    }
+
+    public Pentagon(Point buttomLeft, double height, double width, double thetaLeft, double faitageValue){
+        this.faitageValue = faitageValue;
+        this.thetaLeft = thetaLeft;
+        this.buttomLeft=buttomLeft;
+        this.buttomRight = new Point(buttomLeft, width,0);
+        this.mediumLeft = new Point(buttomLeft,0,height);
+        this.mediumRight = new Point(buttomRight,0,height);
+        this.top = new Point(width*faitageValue,height + (width*faitageValue)*Math.tan(thetaLeft));
+        setSegments();
+        this.thetaRight = topRight.getAngle(right);
     }
 
     private void setSegments(){
@@ -42,6 +57,11 @@ public class Pentagon extends Polygone {
         Line buttomLine = new Line(buttom);
         Line horizontalLine = new Line(new Segment(x,0, x+1,0));
         return new Segment( horizontalLine.intersect(buttomLine), horizontalLine.intersect(topLine));
+    }
+
+    @Override
+    public ArrayList<Segment> getSegments() {
+        return new ArrayList<>(Arrays.asList(buttom, left, right, topLeft, topRight));
     }
 
 }

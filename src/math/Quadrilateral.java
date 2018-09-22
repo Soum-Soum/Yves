@@ -1,5 +1,10 @@
 package math;
 
+import home.Montant;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Quadrilateral extends Polygone {
 
     public ShapeType type;
@@ -53,16 +58,33 @@ public class Quadrilateral extends Polygone {
         }
         switch (type){
             case TRAPEZIUM1:
-                topRight = new Point(topRight,0,width*Math.tan(theta));
+                if(isOnRightSide){
+                    topRight = new Point(topRight,0,width*Math.tan(theta));
+                }else {
+                    topLeft = new Point(topLeft,0,-width*Math.tan(theta));
+                }
                 break;
             case TRAPEZIUM2:
                 topLeft = new Point(topRight,0,width*Math.tan(theta));
+                if(isOnRightSide){
+                    topRight = new Point(topRight,0,-width*Math.tan(theta));
+                }else {
+                    topLeft = new Point(topLeft,0,width*Math.tan(theta));
+                }
                 break;
             case TRAPEZIUM3:
-                buttomRight = new Point(topRight,0,-width*Math.tan(theta));
+                if(isOnRightSide){
+                    buttomRight = new Point(topRight,0,-width*Math.tan(theta));
+                }else {
+                    buttomLeft = new Point(topRight,0,width*Math.tan(theta));
+                }
                 break;
             case TRAPEZIUM4:
-                buttomLeft = new Point(topRight,0,-width*Math.tan(theta));
+                if(isOnRightSide){
+                    buttomRight = new Point(topRight,0,width*Math.tan(theta));
+                }else {
+                    buttomLeft = new Point(topRight,0,-width*Math.tan(theta));
+                }
                 break;
             default:
                 break;
@@ -72,9 +94,12 @@ public class Quadrilateral extends Polygone {
 
     public Quadrilateral(Segment segment, double width ,boolean isOnRightSide, ShapeType type ) {
         this.type=type;
+        double theta;
         Segment parallelSegment;
         switch (type){
             case PARAlLELOGRAM1:
+                theta = segment.getAngle(Segment.getVecticalSegment());
+                width = width/Math.sin(theta);
                 if (isOnRightSide) {
                     parallelSegment = new Segment(segment, 0,-width,0,-width);
                     buttomLeft = parallelSegment.head;
@@ -90,17 +115,19 @@ public class Quadrilateral extends Polygone {
                 }
             break;
             case PARALlELOGRAM2:
+                theta = segment.getAngle(Segment.getHorizontalSegment());
+                width = width/Math.sin(theta);
                 if (isOnRightSide){
                     parallelSegment = new Segment(segment, width,0,width,0);
-                    buttomLeft = segment.tail;
-                    buttomRight=parallelSegment.tail;
-                    topLeft = segment.head;
-                    topRight = parallelSegment.head;
+                    buttomLeft = segment.head;
+                    buttomRight=parallelSegment.head;
+                    topLeft = segment.tail;
+                    topRight = parallelSegment.tail;
                 }else {
                     parallelSegment = new Segment(segment, -width,0,-width,0);
-                    buttomLeft = parallelSegment.tail;
-                    buttomRight=segment.tail;
-                    topLeft = parallelSegment.head;
+                    buttomLeft = parallelSegment.head;
+                    buttomRight=segment.head;
+                    topLeft = parallelSegment.tail;
                     topRight = segment.tail;
                 }
                 break;
@@ -127,10 +154,27 @@ public class Quadrilateral extends Polygone {
         return new Segment( horizontalLine.intersect(buttomLine), horizontalLine.intersect(topLine));
     }
 
+    @Override
+    public ArrayList<Segment> getSegments() {
+        return new ArrayList<>(Arrays.asList(buttom, left, right, top));
+    }
+
     private void setSegments(){
         buttom = new Segment(buttomLeft,buttomRight);
         left= new Segment(buttomLeft,topLeft);
         right = new Segment(buttomRight,topRight);
         top=new Segment(topLeft,topRight);
+    }
+
+    public static Quadrilateral getNormalMontant(Segment segment, double width, double theta, boolean isOnRightSide, ShapeType type){
+        return new Quadrilateral(segment, width, theta,  isOnRightSide, type);
+    }
+    public static Quadrilateral getParalelMontant(Segment segment, double width, boolean isOnRightSide, ShapeType type){
+        return new Quadrilateral(segment, width, isOnRightSide, type);
+    }
+
+    public static void main(String[] argd){
+        Quadrilateral test = Quadrilateral.getParalelMontant(new Segment(1,1,5,5),4.5,true,ShapeType.PARALlELOGRAM2);
+        test.print();
     }
 }

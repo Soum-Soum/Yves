@@ -1,12 +1,12 @@
 package home;
 
 import data.DATACONTAINER;
+import math.Polygone;
 import math.Quadrilateral;
 import math.Segment;
 import math.ShapeType;
 
-import java.awt.*;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -32,5 +32,30 @@ public class QuadrilateralArea extends Area {
         Montant rightMontant = Montant.getNormalMontant(rightSeg,DATACONTAINER.MONTANTWITH,shap.theta,false,shap.type);
         inerShape = new Quadrilateral(leftMontant.buttomRight,rightMontant.buttomLeft,leftMontant.topRight,rightMontant.topLeft, shap.type);
         montants.addAll(Arrays.asList(buttomMontant, leftMontant, rightMontant, topMontant));
+
+        System.out.println("top Montant");
+        topMontant.print();
+
+        System.out.println("right montant");
+        rightMontant.print();
+    }
+
+    @Override
+    public Polygone getShape() {
+        return this.shap;
+    }
+
+    @Override
+    public Polygone getInerShape() {
+        return inerShape;
+    }
+
+    public static void main(String[] args){
+        Quadrilateral shap = Quadrilateral.getNormalMontant(new Segment(1,1,1,10),100,Math.PI/4,true,ShapeType.TRAPEZIUM1);
+        QuadrilateralArea test = new QuadrilateralArea(shap);
+        test.shap.print();
+        test.setOutLines();
+        System.out.println("iner shape");
+        test.inerShape.print();
     }
 }

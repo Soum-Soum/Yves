@@ -2,7 +2,7 @@ package math;
 
 public class Segment {
 
-    Point head, tail;
+    public Point head, tail;
 
     public Segment(Point head, Point tail) {
         this.head = head;
@@ -15,8 +15,8 @@ public class Segment {
     }
 
     public Segment(Segment segment, double dx1, double dy1, double dx2, double dy2){
-        this.head = new Point(head,dx1,dy1);
-        this.tail = new Point(tail,dx2,dy2);
+        this.head = new Point(segment.head,dx1,dy1);
+        this.tail = new Point(segment.tail,dx2,dy2);
     }
 
     public Vector getVector(){
@@ -32,5 +32,17 @@ public class Segment {
 
     public boolean isHorizontal(){
         return head.y == tail.y;
+    }
+
+    public double getAngle(Segment s){
+        return this.getVector().getangle(s.getVector());
+    }
+
+    public static Segment getHorizontalSegment(){
+        return new Segment(0,0,1,0);
+    }
+
+    public static Segment getVecticalSegment(){
+        return new Segment(0,0,0,1);
     }
 }

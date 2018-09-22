@@ -1,5 +1,7 @@
 package home;
 
+import math.Polygone;
+
 import java.util.ArrayList;
 
 public abstract class Area {
@@ -9,4 +11,8 @@ public abstract class Area {
     ArrayList<Montant> montants;
 
     public abstract void setOutLines();
+
+    public abstract Polygone getShape();
+
+    public abstract Polygone getInerShape();
 }
