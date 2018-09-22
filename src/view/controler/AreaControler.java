@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import main.AppManager;
 import view.obj.ViewArea;
 
 import java.util.Arrays;
@@ -16,6 +17,7 @@ public class AreaControler {
 
     private final ObservableList<ViewArea> data = FXCollections.observableArrayList();
     public Scene nextScene;
+    public AppManager appManager;
 
     @FXML
     Label error;

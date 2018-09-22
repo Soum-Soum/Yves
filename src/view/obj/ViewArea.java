@@ -19,7 +19,6 @@ public class ViewArea {
         this.x = new SimpleStringProperty(x);
         this.y = new SimpleStringProperty(y);
         this.type = new SimpleStringProperty(type);
-
     }
 
     @Override

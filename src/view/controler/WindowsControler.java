@@ -1,0 +1,113 @@
+package view.controler;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import main.AppManager;
+import view.obj.ViewArea;
+import view.obj.ViewWindows;
+
+import java.util.Arrays;
+
+public class WindowsControler {
+
+    private final ObservableList<ViewWindows> data = FXCollections.observableArrayList();
+    public Scene prevScene, nextScene;
+    public AppManager appManager;
+
+    @FXML
+    Button add, remove, next, validate, prev;
+    @FXML
+    TextField heightxWidth, xY, thetaDeg, thetaPercent, name;
+    @FXML
+    ChoiceBox<String> windowType;
+    @FXML
+    TableView<ViewWindows> table;
+    @FXML
+    TableColumn<ViewWindows,String> nameCol,xCol, yCol, heightCol, widthCol, typeCol,thetaDegCol,thetaPercentCol;
+
+    public WindowsControler() {
+    }
+
+    public void init(){
+
+        table.setEditable(true);
+        table.setItems(data);
+        add.setOnAction(event -> {
+            String temp0[] = heightxWidth.getText().split("x");
+            String temp1[] = xY.getText().split("x");
+            data.add(new ViewWindows(windowType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),name.getText()));
+        });
+
+        remove.setOnAction(event -> {
+            data.remove(table.getSelectionModel().getFocusedIndex());
+        });
+
+        nameCol.setCellValueFactory(celltab -> celltab.getValue().name);
+        typeCol.setCellValueFactory(celltab -> celltab.getValue().type);
+        heightCol.setCellValueFactory(celltab -> celltab.getValue().height);
+        widthCol.setCellValueFactory(celltab -> celltab.getValue().wight);
+        xCol.setCellValueFactory(celltab -> celltab.getValue().x);
+        yCol.setCellValueFactory(celltab -> celltab.getValue().y);
+        thetaDegCol.setCellValueFactory(celltab -> celltab.getValue().thetaDeg);
+        thetaPercentCol.setCellValueFactory(celltab -> celltab.getValue().thetaPercent);
+
+        windowType.getItems().addAll(Arrays.asList("Rectangulaire","Trapezoidal1","Trapezoidal2","Trapezoidal3","Trapezoidal4"));
+        windowType.setOnAction(event -> {
+            switch (windowType.getValue()){
+                case "Rectangulaire":
+                    thetaDeg.setDisable(true);
+                    thetaDeg.clear();
+                    thetaPercent.setDisable(true);
+                    thetaPercent.clear();
+                    break;
+                default:
+                    thetaDeg.setDisable(false);
+                    thetaPercent.setDisable(false);
+                    break;
+            }
+        });
+
+        validate.setOnAction(event -> {
+            if (validate.getText().equals("Valider")){
+                validate.setText("Changer");
+                table.setDisable(true);
+                remove.setDisable(true);
+                next.setDisable(false);
+                add.setDisable(true);
+            }else {
+                validate.setText("Valider");
+                add.setDisable(false);
+                next.setDisable(true);
+                remove.setDisable(false);
+                table.setDisable(false);
+            }
+        });
+
+        next.setDisable(true);
+        next.setOnAction(event -> {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(nextScene);
+        });
+
+        prev.setOnAction(event -> {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(prevScene);
+        });
+
+        thetaDeg.setOnAction(event -> {
+            double radValue = (Double.parseDouble(thetaDeg.getText()))*((2*Math.PI)/360);
+            thetaPercent.setText(String.valueOf(100*Math.tan(radValue)));
+        });
+
+        thetaPercent.setOnAction(event -> {
+            double radValue = Math.atan(Double.parseDouble(thetaPercent.getText())/100);
+            thetaDeg.setText(String.valueOf(radValue*(360/(Math.PI*2))));
+        });
+
+    }
+}
