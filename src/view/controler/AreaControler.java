@@ -38,10 +38,10 @@ public class AreaControler {
 
     public void init(){
 
-        areaType.getItems().addAll(Arrays.asList("Rectangulaire","Trapezoidal","Pentagonal"));
+        areaType.getItems().addAll(Arrays.asList("RECTANGLE","TRAPEZIUM1","TRAPEZIUM1","TRAPEZIUM1","TRAPEZIUM1","PENTAGON"));
         areaType.setOnAction(event -> {
             switch (areaType.getValue()){
-                case "Rectangulaire":
+                case "RECTANGLE":
                     thetaDeg.setDisable(true);
                     thetaDeg.clear();
                     thetaPercent.setDisable(true);
@@ -49,16 +49,16 @@ public class AreaControler {
                     faitageValue.setDisable(true);
                     faitageValue.clear();
                     break;
-                case "Trapezoidal":
+                case "PENTAGON":
+                    thetaDeg.setDisable(false);
+                    thetaPercent.setDisable(false);
+                    faitageValue.setDisable(false);
+                    break;
+                default:
                     thetaDeg.setDisable(false);
                     thetaPercent.setDisable(false);
                     faitageValue.setDisable(true);
                     faitageValue.clear();
-                    break;
-                case "Pentagonal":
-                    thetaDeg.setDisable(false);
-                    thetaPercent.setDisable(false);
-                    faitageValue.setDisable(false);
                     break;
             }
         });

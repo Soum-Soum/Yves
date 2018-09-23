@@ -45,4 +45,6 @@ public class Segment {
     public static Segment getVecticalSegment(){
         return new Segment(0,0,0,1);
     }
+
+    public static Segment getHorizontalInversSegment(){return  new Segment(0,0,-1,0);}
 }

@@ -1,7 +1,10 @@
 package view;
 
 import home.Area;
+import home.PentagonalArea;
 import home.QuadrilateralArea;
+import math.Pentagon;
+import math.Point;
 import math.Quadrilateral;
 import math.Segment;
 import math.ShapeType;
@@ -52,11 +55,13 @@ public class ImageDrawer {
     }
 
     public static void main(String[] args) throws IOException {
-        ImageDrawer imageDrawer = new ImageDrawer(1000,1000);
-        Quadrilateral quadrilateral = Quadrilateral.getNormalMontant(new Segment(100,100,100,300),800,Math.PI/8,true, ShapeType.TRAPEZIUM1);
-        QuadrilateralArea area = new QuadrilateralArea(quadrilateral);
+        ImageDrawer imageDrawer = new ImageDrawer(1200,1200);
+        Pentagon pentagon = new Pentagon(new Point(1,1),200,1000,Math.PI/10,0.5);
+        PentagonalArea area = new PentagonalArea(pentagon);
         area.setOutLines();
+        System.out.println("SHAPE \n");
         area.getShape().print();
+        System.out.println("INER SHAPE \n");
         area.getInerShape().print();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol");

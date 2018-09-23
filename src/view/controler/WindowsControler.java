@@ -56,10 +56,10 @@ public class WindowsControler {
         thetaDegCol.setCellValueFactory(celltab -> celltab.getValue().thetaDeg);
         thetaPercentCol.setCellValueFactory(celltab -> celltab.getValue().thetaPercent);
 
-        windowType.getItems().addAll(Arrays.asList("Rectangulaire","Trapezoidal1","Trapezoidal2","Trapezoidal3","Trapezoidal4"));
+        windowType.getItems().addAll(Arrays.asList("RECTANGLE","TRAPEZIUM1","TRAPEZIUM2","TRAPEZIUM3","TRAPEZIUM4"));
         windowType.setOnAction(event -> {
             switch (windowType.getValue()){
-                case "Rectangulaire":
+                case "RECTANGLE":
                     thetaDeg.setDisable(true);
                     thetaDeg.clear();
                     thetaPercent.setDisable(true);

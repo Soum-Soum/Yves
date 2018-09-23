@@ -6,6 +6,7 @@ public enum ShapeType {
     TRAPEZIUM2,
     TRAPEZIUM3,
     TRAPEZIUM4,
+    PENTAGON,
     PARAlLELOGRAM1,
     PARALlELOGRAM2;
 

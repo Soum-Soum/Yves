@@ -8,6 +8,7 @@ import java.util.Objects;
 public class ViewArea {
 
     public StringProperty type, height, wight, thetaDeg, thetaPercent, faitageValue, name, x, y;
+    public double theta;
 
     public ViewArea(String type, String height, String wight, String x, String y, String thetaDeg, String thetaPercent, String faitageValue, String name) {
         this.height = new SimpleStringProperty(height);
@@ -19,6 +20,7 @@ public class ViewArea {
         this.x = new SimpleStringProperty(x);
         this.y = new SimpleStringProperty(y);
         this.type = new SimpleStringProperty(type);
+        theta = Double.parseDouble(thetaDeg)*((Math.PI*2)/360);
     }
 
     @Override

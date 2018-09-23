@@ -65,7 +65,6 @@ public class Quadrilateral extends Polygone {
                 }
                 break;
             case TRAPEZIUM2:
-                topLeft = new Point(topRight,0,width*Math.tan(theta));
                 if(isOnRightSide){
                     topRight = new Point(topRight,0,-width*Math.tan(theta));
                 }else {
