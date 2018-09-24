@@ -4,6 +4,7 @@ import home.Montant;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.TransferQueue;
 
 public class Quadrilateral extends Polygone {
 
@@ -27,10 +28,10 @@ public class Quadrilateral extends Polygone {
         if (isOnRightSide){
             if (segment.isHorizontal()){
                 Segment tempSeg = new Segment(segment,0,-width,0,-width);
-                buttomLeft = segment.head;
-                topLeft = segment.tail;
-                buttomRight = tempSeg.head;
-                topRight = tempSeg.tail;
+                buttomLeft = tempSeg.head;
+                topLeft = segment.head;
+                buttomRight = tempSeg.tail;
+                topRight = segment.tail;
             }
             if (segment.isVertical()){
                 Segment tempSeg = new Segment(segment,width,0,width,0);
@@ -43,10 +44,10 @@ public class Quadrilateral extends Polygone {
         }else {
             if (segment.isHorizontal()){
                 Segment tempSeg = new Segment(segment,0,width,0,width);
-                buttomLeft = tempSeg.head;
-                topLeft = tempSeg.tail;
-                buttomRight = segment.head;
-                topRight = segment.tail;
+                buttomLeft = segment.head;
+                topLeft = tempSeg.head;
+                buttomRight = segment.tail;
+                topRight = tempSeg.tail;
             }
             if (segment.isVertical()){
                 Segment tempSeg = new Segment(segment,-width,0,-width,0);
@@ -170,6 +171,10 @@ public class Quadrilateral extends Polygone {
     }
     public static Quadrilateral getParalelMontant(Segment segment, double width, boolean isOnRightSide, ShapeType type){
         return new Quadrilateral(segment, width, isOnRightSide, type);
+    }
+
+    public ArrayList<Triangle> getTriangles(){
+        return new ArrayList<>(Arrays.asList(new Triangle(buttomLeft,topLeft,buttomRight),new Triangle(topLeft,topRight,buttomRight)));
     }
 
     public static void main(String[] argd){

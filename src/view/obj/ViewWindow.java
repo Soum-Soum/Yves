@@ -5,11 +5,11 @@ import javafx.beans.property.StringProperty;
 
 import java.util.Objects;
 
-public class ViewWindows {
+public class ViewWindow {
 
     public StringProperty type,height, wight, thetaDeg, thetaPercent, name, x, y;
 
-    public ViewWindows(String type, String height, String wight, String x, String y, String thetaDeg, String thetaPercent, String name) {
+    public ViewWindow(String type, String height, String wight, String x, String y, String thetaDeg, String thetaPercent, String name) {
         this.type = new SimpleStringProperty(type);
         this.height = new SimpleStringProperty(height);
         this.wight = new SimpleStringProperty(wight);
@@ -24,7 +24,7 @@ public class ViewWindows {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ViewWindows that = (ViewWindows) o;
+        ViewWindow that = (ViewWindow) o;
         return Objects.equals(height, that.height) &&
                 Objects.equals(wight, that.wight) &&
                 Objects.equals(thetaDeg, that.thetaDeg) &&

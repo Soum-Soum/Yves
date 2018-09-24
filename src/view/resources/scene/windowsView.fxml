@@ -56,30 +56,40 @@
          </font>
       </Label>
       <TextField fx:id="name" layoutX="276.0" layoutY="359.0" />
-      <Button fx:id="add" layoutX="70.0" layoutY="489.0" mnemonicParsing="false" text="Ajouter">
+      <Button fx:id="add" layoutX="71.0" layoutY="582.0" mnemonicParsing="false" text="Ajouter">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="remove" layoutX="171.0" layoutY="489.0" mnemonicParsing="false" text="Supprimer">
+      <Button fx:id="remove" layoutX="172.0" layoutY="582.0" mnemonicParsing="false" text="Supprimer">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="validate" layoutX="295.0" layoutY="489.0" mnemonicParsing="false" text="Valider">
+      <Button fx:id="validate" layoutX="296.0" layoutY="582.0" mnemonicParsing="false" text="Valider">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="next" layoutX="245.0" layoutY="558.0" mnemonicParsing="false" text="Next -&gt;">
+      <Button fx:id="next" layoutX="245.0" layoutY="651.0" mnemonicParsing="false" text="Next -&gt;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="prev" layoutX="120.0" layoutY="558.0" mnemonicParsing="false" text="&lt;- Prev">
+      <Button fx:id="prev" layoutX="120.0" layoutY="651.0" mnemonicParsing="false" text="&lt;- Prev">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="70.0" layoutY="400.0" prefHeight="35.0" prefWidth="212.0" text="Sense D'extrusion">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="leftRight" layoutX="302.0" layoutY="402.0" mnemonicParsing="false" text="Droite -&gt;">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </ToggleButton>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package math;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -65,6 +66,11 @@ public class Pentagon extends Polygone {
     @Override
     public ArrayList<Segment> getSegments() {
         return new ArrayList<>(Arrays.asList(buttom, left, right, topLeft, topRight));
+    }
+
+    @Override
+    public ArrayList<Triangle> getTriangles() {
+        return new ArrayList<>(Arrays.asList(new Triangle(buttomLeft, mediumLeft, top), new Triangle(buttomLeft, buttomRight, top), new Triangle(buttomRight, mediumRight, top)));
     }
 
 }

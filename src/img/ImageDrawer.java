@@ -1,13 +1,10 @@
-package view;
+package img;
 
 import home.Area;
 import home.PentagonalArea;
-import home.QuadrilateralArea;
 import math.Pentagon;
 import math.Point;
-import math.Quadrilateral;
 import math.Segment;
-import math.ShapeType;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -59,10 +56,6 @@ public class ImageDrawer {
         Pentagon pentagon = new Pentagon(new Point(1,1),200,1000,Math.PI/10,0.5);
         PentagonalArea area = new PentagonalArea(pentagon);
         area.setOutLines();
-        System.out.println("SHAPE \n");
-        area.getShape().print();
-        System.out.println("INER SHAPE \n");
-        area.getInerShape().print();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol");
     }

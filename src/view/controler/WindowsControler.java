@@ -8,14 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.AppManager;
-import view.obj.ViewArea;
-import view.obj.ViewWindows;
+import view.obj.ViewWindow;
 
 import java.util.Arrays;
 
 public class WindowsControler {
 
-    private final ObservableList<ViewWindows> data = FXCollections.observableArrayList();
+    private final ObservableList<ViewWindow> data = FXCollections.observableArrayList();
     public Scene prevScene, nextScene;
     public AppManager appManager;
 
@@ -26,9 +25,9 @@ public class WindowsControler {
     @FXML
     ChoiceBox<String> windowType;
     @FXML
-    TableView<ViewWindows> table;
+    TableView<ViewWindow> table;
     @FXML
-    TableColumn<ViewWindows,String> nameCol,xCol, yCol, heightCol, widthCol, typeCol,thetaDegCol,thetaPercentCol;
+    TableColumn<ViewWindow,String> nameCol,xCol, yCol, heightCol, widthCol, typeCol,thetaDegCol,thetaPercentCol;
 
     public WindowsControler() {
     }
@@ -40,7 +39,7 @@ public class WindowsControler {
         add.setOnAction(event -> {
             String temp0[] = heightxWidth.getText().split("x");
             String temp1[] = xY.getText().split("x");
-            data.add(new ViewWindows(windowType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),name.getText()));
+            data.add(new ViewWindow(windowType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),name.getText()));
         });
 
         remove.setOnAction(event -> {

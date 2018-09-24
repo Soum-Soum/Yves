@@ -20,6 +20,8 @@ public class AreaControler {
     public AppManager appManager;
 
     @FXML
+    ToggleButton leftRight;
+    @FXML
     Label error;
     @FXML
     Button add, remove, next, validate;
@@ -38,7 +40,7 @@ public class AreaControler {
 
     public void init(){
 
-        areaType.getItems().addAll(Arrays.asList("RECTANGLE","TRAPEZIUM1","TRAPEZIUM1","TRAPEZIUM1","TRAPEZIUM1","PENTAGON"));
+        areaType.getItems().addAll(Arrays.asList("RECTANGLE","TRAPEZIUM1","TRAPEZIUM2","TRAPEZIUM3","TRAPEZIUM4","PENTAGON"));
         areaType.setOnAction(event -> {
             switch (areaType.getValue()){
                 case "RECTANGLE":
@@ -95,6 +97,7 @@ public class AreaControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
+            appManager.generateAreas(data);
         });
 
         thetaDeg.setOnAction(event -> {
@@ -126,6 +129,13 @@ public class AreaControler {
                 table.setDisable(false);
             }
         });
+
+//        leftRight.setOnAction(event -> {
+//            if (leftRight.isSelected()) {
+//                leftRight.
+//            }
+//        });
+
     }
 
     public void setErrorMessage(String errorMessage){
