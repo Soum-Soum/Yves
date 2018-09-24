@@ -8,11 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.AppManager;
+import view.obj.ViewArea;
 import view.obj.ViewBeam;
 
 public class BeamControler {
 
     private final ObservableList<ViewBeam> data = FXCollections.observableArrayList();
+    public ObservableList<ViewArea> areas;
     public Scene prevScene, nextScene;
     public AppManager appManager;
 
@@ -75,6 +77,13 @@ public class BeamControler {
             stage.setScene(prevScene);
         });
 
+        dependance.setOnMouseClicked(event -> {
+            ObservableList<String> list = FXCollections.observableArrayList();
+            for (ViewArea v : areas) {
+                list.add(v.name.getValue());
+            }
+            dependance.setItems(list);
+        });
     }
 
 }

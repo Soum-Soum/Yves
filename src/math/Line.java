@@ -17,9 +17,9 @@ public class Line {
 
     public Line(Segment segment) {
         Vector v = segment.getVector();
-        b = -v.x;
-        a = v.y;
-        c = -(a*segment.head.x+b*segment.head.y);
+        b = v.x;
+        a = -v.y;
+        c = (a*segment.head.x+b*segment.head.y);
     }
 
     public void print(){

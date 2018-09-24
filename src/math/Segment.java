@@ -27,11 +27,11 @@ public class Segment {
         return  getVector().getLenght();
     }
     public boolean isVertical(){
-        return head.x == tail.x;
+        return Math.round(head.x) == Math.round(tail.x);
     }
 
     public boolean isHorizontal(){
-        return head.y == tail.y;
+        return Math.round(head.y) == Math.round(tail.y);
     }
 
     public double getAngle(Segment s){
@@ -46,5 +46,10 @@ public class Segment {
         return new Segment(0,0,0,1);
     }
 
-    public static Segment getHorizontalInversSegment(){return  new Segment(0,0,-1,0);}
+    public static Segment getVerticalSegment(double x, Segment top, Segment buttom){
+        Line topLine = new Line(top);
+        Line buttomLine = new Line(buttom);
+        Line verticalSegment = new Line(new Segment(x,0, x,1));
+        return new Segment( verticalSegment.intersect(buttomLine), verticalSegment.intersect(topLine));
+    }
 }

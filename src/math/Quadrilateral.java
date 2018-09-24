@@ -10,7 +10,7 @@ public class Quadrilateral extends Polygone {
 
     public ShapeType type;
     public Point buttomRight, buttomLeft, topRight, topLeft;
-    public  Segment buttom, left, right, top;
+    public  Segment top;
     public double theta;
 
     public Quadrilateral(Point buttomLeft, Point buttomRight, Point topLeft, Point topRight, ShapeType type) {
@@ -139,6 +139,11 @@ public class Quadrilateral extends Polygone {
     }
 
     @Override
+    public Segment getTopSegment(double x) {
+        return top;
+    }
+
+    @Override
     public void print(){
         System.out.println("butomLeft : " + buttomLeft.print());
         System.out.println("topLeft : " + topLeft.print());
@@ -150,8 +155,8 @@ public class Quadrilateral extends Polygone {
     public Segment getVerticalSegment(double x) {
         Line topLine = new Line(top);
         Line buttomLine = new Line(buttom);
-        Line horizontalLine = new Line(new Segment(x,0, x+1,0));
-        return new Segment( horizontalLine.intersect(buttomLine), horizontalLine.intersect(topLine));
+        Line verticalSegment = new Line(new Segment(x,0, x,1));
+        return new Segment( verticalSegment.intersect(buttomLine), verticalSegment.intersect(topLine));
     }
 
     @Override
@@ -175,6 +180,16 @@ public class Quadrilateral extends Polygone {
 
     public ArrayList<Triangle> getTriangles(){
         return new ArrayList<>(Arrays.asList(new Triangle(buttomLeft,topLeft,buttomRight),new Triangle(topLeft,topRight,buttomRight)));
+    }
+
+    @Override
+    public double getTheta(double x) {
+        return theta;
+    }
+
+    @Override
+    public ShapeType getType(double x) {
+        return type;
     }
 
     public static void main(String[] argd){

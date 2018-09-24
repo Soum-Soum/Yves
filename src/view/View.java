@@ -45,6 +45,7 @@ public class View extends Application {
         Scene beamScene = new Scene(rootBeam);
         beamControler.appManager=appManager;
         beamControler.prevScene=windowsScene;
+        beamControler.areas=controler.getData();
         windowsControler.nextScene=beamScene;
         beamControler.init();
 

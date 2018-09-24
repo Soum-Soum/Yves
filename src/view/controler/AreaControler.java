@@ -38,8 +38,11 @@ public class AreaControler {
 
     }
 
-    public void init(){
+    public ObservableList<ViewArea> getData() {
+        return data;
+    }
 
+    public void init(){
         areaType.getItems().addAll(Arrays.asList("RECTANGLE","TRAPEZIUM1","TRAPEZIUM2","TRAPEZIUM3","TRAPEZIUM4","PENTAGON"));
         areaType.setOnAction(event -> {
             switch (areaType.getValue()){
@@ -50,16 +53,19 @@ public class AreaControler {
                     thetaPercent.clear();
                     faitageValue.setDisable(true);
                     faitageValue.clear();
+                    leftRight.setDisable(false);
                     break;
                 case "PENTAGON":
                     thetaDeg.setDisable(false);
                     thetaPercent.setDisable(false);
                     faitageValue.setDisable(false);
+                    leftRight.setDisable(true);
                     break;
                 default:
                     thetaDeg.setDisable(false);
                     thetaPercent.setDisable(false);
                     faitageValue.setDisable(true);
+                    leftRight.setDisable(false);
                     faitageValue.clear();
                     break;
             }
@@ -68,9 +74,13 @@ public class AreaControler {
         table.setEditable(true);
         table.setItems(data);
         add.setOnAction(event -> {
-            String temp0[] = heightxWidth.getText().split("x");
-            String temp1[] = xY.getText().split("x");
-            data.add(new ViewArea(areaType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),faitageValue.getText(),name.getText()));
+            try {
+                String temp0[] = heightxWidth.getText().split("x");
+                String temp1[] = xY.getText().split("x");
+                data.add(new ViewArea(areaType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),faitageValue.getText(),name.getText(),!leftRight.isSelected()));
+            }catch (ArrayIndexOutOfBoundsException e){
+                error.setText("Vérifier les séparateurs");
+            }
         });
 
         remove.setOnAction(event -> {
@@ -130,12 +140,13 @@ public class AreaControler {
             }
         });
 
-//        leftRight.setOnAction(event -> {
-//            if (leftRight.isSelected()) {
-//                leftRight.
-//            }
-//        });
-
+        leftRight.setOnAction(event -> {
+           if (leftRight.isSelected()) {
+               leftRight.setText("<- Gauche");
+           }else {
+               leftRight.setText("Droite ->");
+           }
+        });
     }
 
     public void setErrorMessage(String errorMessage){

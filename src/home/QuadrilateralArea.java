@@ -32,12 +32,6 @@ public class QuadrilateralArea extends Area {
         Montant rightMontant = Montant.getNormalMontant(rightSeg,DATACONTAINER.MONTANTWITH,shap.theta,false,shap.type);
         inerShape = new Quadrilateral(leftMontant.buttomRight,rightMontant.buttomLeft,leftMontant.topRight,rightMontant.topLeft, shap.type);
         montants.addAll(Arrays.asList(buttomMontant, leftMontant, rightMontant, topMontant));
-
-        System.out.println("top Montant");
-        topMontant.print();
-
-        System.out.println("right montant");
-        rightMontant.print();
     }
 
     @Override

@@ -19,6 +19,10 @@ public class WindowsControler {
     public AppManager appManager;
 
     @FXML
+    Label error;
+    @FXML
+    ToggleButton leftRight;
+    @FXML
     Button add, remove, next, validate, prev;
     @FXML
     TextField heightxWidth, xY, thetaDeg, thetaPercent, name;
@@ -37,9 +41,13 @@ public class WindowsControler {
         table.setEditable(true);
         table.setItems(data);
         add.setOnAction(event -> {
-            String temp0[] = heightxWidth.getText().split("x");
-            String temp1[] = xY.getText().split("x");
-            data.add(new ViewWindow(windowType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),name.getText()));
+            try {
+                String temp0[] = heightxWidth.getText().split("x");
+                String temp1[] = xY.getText().split("x");
+                data.add(new ViewWindow(windowType.getValue(),temp0[0],temp0[1],temp1[0],temp1[1],thetaDeg.getText(),thetaPercent.getText(),name.getText(), !leftRight.isSelected()));
+            }catch (ArrayIndexOutOfBoundsException e){
+                error.setText("Vérifier les séparateurs");
+            }
         });
 
         remove.setOnAction(event -> {
@@ -91,6 +99,7 @@ public class WindowsControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
+            appManager.generateWindows(data);
         });
 
         prev.setOnAction(event -> {
@@ -106,6 +115,14 @@ public class WindowsControler {
         thetaPercent.setOnAction(event -> {
             double radValue = Math.atan(Double.parseDouble(thetaPercent.getText())/100);
             thetaDeg.setText(String.valueOf(radValue*(360/(Math.PI*2))));
+        });
+
+        leftRight.setOnAction(event -> {
+            if (leftRight.isSelected()) {
+                leftRight.setText("<- Gauche");
+            }else {
+                leftRight.setText("Droite ->");
+            }
         });
 
     }

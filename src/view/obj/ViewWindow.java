@@ -8,8 +8,10 @@ import java.util.Objects;
 public class ViewWindow {
 
     public StringProperty type,height, wight, thetaDeg, thetaPercent, name, x, y;
+    public double theta;
+    public boolean isOnRightSide;
 
-    public ViewWindow(String type, String height, String wight, String x, String y, String thetaDeg, String thetaPercent, String name) {
+    public ViewWindow(String type, String height, String wight, String x, String y, String thetaDeg, String thetaPercent, String name, boolean isOnRightSide) {
         this.type = new SimpleStringProperty(type);
         this.height = new SimpleStringProperty(height);
         this.wight = new SimpleStringProperty(wight);
@@ -18,6 +20,10 @@ public class ViewWindow {
         this.name = new SimpleStringProperty(name);
         this.x = new SimpleStringProperty(x);
         this.y = new SimpleStringProperty(y);
+        this.isOnRightSide=isOnRightSide;
+        if (!thetaDeg.equals("")){
+            theta = Double.parseDouble(thetaDeg)*((Math.PI*2)/360);
+        }
     }
 
     @Override

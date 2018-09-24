@@ -1,12 +1,11 @@
 package math;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pentagon extends Polygone {
     public Point buttomRight, buttomLeft, mediumRight, mediumLeft, top;
-    public Segment buttom, left, right, topLeft, topRight;
+    public Segment topLeft, topRight;
     public double faitageValue, thetaLeft, thetaRight;
 
     public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top) {
@@ -42,6 +41,12 @@ public class Pentagon extends Polygone {
     }
 
     @Override
+    public Segment getTopSegment(double x) {
+        if (x>top.x){return topRight;}
+        else{return topLeft;}
+    }
+
+    @Override
     public void print() {
         System.out.println("butomLeft : " + buttomLeft.print());
         System.out.println("mediumLeft : " + mediumLeft.print());
@@ -59,8 +64,8 @@ public class Pentagon extends Polygone {
             topLine = new Line(topLeft);
         }
         Line buttomLine = new Line(buttom);
-        Line horizontalLine = new Line(new Segment(x,0, x+1,0));
-        return new Segment( horizontalLine.intersect(buttomLine), horizontalLine.intersect(topLine));
+        Line verticalSegment = new Line(new Segment(x,0, x,1));
+        return new Segment( verticalSegment.intersect(buttomLine), verticalSegment.intersect(topLine));
     }
 
     @Override
@@ -71,6 +76,18 @@ public class Pentagon extends Polygone {
     @Override
     public ArrayList<Triangle> getTriangles() {
         return new ArrayList<>(Arrays.asList(new Triangle(buttomLeft, mediumLeft, top), new Triangle(buttomLeft, buttomRight, top), new Triangle(buttomRight, mediumRight, top)));
+    }
+
+    @Override
+    public double getTheta(double x) {
+        if (x>top.x){return thetaRight;}
+        else{return thetaLeft;}
+    }
+
+    @Override
+    public ShapeType getType(double x) {
+        if (x>top.x){return ShapeType.TRAPEZIUM2;}
+        else{return ShapeType.TRAPEZIUM1;}
     }
 
 }
