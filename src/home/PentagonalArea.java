@@ -10,11 +10,12 @@ public class PentagonalArea extends Area{
 
     Pentagon shap, inerShape;
 
-    public PentagonalArea(Pentagon shap) {
+    public PentagonalArea(Pentagon shap, String name) {
         windows = new ArrayList<>();
         beams = new ArrayList<>();
         montants = new  ArrayList<>();
         this.shap = shap;
+        this.name = name;
     }
 
     @Override
@@ -43,7 +44,7 @@ public class PentagonalArea extends Area{
     public static void main(String[] args){
         Pentagon pentagon = new Pentagon(new Point(1,1),20,100,Math.PI/4,0.5);
         pentagon.print();
-        PentagonalArea p = new PentagonalArea(pentagon);
+        PentagonalArea p = new PentagonalArea(pentagon,"lol");
         p.setOutLines();
     }
 }

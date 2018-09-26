@@ -14,11 +14,12 @@ public class QuadrilateralArea extends Area {
 
     Quadrilateral shap, inerShape;
 
-    public QuadrilateralArea(Quadrilateral shap) {
+    public QuadrilateralArea(Quadrilateral shap, String name) {
         windows = new ArrayList<>();
         beams = new ArrayList<>();
         montants = new  ArrayList<>();
         this.shap = shap;
+        this.name = name;
     }
 
 
@@ -46,7 +47,7 @@ public class QuadrilateralArea extends Area {
 
     public static void main(String[] args){
         Quadrilateral shap = Quadrilateral.getNormalMontant(new Segment(1,1,1,10),100,Math.PI/4,true,ShapeType.TRAPEZIUM1);
-        QuadrilateralArea test = new QuadrilateralArea(shap);
+        QuadrilateralArea test = new QuadrilateralArea(shap,"lol");
         test.shap.print();
         test.setOutLines();
         System.out.println("iner shape");

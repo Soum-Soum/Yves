@@ -46,6 +46,7 @@ public class BeamControler {
             data.remove(table.getSelectionModel().getFocusedIndex());
         });
 
+        dependanceCol.setCellValueFactory(celltab -> celltab.getValue().dependance);
         heightCol.setCellValueFactory(celltab -> celltab.getValue().height);
         widthCol.setCellValueFactory(celltab -> celltab.getValue().wight);
         xCol.setCellValueFactory(celltab -> celltab.getValue().x);
@@ -70,6 +71,7 @@ public class BeamControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
+            appManager.generateBeam(data);
         });
 
         prev.setOnAction(event -> {

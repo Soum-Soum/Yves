@@ -1,13 +1,12 @@
 package img;
 
-import home.Area;
-import home.Montant;
-import home.PentagonalArea;
+import home.*;
 import home.Window;
 import math.Pentagon;
 import math.Point;
 import math.Segment;
 import math.ShapeType;
+import view.obj.ViewBeam;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -52,6 +51,12 @@ public class ImageDrawer {
                 drawSegment(m.getSegments());
             }
         }
+        for (Beam b : area.beams){
+            for (Montant m : b.montants){
+                m.print();
+                drawSegment(m.getSegments());
+            }
+        }
     }
 
     public void drawSegment(ArrayList<Segment> segments){
@@ -61,12 +66,14 @@ public class ImageDrawer {
     }
 
     public static void main(String[] args) throws IOException {
-        ImageDrawer imageDrawer = new ImageDrawer(2000,800);
-        Pentagon pentagon = new Pentagon(new Point(200,50),200,1600,Math.PI/10,0.75);
-        PentagonalArea area = new PentagonalArea(pentagon);
+        ImageDrawer imageDrawer = new ImageDrawer(2400,800);
+        Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/10,0.75);
+        PentagonalArea area = new PentagonalArea(pentagon,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,area.getInerShape().getTheta(500),true, ShapeType.TRAPEZIUM1));
+        area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
         area.setWindowsMontants();
+        area.setBeamMontants();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol");
     }

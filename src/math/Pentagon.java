@@ -1,10 +1,11 @@
 package math;
 
+import javax.naming.NamingEnumeration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pentagon extends Polygone {
-    public Point buttomRight, buttomLeft, mediumRight, mediumLeft, top;
+    public Point mediumRight, mediumLeft, top;
     public Segment topLeft, topRight;
     public double faitageValue, thetaLeft, thetaRight;
 
@@ -38,6 +39,11 @@ public class Pentagon extends Polygone {
         right = new Segment(buttomRight,mediumRight);
         topLeft=new Segment(mediumLeft,top);
         topRight=new Segment(top,mediumRight);
+    }
+
+    @Override
+    public ArrayList<Point> getPoints() {
+        return new ArrayList<>(Arrays.asList(buttomLeft,buttomRight,mediumLeft,mediumRight,top));
     }
 
     @Override

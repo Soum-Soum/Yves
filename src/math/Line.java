@@ -1,6 +1,7 @@
 package math;
 
 import Jama.Matrix;
+import util.Utilies;
 
 import java.awt.desktop.OpenURIEvent;
 import java.security.PublicKey;
@@ -34,7 +35,8 @@ public class Line {
         temp = new double[][]{{c}, {line.c}};
         Matrix m2 = new Matrix(temp);
         Matrix ans = m1.solve(m2);
-        return new Point(ans.get(0,0),ans.get(1,0));
+
+        return new Point(Utilies.rount3(ans.get(0,0)),Utilies.rount3(ans.get(1,0)));
     }
 
     public static void main(String[] args){

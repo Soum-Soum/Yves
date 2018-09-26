@@ -1,15 +1,14 @@
 package math;
 
-import home.Montant;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.concurrent.TransferQueue;
+
 
 public class Quadrilateral extends Polygone {
 
     public ShapeType type;
-    public Point buttomRight, buttomLeft, topRight, topLeft;
+    public Point topRight, topLeft;
     public  Segment top;
     public double theta;
 
@@ -139,6 +138,11 @@ public class Quadrilateral extends Polygone {
     }
 
     @Override
+    public ArrayList<Point> getPoints() {
+        return new ArrayList<>(Arrays.asList(buttomLeft,buttomRight,topLeft,topRight));
+    }
+
+    @Override
     public Segment getTopSegment(double x) {
         return top;
     }
@@ -164,7 +168,7 @@ public class Quadrilateral extends Polygone {
         return new ArrayList<>(Arrays.asList(buttom, left, right, top));
     }
 
-    private void setSegments(){
+    public void setSegments(){
         buttom = new Segment(buttomLeft,buttomRight);
         left= new Segment(buttomLeft,topLeft);
         right = new Segment(buttomRight,topRight);

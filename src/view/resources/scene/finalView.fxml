@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: daebf3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controler.FinalControler">
    <children>
-      <Button fx:id="validate" layoutX="555.0" layoutY="381.0" mnemonicParsing="false" text="Validate">
+      <Button fx:id="validate" layoutX="553.0" layoutY="24.0" mnemonicParsing="false" text="Validate">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="prev" layoutX="439.0" layoutY="381.0" mnemonicParsing="false" text="&lt;- Prev">
+      <Button fx:id="prev" layoutX="434.0" layoutY="24.0" mnemonicParsing="false" text="&lt;- Prev">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <ImageView fx:id="image" fitHeight="700.0" fitWidth="1200.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

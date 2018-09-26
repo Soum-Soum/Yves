@@ -91,5 +91,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </ToggleButton>
+      <Label fx:id="error" alignment="CENTER" layoutY="696.0" prefHeight="105.0" prefWidth="435.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
