@@ -1,6 +1,5 @@
 package math;
 
-import javax.naming.NamingEnumeration;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,16 +8,19 @@ public class Pentagon extends Polygone {
     public Segment topLeft, topRight;
     public double faitageValue, thetaLeft, thetaRight;
 
-    public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top) {
+    public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top, double faitageValue, double thetaLeft, double thetaRight) {
         this.buttomRight = buttomRight;
         this.buttomLeft = buttomLeft;
         this.mediumRight = mediumRight;
         this.mediumLeft = mediumLeft;
         this.top = top;
         setSegments();
-        faitageValue = (top.x-buttomLeft.x)/(buttomRight.x-buttomLeft.x);
+        this.faitageValue = faitageValue;
+        this.thetaLeft = thetaLeft;
+        this.thetaRight = thetaRight;
+        /*faitageValue = (top.x-buttomLeft.x)/(buttomRight.x-buttomLeft.x);
         thetaLeft = Segment.getHorizontalSegment().getAngle(topLeft);
-        thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
+        thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));*/
     }
 
     public Pentagon(Point buttomLeft, double height, double width, double thetaLeft, double faitageValue){

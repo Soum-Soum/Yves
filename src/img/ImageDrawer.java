@@ -53,7 +53,6 @@ public class ImageDrawer {
         }
         for (Beam b : area.beams){
             for (Montant m : b.montants){
-                m.print();
                 drawSegment(m.getSegments());
             }
         }
@@ -75,7 +74,7 @@ public class ImageDrawer {
         PentagonalArea area = new PentagonalArea(pentagon,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,area.getInerShape().getTheta(500),true, ShapeType.TRAPEZIUM1));
-        //area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
+        area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

@@ -58,7 +58,6 @@ public abstract class Area {
                         true,ShapeType.RECTANGLE));
                 x += DATACONTAINER.MONTANTWITH;
             }
-            System.out.println(x);
             if (x!=b.buttomRight.x){
                 buttomMontants.add(new Montant(Segment.getVerticalSegment(x,b.buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,this.getShape().getTheta(x),
                         true,ShapeType.RECTANGLE));
@@ -80,17 +79,15 @@ public abstract class Area {
     }
 
     public void generateMidMontant(){
-        double lol = verticalMontant.size();
-        for (int i = 0 ; i < lol-1 ; i++){
-            lol = verticalMontant.size();
+        for (int i = 0 ; i < verticalMontant.size()-1 ; i++){
             double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
             if ( dist > DATACONTAINER.MONTANTDIST && dist < 2 * DATACONTAINER.MONTANTDIST){
                 double x = verticalMontant.get(i).buttomLeft.x + dist/2;
-                verticalMontant.add(new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
+                verticalMontant.add(i+1,new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
                         true,this.getInerShape().getType(x)));
             }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
                 double x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
-                verticalMontant.add(new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
+                verticalMontant.add(i+1,new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
                         true,this.getInerShape().getType(x)));
             }
         }

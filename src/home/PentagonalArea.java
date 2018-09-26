@@ -24,7 +24,7 @@ public class PentagonalArea extends Area{
         Segment rightSeg = new Segment(buttomMontant.topRight,topRightMontant.buttomRight);
         Montant leftMontant = Montant.getNormalMontant(leftSeg,DATACONTAINER.MONTANTWITH,shap.thetaLeft,true,ShapeType.TRAPEZIUM1);
         Montant rightMontant = Montant.getNormalMontant(rightSeg,DATACONTAINER.MONTANTWITH,shap.thetaRight,false,ShapeType.TRAPEZIUM2);
-        inerShape = new Pentagon(rightMontant.buttomLeft, leftMontant.buttomRight, rightMontant.topLeft, leftMontant.topRight, topLeftMontant.buttomRight);
+        inerShape = new Pentagon(rightMontant.buttomLeft, leftMontant.buttomRight, rightMontant.topLeft, leftMontant.topRight, topLeftMontant.buttomRight,this.shap.faitageValue,this.shap.thetaLeft,this.shap.thetaRight);
         montants.addAll(Arrays.asList(buttomMontant,topLeftMontant,topRightMontant,leftMontant,rightMontant));
     }
 

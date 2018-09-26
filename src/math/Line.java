@@ -3,9 +3,6 @@ package math;
 import Jama.Matrix;
 import util.Utilies;
 
-import java.awt.desktop.OpenURIEvent;
-import java.security.PublicKey;
-
 public class Line {
 
     double a,b,c;
