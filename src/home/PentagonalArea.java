@@ -3,7 +3,6 @@ package home;
 import data.DATACONTAINER;
 import math.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PentagonalArea extends Area{
@@ -11,9 +10,7 @@ public class PentagonalArea extends Area{
     Pentagon shap, inerShape;
 
     public PentagonalArea(Pentagon shap, String name) {
-        windows = new ArrayList<>();
-        beams = new ArrayList<>();
-        montants = new  ArrayList<>();
+        super();
         this.shap = shap;
         this.name = name;
     }

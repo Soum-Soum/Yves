@@ -5,15 +5,22 @@ import math.Polygone;
 import math.Segment;
 import math.ShapeType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public abstract class Area {
 
     public ArrayList<Window> windows;
     public ArrayList<Beam> beams;
-    public ArrayList<Montant> montants;
+    public LinkedList<Montant> montants;
+    public LinkedList<Montant> verticalMontant;
     public String name;
+
+    public Area(){
+        this.windows = new ArrayList<>();
+        this.beams = new ArrayList<>();
+        this.montants = new LinkedList<>();
+        this.verticalMontant = new LinkedList<>();
+    }
 
     public abstract void setOutLines();
 
@@ -25,7 +32,6 @@ public abstract class Area {
         for (Window w : windows){
             Montant buttomMontant = new Montant(w.buttom, DATACONTAINER.MONTANTWITH,0,true, ShapeType.RECTANGLE);
             Montant topMontant = new Montant(w.top,DATACONTAINER.MONTANTWITH,false,ShapeType.PARAlLELOGRAM1);
-            Segment lol = this.getInerShape().getVerticalSegment(w.buttomLeft.x);
             Montant leftMontant = new Montant(this.getInerShape().getVerticalSegment(w.buttomLeft.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.buttomLeft.x),
                     false,this.getInerShape().getType(w.buttomLeft.x));
             Montant rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.buttomRight.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.buttomRight.x),
@@ -61,6 +67,32 @@ public abstract class Area {
             b.montants.addAll(buttomMontants);
             this.montants.addAll(Arrays.asList(leftMontant,rightMontant));
             this.montants.addAll(buttomMontants);
+        }
+    }
+
+    public void setVerticalMontant(){
+        for (Montant montant : montants){
+            if (montant.isVertical()){
+                this.verticalMontant.add(montant);
+            }
+        }
+        Collections.sort(this.verticalMontant);
+    }
+
+    public void generateMidMontant(){
+        double lol = verticalMontant.size();
+        for (int i = 0 ; i < lol-1 ; i++){
+            lol = verticalMontant.size();
+            double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
+            if ( dist > DATACONTAINER.MONTANTDIST && dist < 2 * DATACONTAINER.MONTANTDIST){
+                double x = verticalMontant.get(i).buttomLeft.x + dist/2;
+                verticalMontant.add(new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
+                        true,this.getInerShape().getType(x)));
+            }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
+                double x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
+                verticalMontant.add(new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(x),
+                        true,this.getInerShape().getType(x)));
+            }
         }
     }
 }

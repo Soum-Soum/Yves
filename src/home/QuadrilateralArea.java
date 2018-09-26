@@ -15,9 +15,7 @@ public class QuadrilateralArea extends Area {
     Quadrilateral shap, inerShape;
 
     public QuadrilateralArea(Quadrilateral shap, String name) {
-        windows = new ArrayList<>();
-        beams = new ArrayList<>();
-        montants = new  ArrayList<>();
+        super();
         this.shap = shap;
         this.name = name;
     }

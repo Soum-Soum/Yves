@@ -57,6 +57,10 @@ public class ImageDrawer {
                 drawSegment(m.getSegments());
             }
         }
+        graph.setColor(Color.RED);
+        for (Montant m : area.verticalMontant){
+            drawSegment(m.getSegments());
+        }
     }
 
     public void drawSegment(ArrayList<Segment> segments){
@@ -71,9 +75,11 @@ public class ImageDrawer {
         PentagonalArea area = new PentagonalArea(pentagon,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,area.getInerShape().getTheta(500),true, ShapeType.TRAPEZIUM1));
-        area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
+        //area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
         area.setWindowsMontants();
         area.setBeamMontants();
+        area.setVerticalMontant();
+        area.generateMidMontant();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol");
     }
