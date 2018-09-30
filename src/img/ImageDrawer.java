@@ -56,7 +56,6 @@ public class ImageDrawer {
                 drawSegment(m.getSegments());
             }
         }
-        graph.setColor(Color.RED);
         for (Montant m : area.verticalMontant){
             drawSegment(m.getSegments());
         }
@@ -69,12 +68,14 @@ public class ImageDrawer {
     }
 
     public static void main(String[] args) throws IOException {
-        ImageDrawer imageDrawer = new ImageDrawer(2400,800);
-        Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/10,0.75);
+        ImageDrawer imageDrawer = new ImageDrawer(2400,1000);
+        Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
         PentagonalArea area = new PentagonalArea(pentagon,"lol");
         area.setOutLines();
-        area.windows.add(new Window(new Segment(500,100,500,200),200,area.getInerShape().getTheta(500),true, ShapeType.TRAPEZIUM1));
-        area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
+        area.windows.add(new Window(new Segment(500,100,500,200),200,Math.PI/6,true, ShapeType.TRAPEZIUM1));
+        area.windows.add(new Window(new Segment(1200,150,1200,500),500,Math.PI/8,true, ShapeType.TRAPEZIUM2));
+        //A CORIGER POUR TRAPEZIUM 3 ET 4 !!!!!
+        //area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

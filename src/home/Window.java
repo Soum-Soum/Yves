@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Window extends Quadrilateral {
 
     public ArrayList<Montant> montants;
+    public Montant buttomMontant,topMontant,leftMontant,rightMontant,buttomLeftMontant,buttomRightMontant, midLeftMontant, midRightMontant;
+    Quadrilateral outLines;
 
     public Window(Segment segment, double width, double theta, boolean isOnRightSide, ShapeType type) {
         super(segment, width, theta, isOnRightSide, type);

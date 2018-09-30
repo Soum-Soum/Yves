@@ -18,9 +18,9 @@ public class Pentagon extends Polygone {
         this.faitageValue = faitageValue;
         this.thetaLeft = thetaLeft;
         this.thetaRight = thetaRight;
-        /*faitageValue = (top.x-buttomLeft.x)/(buttomRight.x-buttomLeft.x);
+        faitageValue = (top.x-buttomLeft.x)/(buttomRight.x-buttomLeft.x);
         thetaLeft = Segment.getHorizontalSegment().getAngle(topLeft);
-        thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));*/
+        thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
     }
 
     public Pentagon(Point buttomLeft, double height, double width, double thetaLeft, double faitageValue){
@@ -30,7 +30,7 @@ public class Pentagon extends Polygone {
         this.buttomRight = new Point(buttomLeft, width,0);
         this.mediumLeft = new Point(buttomLeft,0,height);
         this.mediumRight = new Point(buttomRight,0,height);
-        this.top = new Point(width*faitageValue,height + (width*faitageValue)*Math.tan(thetaLeft));
+        this.top = new Point(buttomLeft.x + (width*faitageValue),height + (width*faitageValue)*Math.tan(thetaLeft));
         setSegments();
         thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
     }
@@ -41,6 +41,16 @@ public class Pentagon extends Polygone {
         right = new Segment(buttomRight,mediumRight);
         topLeft=new Segment(mediumLeft,top);
         topRight=new Segment(top,mediumRight);
+    }
+
+    @Override
+    public double getMinY() {
+        return buttomLeft.y;
+    }
+
+    @Override
+    public double getMaxY() {
+        return top.y;
     }
 
     @Override
@@ -66,7 +76,7 @@ public class Pentagon extends Polygone {
     @Override
     public Segment getVerticalSegment(double x) {
         Line topLine;
-        if(x> faitageValue*buttom.getLenght()){
+        if(x> buttomLeft.x + (faitageValue*buttom.getLenght())){
             topLine = new Line(topRight);
         }else{
             topLine = new Line(topLeft);

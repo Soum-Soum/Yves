@@ -15,13 +15,34 @@ public abstract class Polygone {
     }
 
     public boolean shapIsInside(Polygone p){
-        boolean b = true;
         for (Point point : this.getPoints()){
-            b = this.isInside(point);
-            if (!b){return b;}
+            if (!this.isInside(point)){return false;}
         }
-        return b;
+        return true;
     }
+
+    public boolean haveAnIntersection(Polygone p){
+        for (Segment s1 : this.getSegments()){
+            for (Segment s2 : p.getSegments()){
+                if (s1.intersect(s2)!=null){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public double getMinX(){
+        return buttomLeft.x;
+    }
+
+    public double getMaxX(){
+        return buttomRight.x;
+    }
+
+    public abstract double getMinY();
+
+    public abstract double getMaxY();
 
     public abstract ArrayList<Point> getPoints();
 
