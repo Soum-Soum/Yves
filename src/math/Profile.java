@@ -1,6 +1,6 @@
 package math;
 
-public enum SegmentProfile {
+public enum Profile {
     VERTICAL,
     HORIZONTAL,
     GOES_UP,

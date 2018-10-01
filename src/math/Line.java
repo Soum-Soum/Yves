@@ -20,6 +20,28 @@ public class Line {
         c = (a*segment.head.x+b*segment.head.y);
     }
 
+    public Profile getProfile(){
+        if (b==0){
+            return Profile.VERTICAL;
+        }else if (a==0){
+            return Profile.HORIZONTAL;
+        }else if (-a/b>0){
+            return Profile.GOES_UP;
+        }else if (-a/b<0){
+            return Profile.GOES_DOWN;
+        }
+        return null;
+    }
+
+    //FAUX
+/*    public Line getParallelLine(double step, boolean isOnRightSide){
+        if (isOnRightSide){
+            return new Line(a,b,c-step);
+        }else {
+            return new Line(a,b,c+step);
+        }
+    }*/
+
     public void print(){
         System.out.println("a = " + this.a);
         System.out.println("b = " + this.b);
@@ -39,9 +61,15 @@ public class Line {
         }
     }
 
+    public boolean isVecticalLine(){
+        return b==0;
+    }
+
+    public boolean isHorizontalLine(){
+        return a==0;
+    }
+
     public static void main(String[] args){
-        Segment segment = new Segment( 0,2,4,1);
-        Line line = new Line(segment);
-        line.print();
+        Line line = new Line(-1,3,-8);
     }
 }

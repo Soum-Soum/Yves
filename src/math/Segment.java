@@ -1,7 +1,5 @@
 package math;
 
-import java.awt.event.MouseAdapter;
-
 public class Segment {
 
     public Point head, tail;
@@ -55,15 +53,15 @@ public class Segment {
         return null;
     }
 
-    public SegmentProfile goesUp(){
+    public Profile goesUp(){
         if (isVertical()){
-            return SegmentProfile.VERTICAL;
+            return Profile.VERTICAL;
         }else if (isHorizontal()){
-            return SegmentProfile.HORIZONTAL;
+            return Profile.HORIZONTAL;
         }if(head.y<tail.y){
-            return SegmentProfile.GOES_UP;
+            return Profile.GOES_UP;
         }else if (tail.y<head.y){
-            return SegmentProfile.GOES_DOWN;
+            return Profile.GOES_DOWN;
         }else {
             System.out.println("Bad segment");
         }

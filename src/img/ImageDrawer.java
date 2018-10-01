@@ -73,9 +73,10 @@ public class ImageDrawer {
         PentagonalArea area = new PentagonalArea(pentagon,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,Math.PI/6,true, ShapeType.TRAPEZIUM1));
-        area.windows.add(new Window(new Segment(1200,150,1200,500),500,Math.PI/8,true, ShapeType.TRAPEZIUM2));
+        area.windows.add(new Window(new Segment(1000,400,1000,600),500,Math.PI/10,true, ShapeType.TRAPEZIUM2));
+        area.windows.add(new Window(new Segment(1000,150,1000,300),500,0,true, ShapeType.RECTANGLE));
         //A CORIGER POUR TRAPEZIUM 3 ET 4 !!!!!
-        //area.beams.add(new Beam(area,new ViewBeam("150","70", "1800", "lol")));
+        //area.beams.add(new Beam(area,new ViewBeam("150","70", "1100", "lol")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

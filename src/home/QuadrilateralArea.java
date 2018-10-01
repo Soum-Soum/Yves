@@ -7,7 +7,6 @@ import math.Segment;
 import math.ShapeType;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class QuadrilateralArea extends Area {
@@ -24,7 +23,7 @@ public class QuadrilateralArea extends Area {
     @Override
     public void setOutLines() {
         Montant buttomMontant = Montant.getNormalMontant(shap.buttom,DATACONTAINER.MONTANTWITH, 0,false, ShapeType.RECTANGLE);
-        Montant topMontant = Montant.getParalelMontant(shap.top,DATACONTAINER.MONTANTWITH,true,ShapeType.PARAlLELOGRAM1);
+        Montant topMontant = Montant.getParalelMontant(shap.top,DATACONTAINER.MONTANTWITH,true,ShapeType.PARALLELOGRAM1);
         Segment leftSeg = new Segment(shap.buttomLeft.x,shap.buttomLeft.y+DATACONTAINER.MONTANTWITH,shap.buttomLeft.x,topMontant.buttomLeft.y);
         Montant leftMontant = Montant.getNormalMontant(leftSeg,DATACONTAINER.MONTANTWITH,shap.theta,true,shap.type);
         Segment rightSeg = new Segment(shap.buttomRight.x,shap.buttomRight.y+DATACONTAINER.MONTANTWITH,shap.buttomRight.x,topMontant.buttomRight.y);

@@ -40,7 +40,7 @@ public abstract class Area {
                     false,w.type);
             w.midRightMontant =  new Montant(new Segment(w.buttomRightMontant.buttomRight,w.topRight),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.buttomRight.x),
                     true,w.type);
-            w.topMontant = new Montant(new Segment(w.midLeftMontant.topLeft,w.midRightMontant.topRight),DATACONTAINER.MONTANTWITH,false,ShapeType.PARAlLELOGRAM1);
+            w.topMontant = new Montant(new Segment(w.midLeftMontant.topLeft,w.midRightMontant.topRight),DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1);
             w.leftMontant = new Montant(this.getInerShape().getVerticalSegment(w.midLeftMontant.buttomLeft.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.midLeftMontant.buttomLeft.x),
                     false,this.getInerShape().getType(w.midLeftMontant.buttomLeft.x));
             w.rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.midRightMontant.buttomRight.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.midRightMontant.buttomRight.x),
@@ -101,12 +101,7 @@ public abstract class Area {
             if (m!=null){
                 LinkedList<Quadrilateral> colider = this.getColider(m);
                 if (colider.size()!=0){
-                    for (Quadrilateral q: colider) {
-                        Quadrilateral intersection = q.getIntersection(m);
-                        Montant[] temp = m.divide(intersection);
-                        verticalMontant.add(i+1,temp[0]);
-                        verticalMontant.add(i+1,temp[1]);
-                    }
+                    verticalMontant.addAll(i+1, recursivDivision(m,colider));
                 }else{
                     verticalMontant.add(i+1,m);
                 }
@@ -114,12 +109,36 @@ public abstract class Area {
         }
     }
 
+    public LinkedList recursivDivision(Montant m, LinkedList<Quadrilateral> coliders){
+        LinkedList<Montant> montantPart = new LinkedList();
+        if (coliders.size()==0){
+            montantPart.add(m);
+            return montantPart;
+        }else {
+            Quadrilateral intersection = coliders.get(0).getIntersection(m);
+            coliders.remove(0);
+            Montant[] temp = m.divide(intersection);
+            montantPart.add(temp[0]);
+            montantPart.addAll(recursivDivision(temp[1],coliders));
+            return montantPart;
+        }
+
+    }
+
     public LinkedList<Quadrilateral> getColider(Quadrilateral quadrilateral){
         LinkedList<Quadrilateral> q = new LinkedList<>();
         for (Window w : windows){
             if (w.outLines.getMinX()<quadrilateral.getMinX() && w.outLines.getMaxX()>quadrilateral.getMaxX()){
                 if (w.outLines.haveAnIntersection(quadrilateral)){
-                    q.add(w.outLines);
+                    int i = 0;
+                    if (q.size()==0){
+                        q.add(w.outLines);
+                    }else {
+                        while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){
+                            i++;
+                        }
+                        q.add(i,w.outLines);
+                    }
                 }
             }
         }

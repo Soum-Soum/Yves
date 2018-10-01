@@ -18,8 +18,8 @@ public class PentagonalArea extends Area{
     @Override
     public void setOutLines() {
         Montant buttomMontant = Montant.getNormalMontant(shap.buttom, DATACONTAINER.MONTANTWITH,0,false, ShapeType.RECTANGLE);
-        Montant topLeftMontant = Montant.getParalelMontant(shap.topLeft,DATACONTAINER.MONTANTWITH,true,ShapeType.PARAlLELOGRAM1);
-        Montant topRightMontant = Montant.getParalelMontant(shap.topRight,DATACONTAINER.MONTANTWITH,true,ShapeType.PARAlLELOGRAM1);
+        Montant topLeftMontant = Montant.getParalelMontant(shap.topLeft,DATACONTAINER.MONTANTWITH,true,ShapeType.PARALLELOGRAM1);
+        Montant topRightMontant = Montant.getParalelMontant(shap.topRight,DATACONTAINER.MONTANTWITH,true,ShapeType.PARALLELOGRAM1);
         Segment leftSeg = new Segment(buttomMontant.topLeft,topLeftMontant.buttomLeft);
         Segment rightSeg = new Segment(buttomMontant.topRight,topRightMontant.buttomRight);
         Montant leftMontant = Montant.getNormalMontant(leftSeg,DATACONTAINER.MONTANTWITH,shap.thetaLeft,true,ShapeType.TRAPEZIUM1);
