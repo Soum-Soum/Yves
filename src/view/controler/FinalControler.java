@@ -23,5 +23,10 @@ public class FinalControler {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(prevScene);
         });
+
+        validate.setOnAction(event -> {
+            appManager.buildMontants();
+            appManager.generateImage();
+        });
     }
 }

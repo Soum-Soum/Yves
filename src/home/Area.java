@@ -45,9 +45,11 @@ public abstract class Area {
                     false,this.getInerShape().getType(w.midLeftMontant.buttomLeft.x));
             w.rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.midRightMontant.buttomRight.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.midRightMontant.buttomRight.x),
                     true,this.getInerShape().getType(w.midRightMontant.buttomRight.x));
-            w.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant,w.leftMontant,w.rightMontant,w.buttomLeftMontant,w.buttomRightMontant, w.midLeftMontant, w.midRightMontant));
-            this.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant,w.leftMontant,w.rightMontant,w.buttomLeftMontant,w.buttomRightMontant,w.midLeftMontant,w.midRightMontant));
             w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,w.buttomMontant.buttomRight,w.topMontant.topLeft,w.topMontant.topRight,w.type);
+            w.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant));
+        }
+        for (Window w : windows){
+            addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midLeftMontant,w.midRightMontant,w.leftMontant,w.rightMontant));
         }
     }
 
@@ -55,23 +57,22 @@ public abstract class Area {
         for (Beam b : beams){
             Montant leftMontant = new Montant(this.getInerShape().getVerticalSegment(b.buttomLeft.x),DATACONTAINER.MONTANTWITH,this.getShape().getTheta(b.buttomLeft.x),
                     false,this.getShape().getType(b.buttomLeft.x));
+            addMontantToList(b.montants,leftMontant);
             Montant rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.buttomRight.x),DATACONTAINER.MONTANTWITH,this.getShape().getTheta(b.buttomRight.x),
                     true,this.getShape().getType(b.buttomRight.x));
+            addMontantToList(b.montants,rightMontant);
             double x = b.buttomLeft.x;
-            ArrayList<Montant> buttomMontants = new ArrayList<>();
             while (b.buttomRight.x-x>=DATACONTAINER.MONTANTWITH){
-                buttomMontants.add(new Montant(Segment.getVerticalSegment(x,b.buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,this.getShape().getTheta(x),
-                        true,ShapeType.RECTANGLE));
+                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,this.getShape().getTheta(x),
+                        true,ShapeType.RECTANGLE);
+                addMontantToList(b.montants,buttomMontant);
                 x += DATACONTAINER.MONTANTWITH;
             }
             if (x!=b.buttomRight.x){
-                buttomMontants.add(new Montant(Segment.getVerticalSegment(x,b.buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,this.getShape().getTheta(x),
-                        true,ShapeType.RECTANGLE));
+                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,this.getShape().getTheta(x),
+                        true,ShapeType.RECTANGLE);
+                addMontantToList(b.montants,buttomMontant);
             }
-            b.montants.addAll(Arrays.asList(leftMontant,rightMontant));
-            b.montants.addAll(buttomMontants);
-            this.montants.addAll(Arrays.asList(leftMontant,rightMontant));
-            this.montants.addAll(buttomMontants);
         }
     }
 
@@ -87,7 +88,7 @@ public abstract class Area {
     public void generateMidMontant(){
         for (int i = 0 ; i < verticalMontant.size()-1 ; i++){
             double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
-            double x =0;
+            double x;
             Montant m = null;
             if ( dist > DATACONTAINER.MONTANTDIST && dist < 2 * DATACONTAINER.MONTANTDIST){
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
@@ -117,31 +118,53 @@ public abstract class Area {
         }else {
             Quadrilateral intersection = coliders.get(0).getIntersection(m);
             coliders.remove(0);
-            Montant[] temp = m.divide(intersection);
+            Montant[] temp = m.substract(intersection);
             montantPart.add(temp[0]);
             montantPart.addAll(recursivDivision(temp[1],coliders));
             return montantPart;
         }
-
     }
 
     public LinkedList<Quadrilateral> getColider(Quadrilateral quadrilateral){
         LinkedList<Quadrilateral> q = new LinkedList<>();
         for (Window w : windows){
             if (w.outLines.getMinX()<quadrilateral.getMinX() && w.outLines.getMaxX()>quadrilateral.getMaxX()){
-                if (w.outLines.haveAnIntersection(quadrilateral)){
+                if (w.outLines.haveAnIntersection(quadrilateral)/* && quadrilateral.buttomLeft.x !=w.outLines.buttomLeft.x && quadrilateral.buttomRight.x !=w.outLines.buttomRight.x*/ ){
                     int i = 0;
-                    if (q.size()==0){
-                        q.add(w.outLines);
-                    }else {
-                        while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){
-                            i++;
-                        }
-                        q.add(i,w.outLines);
+                    while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){
+                        i++;
                     }
+                    q.add(i,w.outLines);
                 }
             }
         }
         return q;
+    }
+
+    public void addMontantToList(List<Montant> list, Montant m){
+        LinkedList<Quadrilateral> colider = this.getColider(m);
+        if (colider.size()!=0){
+            LinkedList<Montant> tempList = recursivDivision(m,colider);
+            verticalMontant.addAll(tempList);
+            list.addAll(tempList);
+        }else{
+            verticalMontant.add(m);
+            list.add(m);
+        }
+    }
+
+    public void addMontantToList(List<Montant> list, List<Montant> listMontant){
+        for(int i=0;i<listMontant.size();i++){
+            Montant m =listMontant.get(i);
+            LinkedList<Quadrilateral> colider = this.getColider(listMontant.get(i));
+            if (colider.size()!=0){
+                LinkedList<Montant> tempList = recursivDivision(m,colider);
+                verticalMontant.addAll(tempList);
+                list.addAll(tempList);
+            }else{
+                verticalMontant.add(m);
+                list.add(m);
+            }
+        }
     }
 }

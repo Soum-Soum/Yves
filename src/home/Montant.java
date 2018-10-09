@@ -36,9 +36,8 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
         return false;
     }
 
-    public Montant[] divide(Quadrilateral intersection){
+    public Montant[] substract(Quadrilateral intersection){
         Montant[] temp = new Montant[2];
-        System.out.println(setMontantType(this.top.goesUp(), intersection.top.goesUp()));
         ShapeType topType =  setMontantType(this.top.goesUp(), intersection.top.goesUp());
         ShapeType buttomTYpe = setMontantType(intersection.buttom.goesUp(),this.buttom.goesUp());
         temp[0] = new Montant(new Segment(intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,this.theta,true,topType); //TOP MONTANT

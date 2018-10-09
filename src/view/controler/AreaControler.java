@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import main.AppManager;
+import util.Utilies;
 import view.obj.ViewArea;
 
 import java.util.Arrays;
@@ -112,12 +113,12 @@ public class AreaControler {
 
         thetaDeg.setOnAction(event -> {
             double radValue = (Double.parseDouble(thetaDeg.getText()))*((2*Math.PI)/360);
-            thetaPercent.setText(String.valueOf(100*Math.tan(radValue)));
+            thetaPercent.setText(String.valueOf(Utilies.rount3(100*Math.tan(radValue))));
         });
 
         thetaPercent.setOnAction(event -> {
             double radValue = Math.atan(Double.parseDouble(thetaPercent.getText())/100);
-            thetaDeg.setText(String.valueOf(radValue*(360/(Math.PI*2))));
+            thetaDeg.setText(String.valueOf(Utilies.rount3(radValue*(360/(Math.PI*2)))));
         });
 
         validate.setOnAction(event -> {

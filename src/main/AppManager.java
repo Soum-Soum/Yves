@@ -1,6 +1,7 @@
 package main;
 
 import home.*;
+import img.ImageDrawer;
 import javafx.collections.ObservableList;
 import math.*;
 import view.obj.ViewArea;
@@ -79,10 +80,47 @@ public class AppManager {
         for (Area area :areas){area.setOutLines();}
     }
 
+    public void buildMontants(){
+        for(Area area : areas){
+            area.setWindowsMontants();
+            area.setBeamMontants();
+            area.setVerticalMontant();
+            area.generateMidMontant();
+        }
+    }
+
+    public void generateImage(){
+        ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200));
+        for (Area area : areas){
+            imageDrawer.drawArea(area);
+        }
+        imageDrawer.saveIMG("Generated_Img");
+    }
+
     public Area getAreaByName(String name){
         for (Area area : areas){
             if (name.equals(area.name)){return area;}
         }
         return null;
+    }
+
+    public double getAreaMaxX(){
+        double max=0;
+        for (Area area : areas){
+            if (area.getShape().buttomRight.x>max){
+                max = area.getShape().buttomRight.x;
+            }
+        }
+        return max;
+    }
+
+    public double getAreaMaxY(){
+        double max=0;
+        for (Area area : areas){
+            if (area.getShape().buttomRight.y>max){
+                max = area.getShape().buttomRight.y+area.getShape().getHeight(area.getShape().buttomRight.x);
+            }
+        }
+        return max;
     }
 }
