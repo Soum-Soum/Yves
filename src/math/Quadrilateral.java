@@ -14,14 +14,17 @@ public class Quadrilateral extends Polygone {
     public  Segment top;
     public double theta;
 
-    public Quadrilateral(Point buttomLeft, Point buttomRight, Point topLeft, Point topRight, ShapeType type) {
+    public Quadrilateral(Point buttomLeft, Point buttomRight, Point topLeft, Point topRight, ShapeType type, double theta) {
         this.buttomRight = buttomRight;
         this.buttomLeft = buttomLeft;
         this.topRight = topRight;
         this.topLeft = topLeft;
         this.type = type;
+        this.theta = theta;
         setSegments();
     }
+
+    public Quadrilateral(){}
 
     public Quadrilateral(Segment segment, double width, double theta ,boolean isOnRightSide, ShapeType type ) {
         this.type = type;
@@ -237,10 +240,6 @@ public class Quadrilateral extends Polygone {
         }
         setSegments();
     }
-
-    public Quadrilateral() {
-    }
-
     @Override
     public double getMinY() {
         switch (type){
@@ -316,7 +315,7 @@ public class Quadrilateral extends Polygone {
         Point buttomRight = this.buttom.intersect(m.right);
         Point topLeft = this.top.intersect(m.left);
         Point topRight = this.top.intersect(m.right);
-        return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null);
+        return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null, 0);
     }
 
     @Override

@@ -2,10 +2,8 @@ package img;
 
 import home.*;
 import home.Window;
-import math.Pentagon;
+import math.*;
 import math.Point;
-import math.Segment;
-import math.ShapeType;
 import view.obj.ViewBeam;
 
 import javax.imageio.ImageIO;
@@ -71,11 +69,12 @@ public class ImageDrawer {
         ImageDrawer imageDrawer = new ImageDrawer(2400,1000);
         Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
         PentagonalArea area = new PentagonalArea(pentagon,"lol");
+        //Quadrilateral quadrilateral = new Quadrilateral(new Segment(200,50,200,250),500,Math.PI/10,true,ShapeType.TRAPEZIUM3);
+        //QuadrilateralArea area = new QuadrilateralArea(quadrilateral,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,Math.PI/6,true, ShapeType.TRAPEZIUM1));
         area.windows.add(new Window(new Segment(1000,400,1000,600),500,Math.PI/10,true, ShapeType.TRAPEZIUM2));
         area.windows.add(new Window(new Segment(800,150,800,300),900,0,true, ShapeType.RECTANGLE));
-        //A CORIGER POUR TRAPEZIUM 3 ET 4 !!!!!
         area.beams.add(new Beam(area,new ViewBeam("150","70", "1100", "lol")));
         area.setWindowsMontants();
         area.setBeamMontants();

@@ -30,7 +30,8 @@ public class Pentagon extends Polygone {
         this.buttomRight = new Point(buttomLeft, width,0);
         this.mediumLeft = new Point(buttomLeft,0,height);
         this.mediumRight = new Point(buttomRight,0,height);
-        this.top = new Point(buttomLeft.x + (width*faitageValue),height + (width*faitageValue)*Math.tan(thetaLeft));
+        System.out.println(height + ((width*faitageValue)*Math.tan(thetaLeft)));
+        this.top = new Point(buttomLeft.x + (width*faitageValue),height + ((width*faitageValue)*Math.tan(thetaLeft)));
         setSegments();
         thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
     }

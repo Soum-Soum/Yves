@@ -18,6 +18,7 @@ public class Beam extends Quadrilateral {
     }
 
     public Beam(Area area, ViewBeam viewBeam){
+        super();
         montants = new ArrayList<>();
         double x = Double.parseDouble(viewBeam.x.getValue());
         double width = Double.parseDouble(viewBeam.wight.getValue());
