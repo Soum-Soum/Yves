@@ -329,6 +329,14 @@ public class Quadrilateral extends Polygone {
         return type;
     }
 
+    @Override
+    public Point getTopPoint() {
+        if(topRight.y>= topLeft.y){
+            return topRight;
+        }
+        return topLeft;
+    }
+
     public static void main(String[] argd){
         Quadrilateral test = new Quadrilateral(new Segment(2,2,4,2),5,false,ShapeType.PARALLELOGRAM1);
         test.print();

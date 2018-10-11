@@ -34,12 +34,14 @@ public class ImageDrawer {
         graph.setStroke(stroke);
     }
 
-    public void saveIMG(String name){
+    public String saveIMG(String name){
         try {
             ImageIO.write(imageBuffer, "jpg", new File("src/view/resources/generatedimg/"+name+".jpg"));
+            return "src/view/resources/generatedimg/"+name+".jpg";
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        return null;
     }
 
     public void drawArea(Area area){

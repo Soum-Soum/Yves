@@ -4,6 +4,7 @@ import home.*;
 import img.ImageDrawer;
 import javafx.collections.ObservableList;
 import math.*;
+import view.controler.FinalControler;
 import view.obj.ViewArea;
 import view.obj.ViewBeam;
 import view.obj.ViewWindow;
@@ -89,12 +90,13 @@ public class AppManager {
         }
     }
 
-    public void generateImage(){
+    public void generateImage(FinalControler controler){
         ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200));
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }
-        imageDrawer.saveIMG("Generated_Img");
+        String path = imageDrawer.saveIMG("Generated_Img");
+        controler.upgradeImg(path);
     }
 
     public Area getAreaByName(String name){
@@ -117,8 +119,9 @@ public class AppManager {
     public double getAreaMaxY(){
         double max=0;
         for (Area area : areas){
-            if (area.getShape().buttomRight.y>max){
-                max = area.getShape().buttomRight.y+area.getShape().getHeight(area.getShape().buttomRight.x);
+            if (area.getShape().getTopPoint().y>max){
+                max = area.getShape().getTopPoint().y;
+                System.out.println(max);
             }
         }
         return max;

@@ -60,6 +60,8 @@ public abstract class Polygone {
 
     public abstract ShapeType getType(double x);
 
+    public abstract Point getTopPoint();
+
     public double getHeight(double x){
         return this.getVerticalSegment(x).tail.y;
     }
