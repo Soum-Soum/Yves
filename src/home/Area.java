@@ -45,7 +45,7 @@ public abstract class Area {
                     false,this.getInerShape().getType(w.midLeftMontant.buttomLeft.x));
             w.rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.midRightMontant.buttomRight.x),DATACONTAINER.MONTANTWITH,this.getInerShape().getTheta(w.midRightMontant.buttomRight.x),
                     true,this.getInerShape().getType(w.midRightMontant.buttomRight.x));
-            w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,w.buttomMontant.buttomRight,w.topMontant.topLeft,w.topMontant.topRight,w.type);
+            w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,w.buttomMontant.buttomRight,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.theta);
             w.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant));
         }
         for (Window w : windows){
