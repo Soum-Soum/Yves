@@ -1,5 +1,6 @@
 package main;
 
+import file.FileWriter;
 import home.*;
 import img.ImageDrawer;
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import view.obj.ViewArea;
 import view.obj.ViewBeam;
 import view.obj.ViewWindow;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AppManager {
@@ -28,8 +30,13 @@ public class AppManager {
         for (ViewArea viewArea : list) {
             Point butomLeft = new Point(Double.parseDouble(viewArea.x.getValue()), Double.parseDouble(viewArea.y.getValue()));
             Segment segment = new Segment(butomLeft, new Point(butomLeft, 0, Double.parseDouble(viewArea.height.getValue())));
+            Quadrilateral q;
             if (!viewArea.type.getValue().equals("PENTAGON")) {
-                Quadrilateral q = Quadrilateral.getNormalMontant(segment, Double.parseDouble(viewArea.wight.getValue()), viewArea.theta, viewArea.isOnRightSide, ShapeType.valueOf(viewArea.type.getValue()));
+                if(viewArea.type.getValue() == "TRAPEZIUM3" || viewArea.type.getValue() == "TRAPEZIUM4"){
+                    q = new Quadrilateral(segment, Double.parseDouble(viewArea.wight.getValue()), viewArea.isOnRightSide, ShapeType.valueOf(viewArea.type.getValue()), 0, viewArea.theta);
+                }else {
+                    q = new Quadrilateral(segment, Double.parseDouble(viewArea.wight.getValue()), viewArea.isOnRightSide, ShapeType.valueOf(viewArea.type.getValue()), viewArea.theta, 0);
+                }
                 areas.add(new QuadrilateralArea(q, viewArea.name.getValue()));
             } else {
                 Pentagon p = new Pentagon(butomLeft, Double.parseDouble(viewArea.height.getValue()), Double.parseDouble(viewArea.wight.getValue()), viewArea.theta, Double.parseDouble(viewArea.faitageValue.getValue()));
@@ -44,8 +51,7 @@ public class AppManager {
             double x = Double.parseDouble(beam.x.getValue());
             Area temp = getAreaByName(beam.dependance.getValue());
             if (temp!=null && x>temp.getShape().buttomLeft.x && x<temp.getShape().buttomRight.x){
-                Beam b = new Beam(temp, beam);
-                b.print();
+                Beam b = Beam.BuildBeam(temp, beam);
                 temp.beams.add(b);
                 beams.add(b);
             }else {
@@ -59,7 +65,7 @@ public class AppManager {
         for (ViewWindow viewWindow: list) {
             Point butomLeft = new Point(Double.parseDouble(viewWindow.x.getValue()), Double.parseDouble(viewWindow.y.getValue()));
             Segment segment = new Segment(butomLeft, new Point(butomLeft, 0, Double.parseDouble(viewWindow.height.getValue())));
-            Window w = new Window(segment, Double.parseDouble(viewWindow.wight.getValue()), viewWindow.theta, viewWindow.isOnRightSide, ShapeType.valueOf(viewWindow.type.getValue()));
+            Window w = new Window(segment, Double.parseDouble(viewWindow.wight.getValue()), viewWindow.isOnRightSide, ShapeType.valueOf(viewWindow.type.getValue()),viewWindow.name.getValue(), viewWindow.theta,0);
             windows.add(w);
             findAreaForWindow(w);
         }
@@ -74,6 +80,7 @@ public class AppManager {
             System.out.println("Bad Windows");
         }else {
             areas.get(i).windows.add(w);
+            w.ref = "A- " + areas.get(i).name + " O- 0" + String.valueOf(areas.get(i).windows.size()+1) + " N- "+ w.name;
         }
     }
 
@@ -87,6 +94,18 @@ public class AppManager {
             area.setBeamMontants();
             area.setVerticalMontant();
             area.generateMidMontant();
+            FileWriter fileWriter = new FileWriter();
+            try {
+                fileWriter.writeFile(areas);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setMontantsRefs(){
+        for (Area area : areas){
+
         }
     }
 

@@ -35,7 +35,9 @@ public class Pentagon extends Polygone {
         thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
     }
 
-    private void setSegments(){
+    public Pentagon(){}
+
+    public void setSegments(){
         buttom = new Segment(buttomLeft,buttomRight);
         left= new Segment(buttomLeft,mediumLeft);
         right = new Segment(buttomRight,mediumRight);

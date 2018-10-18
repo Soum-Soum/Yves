@@ -30,4 +30,10 @@ public class Triangle {
         b3 = sign(pt, C, A) < 0.0f;
         return ((b1 == b2) && (b2 == b3));
     }
+
+    public static void main(String[] args){
+        Triangle t = new Triangle(new Point(15,15),new Point(25,35),new Point(25,20));
+        Point p = new Point(15,20);
+        System.out.println(t.isInside(p));
+    }
 }

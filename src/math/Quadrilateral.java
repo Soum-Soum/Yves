@@ -12,23 +12,25 @@ public class Quadrilateral extends Polygone {
     public ShapeType type;
     public Point topRight, topLeft;
     public  Segment top;
-    public double theta;
+    public double thetaTop, thetaButtom;
 
-    public Quadrilateral(Point buttomLeft, Point buttomRight, Point topLeft, Point topRight, ShapeType type, double theta) {
+    public Quadrilateral(Point buttomLeft, Point buttomRight, Point topLeft, Point topRight, ShapeType type, double thetaTop, double thetaButtom) {
         this.buttomRight = buttomRight;
         this.buttomLeft = buttomLeft;
         this.topRight = topRight;
         this.topLeft = topLeft;
         this.type = type;
-        this.theta = theta;
+        this.thetaTop = thetaTop;
+        this.thetaButtom = thetaButtom;
         setSegments();
     }
 
     public Quadrilateral(){}
 
-    public Quadrilateral(Segment segment, double width, double theta ,boolean isOnRightSide, ShapeType type ) {
+    public Quadrilateral(Segment segment, double width, boolean isOnRightSide, ShapeType type, double thetaTop, double thetaButtom) {
         this.type = type;
-        this.theta = theta;
+        this.thetaTop = thetaTop;
+        this.thetaButtom = thetaButtom;
         if (type != ShapeType.PARALLELOGRAM1 && type != ShapeType.PARALLELOGRAM2 && type != ShapeType.PARALLELOGRAM3 && type != ShapeType.PARALLELOGRAM4 ){
             if (isOnRightSide) {
                 if (segment.isHorizontal()) {
@@ -65,69 +67,81 @@ public class Quadrilateral extends Polygone {
             }
             switch (type) {
                 case TRAPEZIUM1:
+                    this.thetaButtom =0;
                     if (isOnRightSide) {
-                        topRight = new Point(topRight, 0, width * Math.tan(theta));
+                        topRight = new Point(topRight, 0, width * Math.tan(thetaTop));
                     } else {
-                        topLeft = new Point(topLeft, 0, -width * Math.tan(theta));
+                        topLeft = new Point(topLeft, 0, -width * Math.tan(thetaTop));
                     }
                     break;
                 case TRAPEZIUM2:
+                    this.thetaButtom =0;
                     if (isOnRightSide) {
-                        topRight = new Point(topRight, 0, -width * Math.tan(theta));
+                        topRight = new Point(topRight, 0, -width * Math.tan(thetaTop));
                     } else {
-                        topLeft = new Point(topLeft, 0, width * Math.tan(theta));
+                        topLeft = new Point(topLeft, 0, width * Math.tan(thetaTop));
                     }
                     break;
                 case TRAPEZIUM3:
+                    this.thetaTop =0;
                     if (isOnRightSide) {
-                        buttomRight = new Point(buttomRight, 0, -width * Math.tan(theta));
+                        buttomRight = new Point(buttomRight, 0, -width * Math.tan(thetaButtom));
                     } else {
-                        buttomLeft = new Point(buttomLeft, 0, width * Math.tan(theta));
+                        buttomLeft = new Point(buttomLeft, 0, width * Math.tan(thetaButtom));
                     }
                     break;
                 case TRAPEZIUM4:
+                    this.thetaTop =0;
                     if (isOnRightSide) {
-                        buttomRight = new Point(buttomRight, 0, width * Math.tan(theta));
+                        buttomRight = new Point(buttomRight, 0, width * Math.tan(thetaButtom));
                     } else {
-                        buttomLeft = new Point(buttomLeft, 0, -width * Math.tan(theta));
+                        buttomLeft = new Point(buttomLeft, 0, -width * Math.tan(thetaButtom));
                     }
                     break;
                 case REGULARTRAPEZIUMLEFT:
+                    this.thetaButtom = this.thetaButtom ==0 ? thetaTop : thetaButtom;
                     if (isOnRightSide) {
-                        topRight = new Point(topRight, 0, -width * Math.tan(theta));
-                        buttomRight = new Point(buttomRight, 0, width * Math.tan(theta));
+                        topRight = new Point(topRight, 0, -width * Math.tan(thetaTop));
+                        buttomRight = new Point(buttomRight, 0, width * Math.tan(thetaButtom));
                     } else {
-                        topLeft = new Point(topLeft, 0, width * Math.tan(theta));
-                        buttomLeft = new Point(topRight, 0, -width * Math.tan(theta));
+                        topLeft = new Point(topLeft, 0, width * Math.tan(thetaTop));
+                        buttomLeft = new Point(topRight, 0, -width * Math.tan(thetaButtom));
                     }
                     break;
                 case REGULARTRAPEZIUMRIGHT:
+                    this.thetaButtom = this.thetaButtom ==0 ? thetaTop : thetaButtom;
                     if (isOnRightSide) {
-                        topRight = new Point(topRight, 0, width * Math.tan(theta));
-                        buttomRight = new Point(buttomRight, 0, -width * Math.tan(theta));
+                        topRight = new Point(topRight, 0, width * Math.tan(thetaTop));
+                        buttomRight = new Point(buttomRight, 0, -width * Math.tan(thetaButtom));
                     } else {
-                        topLeft = new Point(topLeft, 0, -width * Math.tan(theta));
-                        buttomLeft = new Point(buttomLeft, 0, width * Math.tan(theta));
+                        topLeft = new Point(topLeft, 0, -width * Math.tan(thetaTop));
+                        buttomLeft = new Point(buttomLeft, 0, width * Math.tan(thetaButtom));
                     }
+                    break;
+                case RECTANGLE:
+                    this.thetaTop =0;
+                    this.thetaButtom =0;
                     break;
                 default:
                     break;
             }
         }else {
-            double step = width * Math.tan(theta);
+            this.thetaButtom = this.thetaButtom ==0 ? thetaTop : thetaButtom;
+            double stepTop = width * Math.tan(thetaTop);
+            double stepButtom = width * Math.tan(thetaButtom);
             switch (type) {
                 case PARALLELOGRAM1:
                     if (segment.isVertical()){
                         if (isOnRightSide) {
                             buttomLeft = segment.head;
                             topLeft = segment.tail;
-                            buttomRight = new Point(buttomLeft, width, step);
-                            topRight = new Point(topLeft, width, step);
+                            buttomRight = new Point(buttomLeft, width, stepButtom);
+                            topRight = new Point(topLeft, width, stepTop);
                         } else {
                             buttomRight = segment.head;
                             topRight = segment.tail;
-                            buttomLeft = new Point(buttomLeft, -width, -step);
-                            topLeft = new Point(topLeft, -width, -step);
+                            buttomLeft = new Point(buttomLeft, -width, -stepButtom);
+                            topLeft = new Point(topLeft, -width, -stepTop);
                         }
                     }else {
                         System.out.println("use the Other constructor");
@@ -139,13 +153,13 @@ public class Quadrilateral extends Polygone {
                         if (isOnRightSide) {
                             buttomLeft = segment.head;
                             topLeft = segment.tail;
-                            buttomRight = new Point(buttomLeft, width, -step);
-                            topRight = new Point(topLeft, width, -step);
+                            buttomRight = new Point(buttomLeft, width, -stepButtom);
+                            topRight = new Point(topLeft, width, -stepTop);
                         } else {
                             buttomRight = segment.head;
                             topRight = segment.tail;
-                            buttomLeft = new Point(buttomLeft, -width, step);
-                            topLeft = new Point(topLeft, -width, step);
+                            buttomLeft = new Point(buttomLeft, -width, stepButtom);
+                            topLeft = new Point(topLeft, -width, stepTop);
                         }
                     }else {
                         System.out.println("use the Other constructor");
@@ -156,13 +170,13 @@ public class Quadrilateral extends Polygone {
                         if (isOnRightSide) {
                             buttomLeft = segment.head;
                             buttomRight = segment.tail;
-                            topLeft = new Point(buttomLeft, step, width);
-                            topRight = new Point(buttomRight, step, width);
+                            topLeft = new Point(buttomLeft, stepTop, width);
+                            topRight = new Point(buttomRight, stepTop, width);
                         } else {
                             topLeft = segment.head;
                             topRight = segment.tail;
-                            buttomLeft = new Point(buttomLeft, -step, -width);
-                            buttomRight = new Point(buttomRight, -step, -width);
+                            buttomLeft = new Point(buttomLeft, -stepButtom, -width);
+                            buttomRight = new Point(buttomRight, -stepButtom, -width);
                         }
                         break;
                     }else {
@@ -174,13 +188,13 @@ public class Quadrilateral extends Polygone {
                         if (isOnRightSide) {
                             buttomLeft = segment.head;
                             buttomRight = segment.tail;
-                            topLeft = new Point(buttomLeft, -step, width);
-                            topRight = new Point(buttomRight, -step, width);
+                            topLeft = new Point(buttomLeft, -stepTop, width);
+                            topRight = new Point(buttomRight, -stepTop, width);
                         } else {
                             topLeft = segment.head;
                             topRight = segment.tail;
-                            buttomLeft = new Point(buttomLeft, step, -width);
-                            buttomRight = new Point(buttomRight, step, -width);
+                            buttomLeft = new Point(buttomLeft, stepButtom, -width);
+                            buttomRight = new Point(buttomRight, stepButtom, -width);
                         }
                     }else {
                         System.out.println("use the Other constructor");
@@ -190,13 +204,15 @@ public class Quadrilateral extends Polygone {
         }
         setSegments();
     }
+
     public Quadrilateral(Segment segment, double width, boolean isOnRightSide, ShapeType type){
         Segment parallelSegment;
+        this.type=type;
         switch (type){
             case PARALLELOGRAM1:
                 if (!segment.isVertical()){
-                    theta = segment.getAngle(Segment.getVecticalSegment());
-                    width = width/Math.sin(theta);
+                    thetaTop = segment.getAngle(Segment.getVecticalSegment());
+                    width = width/Math.sin(thetaTop);
                     if (isOnRightSide) {
                         parallelSegment = new Segment(segment, 0,-width,0,-width);
                         buttomLeft = parallelSegment.head;
@@ -217,8 +233,8 @@ public class Quadrilateral extends Polygone {
                 break;
             case PARALLELOGRAM2:
                 if (!segment.isHorizontal()){
-                    theta = segment.getAngle(Segment.getHorizontalSegment());
-                    width = width/Math.sin(theta);
+                    thetaTop = segment.getAngle(Segment.getHorizontalSegment());
+                    width = width/Math.sin(thetaTop);
                     if (isOnRightSide){
                         parallelSegment = new Segment(segment, width,0,width,0);
                         buttomLeft = segment.head;
@@ -237,9 +253,13 @@ public class Quadrilateral extends Polygone {
                     System.out.println("use the Other constructor");
                 }
                 break;
+            default:
+                System.out.println("use the Other constructor");
+                break;
         }
         setSegments();
     }
+
     @Override
     public double getMinY() {
         switch (type){
@@ -302,10 +322,6 @@ public class Quadrilateral extends Polygone {
         top=new Segment(topLeft,topRight);
     }
 
-    public static Quadrilateral getNormalMontant(Segment segment, double width, double theta, boolean isOnRightSide, ShapeType type){
-        return new Quadrilateral(segment, width, theta,  isOnRightSide, type);
-    }
-
     public ArrayList<Triangle> getTriangles(){
         return new ArrayList<>(Arrays.asList(new Triangle(buttomLeft,topLeft,buttomRight),new Triangle(topLeft,topRight,buttomRight)));
     }
@@ -315,12 +331,12 @@ public class Quadrilateral extends Polygone {
         Point buttomRight = this.buttom.intersect(m.right);
         Point topLeft = this.top.intersect(m.left);
         Point topRight = this.top.intersect(m.right);
-        return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null, 0);
+        return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null, 0,0);
     }
 
     @Override
     public double getTheta(double x) {
-        return theta;
+        return thetaTop;
     }
 
     @Override

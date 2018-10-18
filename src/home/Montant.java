@@ -8,16 +8,18 @@ import math.ShapeType;
 
 public class Montant extends Quadrilateral implements Comparable<Montant>{
 
-    public Montant(Segment segment, double width, double theta, boolean isOnRightSide, ShapeType type) {
-        super(segment, width, theta, isOnRightSide, type);
+    public String ref="";
+
+    public Montant(Segment segment, double width, boolean isOnRightSide, ShapeType type, double thetaTop, double thetaButtom) {
+        super(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
     }
 
     public Montant(Segment segment, double width, boolean isOnRightSide, ShapeType type) {
         super(segment, width, isOnRightSide, type);
     }
 
-    public static Montant getNormalMontant(Segment segment, double width, double theta, boolean isOnRightSide, ShapeType type){
-        return new Montant(segment, width, theta,  isOnRightSide, type);
+    public static Montant getNormalMontant(Segment segment, double width, boolean isOnRightSide, ShapeType type, double thetaTop, double thetaButtom){
+        return new Montant(segment, width, isOnRightSide, type , thetaTop, thetaButtom);
     }
     public static Montant getParalelMontant(Segment segment, double width, boolean isOnRightSide, ShapeType type){
         return new Montant(segment, width, isOnRightSide, type);
@@ -36,16 +38,18 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
         return false;
     }
 
-    public Montant[] substract(Quadrilateral intersection){
+    public Montant[] substract(Intersection intersection){
         Montant[] temp = new Montant[2];
-        ShapeType topType =  setMontantType(this.top.goesUp(), intersection.top.goesUp());
-        ShapeType buttomTYpe = setMontantType(intersection.buttom.goesUp(),this.buttom.goesUp());
-        temp[0] = new Montant(new Segment(intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,this.theta,true,topType); //TOP MONTANT
-        temp[1] = new Montant(new Segment(this.buttomLeft, intersection.buttomLeft),DATACONTAINER.MONTANTWITH,0,true, buttomTYpe); //BUTTOM MONTANT
+        ShapeType topType = setMontantType(this.top.goesUp(), intersection.intersection.top.goesUp());
+        ShapeType buttomTYpe = setMontantType(intersection.intersection.buttom.goesUp(),this.buttom.goesUp());
+        temp[0] = new Montant(new Segment(intersection.intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,true,topType, this.thetaTop, intersection.window.thetaTop); //TOP MONTANT
+        temp[1] = new Montant(new Segment(this.buttomLeft, intersection.intersection.buttomLeft),DATACONTAINER.MONTANTWITH,true, buttomTYpe, intersection.window.thetaButtom, this.thetaTop); //BUTTOM MONTANT
+/*        temp[0] = new Montant(new Segment(intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,this.buttom.getAngle(intersection.top),true,topType); //TOP MONTANT
+          temp[1] = new Montant(new Segment(this.buttomLeft, intersection.buttomLeft),DATACONTAINER.MONTANTWITH,this.top.getAngle(intersection.buttom),true, buttomTYpe); //BUTTOM MONTANT*/
         return temp;
     }
 
-    public ShapeType setMontantType(Profile top, Profile buttom){
+    public static ShapeType setMontantType(Profile top, Profile buttom){
         if (top == Profile.HORIZONTAL){
             if (buttom == Profile.HORIZONTAL){
                 return ShapeType.RECTANGLE;

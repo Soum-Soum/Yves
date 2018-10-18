@@ -43,7 +43,7 @@ public class ImageDrawer {
     }
 
     public void drawArea(Area area){
-        for (Montant m : area.montants){
+        for (Montant m : area.outlinesMontants){
             drawSegment(m.getSegments());
         }
         for (Window w : area.windows){
@@ -74,10 +74,11 @@ public class ImageDrawer {
         //Quadrilateral quadrilateral = new Quadrilateral(new Segment(200,50,200,250),500,Math.PI/10,true,ShapeType.TRAPEZIUM3);
         //QuadrilateralArea area = new QuadrilateralArea(quadrilateral,"lol");
         area.setOutLines();
-        area.windows.add(new Window(new Segment(500,100,500,200),200,Math.PI/6,true, ShapeType.TRAPEZIUM1));
-        area.windows.add(new Window(new Segment(1000,400,1000,600),500,Math.PI/10,true, ShapeType.TRAPEZIUM2));
-        area.windows.add(new Window(new Segment(800,150,800,300),900,0,true, ShapeType.RECTANGLE));
-        area.beams.add(new Beam(area,new ViewBeam("150","70", "1100", "lol")));
+        area.windows.add(new Window(new Segment(500,100,500,200),200,true, ShapeType.TRAPEZIUM1,"",Math.PI/6,0));
+        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM2,"", Math.PI/10, 0));
+        area.windows.add(new Window(new Segment(800,150,800,300),900,true, ShapeType.RECTANGLE,"", 0,0));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("40","20", "750", "lol")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "1150", "lol2")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

@@ -15,7 +15,7 @@ public abstract class Polygone {
     }
 
     public boolean shapIsInside(Polygone p){
-        for (Point point : this.getPoints()){
+        for (Point point : p.getPoints()){
             if (!this.isInside(point)){return false;}
         }
         return true;

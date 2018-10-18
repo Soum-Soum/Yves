@@ -48,8 +48,8 @@ public class FinalControler {
     }
 
     public void upgradeImg(String path){
-        //Image image = new Image(new File(path).toURI().toString());
-        Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
+        Image image = new Image(new File(path).toURI().toString());
+        //Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
         Stage imageStage = new Stage();
         double width = image.getWidth();
         double height = image.getHeight();
@@ -121,7 +121,7 @@ public class FinalControler {
         Tooltip.install(buttons, tooltip);
 
         Pane container = new Pane(imageView);
-        container.setPrefSize(800, 600);
+
 
         imageView.fitWidthProperty().bind(container.widthProperty());
         imageView.fitHeightProperty().bind(container.heightProperty());
@@ -132,6 +132,7 @@ public class FinalControler {
         imageStage.setScene(new Scene(rootStageImage));
         imageStage.show();
         imageStage.setFullScreen(true);
+        container.setPrefSize(imageStage.getScene().getWidth(), imageStage.getScene().getHeight()-100);
     }
 
     private HBox createButtons(double width, double height, ImageView imageView) {
