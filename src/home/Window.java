@@ -1,5 +1,7 @@
 package home;
 
+import data.DATACONTAINER;
+import math.Point;
 import math.Quadrilateral;
 import math.ShapeType;
 import math.Segment;
@@ -13,11 +15,25 @@ public class Window extends Quadrilateral {
     public Montant buttomMontant,topMontant,leftMontant,rightMontant,buttomLeftMontant,buttomRightMontant, midLeftMontant, midRightMontant;
     public Quadrilateral outLines;
     public String name, ref;
+    public boolean haveTraverse = false;
+    public Quadrilateral traverse;
 
     public Window(Segment segment, double width, boolean isOnRightSide, ShapeType type, String name,double thetaTop, double thetaButtom) {
         super(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
         montants = new ArrayList<>();
         this.name=name;
+    }
+
+    public void generateTraverse(){
+        haveTraverse=true;
+        if (this.type == ShapeType.TRAPEZIUM1 || this.type == ShapeType.TRAPEZIUM2){
+            this.traverse = new Montant(new Segment(this.topMontant.topLeft,this.topMontant.topRight), DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.PARALLELOGRAM1);
+        }else {
+            this.traverse = new Montant(new Segment(this.topMontant.topLeft,this.topMontant.topRight),DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.RECTANGLE, 0,0);
+        }
+        this.outLines = new Quadrilateral(this.buttomMontant.buttomLeft,this.buttomMontant.buttomRight,this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
+        /*this.outLines = new Quadrilateral(new Point(this.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(this.buttomMontant.buttomRight,DATACONTAINER.MONTANTWITH,0),
+                this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);*/
     }
 
     public void setRefMontants(){

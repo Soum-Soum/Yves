@@ -1,5 +1,10 @@
 package math;
 
+import data.DATACONTAINER;
+import home.Beam;
+
+import java.util.List;
+
 public class Point {
     public double x, y;
 
@@ -17,5 +22,12 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
-
+    public boolean isUnderBeam(List<Beam> list){
+        for (Beam b : list){
+            if (this.x>b.getShape().buttomLeft.x- DATACONTAINER.MONTANTWITH && this.x<b.getShape().buttomRight.x+ DATACONTAINER.MONTANTWITH){
+                return true;
+            }
+        }
+        return false;
+    }
 }

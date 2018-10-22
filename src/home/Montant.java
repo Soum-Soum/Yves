@@ -1,10 +1,9 @@
 package home;
 
 import data.DATACONTAINER;
-import math.Quadrilateral;
-import math.Segment;
-import math.Profile;
-import math.ShapeType;
+import math.*;
+
+import java.util.List;
 
 public class Montant extends Quadrilateral implements Comparable<Montant>{
 
@@ -44,8 +43,6 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
         ShapeType buttomTYpe = setMontantType(intersection.intersection.buttom.goesUp(),this.buttom.goesUp());
         temp[0] = new Montant(new Segment(intersection.intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,true,topType, this.thetaTop, intersection.window.thetaTop); //TOP MONTANT
         temp[1] = new Montant(new Segment(this.buttomLeft, intersection.intersection.buttomLeft),DATACONTAINER.MONTANTWITH,true, buttomTYpe, intersection.window.thetaButtom, this.thetaTop); //BUTTOM MONTANT
-/*        temp[0] = new Montant(new Segment(intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,this.buttom.getAngle(intersection.top),true,topType); //TOP MONTANT
-          temp[1] = new Montant(new Segment(this.buttomLeft, intersection.buttomLeft),DATACONTAINER.MONTANTWITH,this.top.getAngle(intersection.buttom),true, buttomTYpe); //BUTTOM MONTANT*/
         return temp;
     }
 
@@ -76,6 +73,10 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
             }
         }
         return null;
+    }
+
+    public boolean isUnderBeam(List<Beam> list){
+        return  this.buttomLeft.isUnderBeam(list) && this.buttomRight.isUnderBeam(list);
     }
 
     @Override

@@ -55,7 +55,7 @@ public class Line {
             temp = new double[][]{{c}, {line.c}};
             Matrix m2 = new Matrix(temp);
             Matrix ans = m1.solve(m2);
-            return new Point(Utilies.rount3(ans.get(0,0)),Utilies.rount3(ans.get(1,0)));
+            return new Point(Utilies.round3(ans.get(0,0)),Utilies.round3(ans.get(1,0)));
         }catch (RuntimeException e){
             return null;
         }

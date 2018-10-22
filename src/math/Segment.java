@@ -1,5 +1,7 @@
 package math;
 
+import util.Utilies;
+
 public class Segment {
 
     public Point head, tail;
@@ -45,8 +47,8 @@ public class Segment {
             Line l1 = new Line(this);
             Line l2 = new Line(s);
             Point p = l1.intersect(l2);
-            if (p!=null && (p.x >= Math.max( this.getMinAbs(), s.getMinAbs())) && (p.x <= Math.min( this.getMaxAbs(),s.getMaxAbs()) &&
-                    (p.y >= Math.max(this.getMinOrd(),s.getMinOrd())) && (p.y <= Math.min(this.getMaxOrd(),s.getMaxOrd())))){
+            if (p!=null && (Utilies.round2(p.x) >= Utilies.round2(Math.max( this.getMinAbs(), s.getMinAbs()))) && (Utilies.round2(p.x) <= Utilies.round2(Math.min( this.getMaxAbs(),s.getMaxAbs())) &&
+                    (Utilies.round2(p.y )>= Utilies.round2(Math.max(this.getMinOrd(),s.getMinOrd()))) && (Utilies.round2(p.y) <= Utilies.round2(Math.min(this.getMaxOrd(),s.getMaxOrd()))))){
                 return p;
             }
         }
@@ -100,8 +102,8 @@ public class Segment {
     }
 
     public static void main(String[] args){
-        Segment s1 = new Segment(500,100,700,100);
-        Segment s2 = new Segment(560,55,565,55);
+        Segment s1 = new Segment(800,375.88,1555,173.58);
+        Segment s2 = new Segment(800,55,800,527.95);
         System.out.println(s1.intersect(s2).print());
     }
 

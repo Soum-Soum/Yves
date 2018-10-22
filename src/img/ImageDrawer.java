@@ -43,21 +43,31 @@ public class ImageDrawer {
     }
 
     public void drawArea(Area area){
+        int i=1;
         for (Montant m : area.outlinesMontants){
             drawSegment(m.getSegments());
+            /*drawID(m,i);
+            i++;*/
         }
         for (Window w : area.windows){
+            if (w.haveTraverse){drawSegment(w.traverse.getSegments());}
             for (Montant m : w.montants ){
                 drawSegment(m.getSegments());
+                /*drawID(m,i);
+                i++;*/
             }
         }
         for (Beam b : area.beams){
             for (Montant m : b.montants){
                 drawSegment(m.getSegments());
+                /*drawID(m,i);
+                i++;*/
             }
         }
         for (Montant m : area.verticalMontant){
             drawSegment(m.getSegments());
+            /*drawID(m,i);
+            i++;*/
         }
     }
 
@@ -65,6 +75,11 @@ public class ImageDrawer {
         for (Segment segment : segments){
             graph.drawLine((int)(Math.round(segment.head.x)),(int)(Math.round(height-segment.head.y)),(int)(Math.round(segment.tail.x)),(int)(Math.round(height-segment.tail.y)));
         }
+    }
+
+    public void drawID(Montant m, int i){
+        Point center = m.getWritingPoint(i);
+        this.graph.drawString(String.valueOf(i),(int)(center.x),(int)(height - center.y));
     }
 
     public static void main(String[] args) throws IOException {
@@ -75,9 +90,10 @@ public class ImageDrawer {
         //QuadrilateralArea area = new QuadrilateralArea(quadrilateral,"lol");
         area.setOutLines();
         area.windows.add(new Window(new Segment(500,100,500,200),200,true, ShapeType.TRAPEZIUM1,"",Math.PI/6,0));
-        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM2,"", Math.PI/10, 0));
-        area.windows.add(new Window(new Segment(800,150,800,300),900,true, ShapeType.RECTANGLE,"", 0,0));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("40","20", "750", "lol")));
+        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"",  0, Math.PI/10));
+        area.windows.add(new Window(new Segment(800,100,800,350),750,true, ShapeType.TRAPEZIUM2,"", Math.PI/12,0));
+        area.windows.add(new Window(new Segment(1200,300,1200,400),500,true, ShapeType.RECTANGLE,"", 0,0));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "750", "lol")));
         area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "1150", "lol2")));
         area.setWindowsMontants();
         area.setBeamMontants();

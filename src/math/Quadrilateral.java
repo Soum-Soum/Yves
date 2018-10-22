@@ -331,7 +331,10 @@ public class Quadrilateral extends Polygone {
         Point buttomRight = this.buttom.intersect(m.right);
         Point topLeft = this.top.intersect(m.left);
         Point topRight = this.top.intersect(m.right);
-        return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null, 0,0);
+        if (buttomLeft!= null && buttomRight != null && topLeft != null && topRight != null){
+            return new Quadrilateral(buttomLeft,buttomRight,topLeft,topRight,null, 0,0);
+        }
+        return null;
     }
 
     @Override
@@ -350,6 +353,11 @@ public class Quadrilateral extends Polygone {
             return topRight;
         }
         return topLeft;
+    }
+
+    public Point getWritingPoint(int i){
+        int i2 = i%10;
+        return new Point(buttomLeft.x + buttom.getLenght()/i2, buttomLeft.y+left.getLenght()/i2);
     }
 
     public static void main(String[] argd){
