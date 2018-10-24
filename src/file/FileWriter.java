@@ -20,20 +20,21 @@ public class FileWriter {
     public void writeFile(ArrayList<Area> areas) throws IOException {
         List<String> lines = new ArrayList<>();
         for (Area area : areas){
-            lines.add("CONTOURS\t\n");
+            lines.add(area.name);
+            lines.add("\nCONTOURS");
             for (Montant m :  area.outlinesMontants){
                 lines.add(m.ref + "\t");
             }
-            lines.add("POUTRES\t\n");
+            lines.add("\nPOUTRES");
             for (Beam b : area.beams){
-                lines.add(b.ref + "\n");
+                lines.add("\n" +b.ref + "\n");
                 for(Montant m : b.montants){
                     lines.add(m.ref + "\t");
                 }
             }
-            lines.add("OUVERTURES\t\n");
+            lines.add("\nOUVERTURES");
             for (Window w : area.windows){
-                lines.add(w.ref + "\n");
+                lines.add("\n" +w.ref + "\n");
                 for(Montant m : w.montants){
                     lines.add(m.ref + "\t");
                 }

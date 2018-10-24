@@ -1,5 +1,6 @@
 package img;
 
+import file.FileWriter;
 import home.*;
 import home.Window;
 import math.*;
@@ -12,6 +13,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class ImageDrawer {
 
@@ -85,21 +88,23 @@ public class ImageDrawer {
     public static void main(String[] args) throws IOException {
         ImageDrawer imageDrawer = new ImageDrawer(2400,1000);
         Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
-        PentagonalArea area = new PentagonalArea(pentagon,"lol");
-        //Quadrilateral quadrilateral = new Quadrilateral(new Segment(200,50,200,250),500,Math.PI/10,true,ShapeType.TRAPEZIUM3);
-        //QuadrilateralArea area = new QuadrilateralArea(quadrilateral,"lol");
+        PentagonalArea area = new PentagonalArea(pentagon,"Area");
         area.setOutLines();
-        area.windows.add(new Window(new Segment(500,100,500,200),200,true, ShapeType.TRAPEZIUM1,"",Math.PI/6,0));
-        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"",  0, Math.PI/10));
-        area.windows.add(new Window(new Segment(800,100,800,350),750,true, ShapeType.TRAPEZIUM2,"", Math.PI/12,0));
-        area.windows.add(new Window(new Segment(1200,300,1200,400),500,true, ShapeType.RECTANGLE,"", 0,0));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "750", "lol")));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "1150", "lol2")));
+        area.windows.add(new Window(new Segment(500,100,500,200),200,true, ShapeType.TRAPEZIUM1,"TRAPEZIUM1",Math.PI/6,0));
+        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
+        area.windows.add(new Window(new Segment(800,100,800,350),750,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2", Math.PI/12,0));
+        area.windows.add(new Window(new Segment(1200,300,1200,400),500,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "1150", "Area")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();
         area.generateMidMontant();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol");
+        FileWriter fileWriter = new FileWriter();
+        ArrayList<Area> mdr = new ArrayList<>();
+        mdr.add(area);
+        fileWriter.writeFile(mdr);
     }
 }

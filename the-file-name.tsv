@@ -1,77 +1,110 @@
-
+Area
 
 CONTOURS
+A- Area C- Montant Bas	
+A- Area C- Montant Haut Gauche	
+A- Area C- Montant Haut Droit	
+A- Area C- Montant Gauche	
+A- Area C- Montant Droite	
 
+POUTRES
+
+A-Area P-n°1
+
+A-Area P-n°1 M-01	
+A-Area P-n°1 M- 02	
+A-Area P-n°1 M- 03	
+A-Area P-n°1 M- 04	
+A-Area P-n°1 M- 05	
+A-Area P-n°1 M- 06	
+A-Area P-n°1 M- 07	
+A-Area P-n°1 M- 08	
+A-Area P-n°1 M- 09	
+A-Area P-n°1 M- 010	
+A-Area P-n°1 M- 011	
+A-Area P-n°1 M- 012	
+A-Area P-n°1 M- 013	
+A-Area P-n°1 M- 014	
+A-Area P-n°1 M- 015	
+A-Area P-n°1 M- 016	
+A-Area P-n°1 M- 017	
+A-Area P-n°1M- 018	
+
+A- Area P- 02
+
+A- Area P- 02 M-01	
+A- Area P- 02 M- 02	
+A- Area P- 02 M- 03	
+A- Area P- 02 M- 04	
+A- Area P- 02 M- 05	
+A- Area P- 02 M- 06	
+A- Area P- 02 M- 07	
+A- Area P- 02 M- 08	
+A- Area P- 02 M- 09	
+A- Area P- 02 M- 010	
+A- Area P- 02 M- 011	
+A- Area P- 02 M- 012	
+A- Area P- 02 M- 013	
+A- Area P- 02 M- 014	
+A- Area P- 02 M- 015	
+A- Area P- 02 M- 016	
+A- Area P- 02 M- 017	
+A- Area P- 02M- 018	
+
+OUVERTURES
+
+null
+
+null M-04	
+null M-05	
+null M-03	
 	
+null M-02	
+null M-06	
+null M-01	
+null M-07	
+
+null
+
+null M-04	
+null M-05	
+null M-03 P- 02	
+null M-03 P- 01	
+ P- 03	
+ P- 02	
+ P- 01	
+null M-02 P- 02	
+null M-02 P- 01	
+null M-06 P- 03	
+null M-06 P- 02	
+null M-06 P- 01	
+null M-01 P- 02	
+null M-01 P- 01	
+null M-07 P- 03	
+null M-07 P- 02	
+null M-07 P- 01	
+
+null
+
+null M-04	
+null M-05	
+null M-03	
 	
+null M-06	
+null M-07 P- 02	
+null M-07 P- 01	
+
+null
+
+null M-04	
+null M-05	
+null M-03 P- 02	
+null M-03 P- 01	
 	
-	
-	
-POUTRES	
-
-A- P-n°1
-
-A- Test P-n°1 M-01
-A- P-n°1 M- 02	
-A- P-n°1 M- 03	
-A- P-n°1 M- 04	
-A- P-n°1 M- 05	
-A- P-n°1M- 06	
-A- P-n°1 M-01	
-A- P-n°1 M- 02	
-A- P-n°1 M- 03	
-A- P-n°1 M- 04	
-A- P-n°1 M- 05	
-A- P-n°1M- 06	
-A- P-n°2
-
-A- P-n°2 M-01	
-A- P-n°2 M- 02	
-A- P-n°2 M- 03	
-A- P-n°2 M- 04	
-A- P-n°2 M- 05	
-A- P-n°2M- 06	
-A- P-n°2 M-01	
-A- P-n°2 M- 02	
-A- P-n°2 M- 03	
-A- P-n°2 M- 04	
-A- P-n°2 M- 05	
-A- P-n°2M- 06	
-A- P-n°3
-
-A- P-n°3 M-01	
-A- P-n°3 M- 02	
-A- P-n°3 M- 03	
-A- P-n°3 M- 04	
-A- P-n°3 M- 05	
-A- P-n°3M- 06	
-A- P-n°4
-
-A- P-n°4 M-01	
-A- P-n°4 M- 02	
-A- P-n°4 M- 03	
-A- P-n°4 M- 04	
-A- P-n°4 M- 05	
-A- P-n°4M- 06	
-OUVERTURES	
-
-CONTOURS	
-
-	
-	
-	
-	
-POUTRES	
-
-OUVERTURES	
-
-A-  O- 02 N- f1
-
-A-  O- 02 N- f1 M-04	
-A-  O- 02 N- f1 M-05	
-A-  O- 02 N- f1 M-03	
-	
-A-  O- 02 N- f1 M-02	
-A-  O- 02 N- f1 M-06	
-A-  O- 02 N- f1 M-01	
-A-  O- 02 N- f1 M-07	
+null M-02 P- 02	
+null M-02 P- 01	
+null M-06	
+null M-01 P- 03	
+null M-01 P- 02	
+null M-01 P- 01	
+null M-07	

@@ -95,7 +95,7 @@ public abstract class Area {
                 buttomMontant.ref = b.ref + " M- 0" + String.valueOf(i);
                 i++;
                 tempMontants.add(buttomMontant);
-                //addMontantToList(b.montants,buttomMontant);
+
                 System.out.println(x);
                 x += DATACONTAINER.MONTANTWITH;
             }
@@ -105,7 +105,6 @@ public abstract class Area {
                 buttomMontant.ref = b.ref + " M- 0" + String.valueOf(i);
                 i++;
                 tempMontants.add(buttomMontant);
-                //addMontantToList(b.montants,buttomMontant);
             }
             addMontantToList(b.montants, tempMontants,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
             rightMontant.ref = b.ref+ "M- 0" + String.valueOf(i);
@@ -172,6 +171,7 @@ public abstract class Area {
         LinkedList<Montant> montantPart = new LinkedList();
         Intersection intersection;
         Montant[] temp;
+        String ref = m.ref;
         if (coliders.size()==0){
             montantPart.add(m);
             return montantPart;
@@ -229,44 +229,35 @@ public abstract class Area {
                     break;
             }
         }
-        for (int j = montantPart.size()-1; j>0; j--){
-            montantPart.get(j).ref += "P- 0" + String.valueOf(montantPart.size() - j);
+        int i=1;
+        if (montantPart.size()>1){
+            for (Montant montant: montantPart){
+                montant.ref = m.ref + " P- 0" + String.valueOf(montantPart.size() - (i-1));
+                i++;
+            }
+        }else {
+            for (Montant montant: montantPart){
+                montant.ref = m.ref;
+                i++;
+            }
         }
         return montantPart;
     }
-
-    /*public LinkedList recursivDivision(Montant m, LinkedList<Window> coliders){
-        LinkedList<Montant> montantPart = new LinkedList();
-        if (coliders.size()==0){
-            montantPart.add(m);
-            return montantPart;
-        }else {
-            Intersection intersection = new Intersection(coliders.get(0).outLines.getIntersection(m), coliders.get(0));
-            coliders.remove(0);
-            Montant[] temp = m.substract(intersection);
-            montantPart.add(temp[0]);
-            montantPart.addAll(recursivDivision(temp[1],coliders));
-            for (int j = montantPart.size()-1; j>0; j--){
-                montantPart.get(j).ref += "P- 0" + String.valueOf(montantPart.size() - j);
-            }
-            return montantPart;
-        }
-    }*/
 
     public LinkedList<Window> getColider(Quadrilateral quadrilateral, boolean needTraverse){
         LinkedList<Window> q = new LinkedList<>();
         for (Window w : windows){
             if (w.outLines.getMinX()<=quadrilateral.getMinX() && w.outLines.getMaxX()>=quadrilateral.getMaxX()){
-                if (w.outLines.haveAnIntersection(quadrilateral)/* && quadrilateral.buttomLeft.x !=w.outLines.buttomLeft.x && quadrilateral.buttomRight.x !=w.outLines.buttomRight.x*/ ){
+                if (w.outLines.haveAnIntersection(quadrilateral)){
                     int i = 0;
                     while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){
                         i++;
                     }
-                    if (!w.haveTraverse && needTraverse){w.generateTraverse();}
                     q.add(i,w);
                 }
             }
         }
+        if (q.size()!= 0 && !q.get(0).haveTraverse && needTraverse){q.get(0).generateTraverse();}
         return q;
     }
 

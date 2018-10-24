@@ -30,10 +30,14 @@ public class QuadrilateralArea extends Area {
             topMontant = Montant.getNormalMontant(shap.top,DATACONTAINER.MONTANTWITH, true, ShapeType.RECTANGLE,0,0);
             buttomMontant = Montant.getParalelMontant(shap.buttom,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1);
         }
+        buttomMontant.ref = "A- " + this.name + " C- Montant Bas";
+        topMontant.ref = "A- " + this.name + " C- Montant Haut";
         Segment leftSeg = new Segment(shap.buttomLeft.x,shap.buttomLeft.y+DATACONTAINER.MONTANTWITH,shap.buttomLeft.x,topMontant.buttomLeft.y);
         Montant leftMontant = new Montant(leftSeg,DATACONTAINER.MONTANTWITH,true,shap.type,shap.thetaTop,shap.thetaButtom);
+        leftMontant.ref = "A- " + this.name + " C- Montant Gauche";
         Segment rightSeg = new Segment(shap.buttomRight.x,shap.buttomRight.y+DATACONTAINER.MONTANTWITH,shap.buttomRight.x,topMontant.buttomRight.y);
         Montant rightMontant = new Montant(rightSeg,DATACONTAINER.MONTANTWITH,false,shap.type,shap.thetaTop, shap.thetaButtom);
+        rightMontant.ref = "A- " + this.name + " C- Montant Droite";
         inerShape = new Quadrilateral(leftMontant.buttomRight,rightMontant.buttomLeft,leftMontant.topRight,rightMontant.topLeft, shap.type, this.shap.thetaTop, shap.thetaButtom);
         outlinesMontants.addAll(Arrays.asList(buttomMontant, leftMontant, rightMontant, topMontant));
     }

@@ -21,7 +21,7 @@
         </columns>
       </TableView>
       <ChoiceBox fx:id="areaType" layoutX="271.0" layoutY="125.0" prefWidth="150.0" />
-      <Label layoutX="70.0" layoutY="120.0" prefHeight="35.0" prefWidth="201.0" text="Type de Zonne">
+      <Label layoutX="70.0" layoutY="120.0" prefHeight="35.0" prefWidth="201.0" text="Type de Zone">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -92,7 +92,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </ToggleButton>
-      <Label layoutX="72.0" layoutY="443.0" prefHeight="35.0" prefWidth="212.0" text="Sense D'extrusion">
+      <Label layoutX="72.0" layoutY="443.0" prefHeight="35.0" prefWidth="212.0" text="Sens D'extrusion">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
