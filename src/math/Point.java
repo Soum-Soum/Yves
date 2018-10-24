@@ -2,6 +2,7 @@ package math;
 
 import data.DATACONTAINER;
 import home.Beam;
+import home.Window;
 
 import java.util.List;
 
@@ -22,9 +23,14 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
-    public boolean isUnderBeam(List<Beam> list){
+    public boolean isUnderBeam(List<Beam> list, List<Window> list2){
         for (Beam b : list){
-            if (this.x>b.getShape().buttomLeft.x- DATACONTAINER.MONTANTWITH && this.x<b.getShape().buttomRight.x+ DATACONTAINER.MONTANTWITH){
+            if (this.x>=b.getShape().buttomLeft.x- DATACONTAINER.MONTANTWITH && this.x<=b.getShape().buttomRight.x+ DATACONTAINER.MONTANTWITH){
+                for (Window w :list2){
+                    if (this.x>=w.buttomLeft.x- 2*DATACONTAINER.MONTANTWITH && this.x<=w.buttomRight.x+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY()){
+                        return false;
+                    }
+                }
                 return true;
             }
         }

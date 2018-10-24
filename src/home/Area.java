@@ -30,7 +30,7 @@ public abstract class Area {
     // à corriger pour les trapèze 3 et 4
     public void setWindowsMontants(){
         for (Window w : windows){
-            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams) , rightUnderBeam = w.buttomRight.isUnderBeam(beams);
+            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
                 w.buttomMontant = new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0);
             }else {
@@ -73,9 +73,6 @@ public abstract class Area {
                 w.outLines = new Quadrilateral(new Point(w.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(w.buttomMontant.buttomRight,+DATACONTAINER.MONTANTWITH,0)
                         ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
             }
-            //w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,w.buttomMontant.buttomRight,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
-            /*w.outLines = new Quadrilateral(new Point(w.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(w.buttomMontant.buttomRight,DATACONTAINER.MONTANTWITH,0)
-                    ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);*/
             w.setRefMontants();
             w.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant));
         }
@@ -115,7 +112,7 @@ public abstract class Area {
             addMontantToList(b.montants,rightMontant,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
         }
         for (Window w : windows){
-            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams) , rightUnderBeam = w.buttomRight.isUnderBeam(beams);
+            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
             if (leftUnderBeam && rightUnderBeam){
                 addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else if (leftUnderBeam){
@@ -159,7 +156,7 @@ public abstract class Area {
             if (m!=null){
                 LinkedList<Window> colider = this.getColider(m,false);
                 if (colider.size()!=0){
-                    if (m.isUnderBeam(beams)) {
+                    if (m.isUnderBeam(beams, windows)) {
                         verticalMontant.addAll(i+1, recursivDivision(m,colider,CollisionBehaviour.STOP_LAST_BUTTOM));
                     }else {
                         verticalMontant.addAll(i+1, recursivDivision(m,colider,CollisionBehaviour.NEVER_STOP));

@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e17f9803-ece1-4f3d-8f2a-092fb309efeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/home/CollisionBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/lol.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/lol.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DATACONTAINER.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DATACONTAINER.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Area.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/Montant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Montant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/ImageDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/ImageDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Line.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/math/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math/Polygone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Polygone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math/Quadrilateral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Quadrilateral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/math/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Segment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Utilies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Utilies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/controler/AreaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/controler/AreaControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/resources/generatedimg/lol.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/resources/generatedimg/lol.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,14 +31,14 @@
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="3" />
-          <entry key="project.open.time.8" value="5" />
+          <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="123" />
+          <entry key="java" value="125" />
           <entry key="jpg" value="7" />
           <entry key="tsv" value="2" />
         </counts>
@@ -56,20 +46,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="7" />
-          <entry key="JAVA" value="123" />
+          <entry key="JAVA" value="125" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TSV" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6033" />
+          <entry key="java" value="6154" />
           <entry key="tsv" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6033" />
+          <entry key="JAVA" value="6154" />
           <entry key="TSV" value="8" />
         </counts>
       </usages-collector>
@@ -80,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Area.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="262" selection-start-line="262" selection-end-line="262" />
+            <state relative-caret-position="139">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
             </state>
           </provider>
         </entry>
@@ -89,7 +79,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="598">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
@@ -98,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/math/Quadrilateral.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="331" selection-start-line="331" selection-end-line="331" />
+            <state relative-caret-position="313">
+              <caret line="329" selection-start-line="329" selection-end-line="329" />
               <folding>
                 <element signature="method#Quadrilateral#0;class#Quadrilateral#0" />
                 <element signature="method#Quadrilateral#2;class#Quadrilateral#0" />
@@ -116,11 +106,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/math/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Montant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="437">
+              <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -128,14 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/math/Segment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
+            <state relative-caret-position="874">
               <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-              <folding>
-                <element signature="e#698#699#0" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#797#798#0" expanded="true" />
-                <element signature="e#860#861#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -149,10 +145,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/img/ImageDrawer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
+            <state relative-caret-position="313">
               <caret line="94" column="65" selection-start-line="94" selection-start-column="65" selection-end-line="94" selection-end-column="65" />
             </state>
           </provider>
@@ -195,14 +191,14 @@
         <option value="$PROJECT_DIR$/src/data/DATACONTAINER.java" />
         <option value="$PROJECT_DIR$/src/home/CollisionBehaviour.java" />
         <option value="$PROJECT_DIR$/src/home/Window.java" />
-        <option value="$PROJECT_DIR$/src/math/Point.java" />
-        <option value="$PROJECT_DIR$/src/home/Montant.java" />
         <option value="$PROJECT_DIR$/src/math/Polygone.java" />
         <option value="$PROJECT_DIR$/src/math/Quadrilateral.java" />
-        <option value="$PROJECT_DIR$/src/home/Area.java" />
         <option value="$PROJECT_DIR$/src/math/Segment.java" />
         <option value="$PROJECT_DIR$/src/util/Utilies.java" />
         <option value="$PROJECT_DIR$/src/img/ImageDrawer.java" />
+        <option value="$PROJECT_DIR$/src/home/Montant.java" />
+        <option value="$PROJECT_DIR$/src/home/Area.java" />
+        <option value="$PROJECT_DIR$/src/math/Point.java" />
       </list>
     </option>
   </component>
@@ -213,7 +209,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-425" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -223,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,6 +306,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,17 +421,18 @@
       <workItem from="1540230775596" duration="13125000" />
       <workItem from="1540246661666" duration="831000" />
       <workItem from="1540247518587" duration="1791000" />
+      <workItem from="1540378336051" duration="1294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62107000" />
+    <option name="totallyTimeSpent" value="63401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17430703" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -445,7 +442,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32929516" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38986784" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.38986784" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -476,16 +473,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/home/Area.java</url>
-          <line>186</line>
+          <line>115</line>
           <properties />
-          <option name="timeStamp" value="32" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <condition expression="m.buttomLeft==795" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/math/Quadrilateral.java</url>
-          <line>329</line>
+          <url>file://$PROJECT_DIR$/src/home/Area.java</url>
+          <line>114</line>
           <properties />
-          <option name="timeStamp" value="35" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -712,16 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="26" column="113" lean-forward="true" selection-start-line="26" selection-start-column="113" selection-end-line="26" selection-end-column="113" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-32">
@@ -743,31 +729,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Area.java">
+    <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="262" selection-start-line="262" selection-end-line="262" />
+        <state relative-caret-position="598">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
+    <entry file="file://$PROJECT_DIR$/src/math/Segment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="874">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Utilies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Montant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="437">
+          <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/math/Quadrilateral.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="331" selection-start-line="331" selection-end-line="331" />
+        <state relative-caret-position="313">
+          <caret line="329" selection-start-line="329" selection-end-line="329" />
           <folding>
             <element signature="method#Quadrilateral#0;class#Quadrilateral#0" />
             <element signature="method#Quadrilateral#2;class#Quadrilateral#0" />
@@ -783,30 +783,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Segment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="48" column="39" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-          <folding>
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Utilies.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/ImageDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
+        <state relative-caret-position="313">
           <caret line="94" column="65" selection-start-line="94" selection-start-column="65" selection-end-line="94" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
