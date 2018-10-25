@@ -107,7 +107,7 @@ public abstract class Area {
                 tempMontants.add(buttomMontant);
             }
             addMontantToList(b.montants, tempMontants,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
-            rightMontant.ref = b.ref+ "M- 0" + String.valueOf(i);
+            rightMontant.ref = b.ref+ "M-0" + String.valueOf(i);
             addMontantToList(b.montants,rightMontant,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
         }
         for (Window w : windows){

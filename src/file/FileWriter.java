@@ -21,20 +21,20 @@ public class FileWriter {
         List<String> lines = new ArrayList<>();
         for (Area area : areas){
             lines.add(area.name);
-            lines.add("\nCONTOURS");
+            lines.add("CONTOURS\n");
             for (Montant m :  area.outlinesMontants){
                 lines.add(m.ref + "\t");
             }
-            lines.add("\nPOUTRES");
+            lines.add("POUTRES\n");
             for (Beam b : area.beams){
-                lines.add("\n" +b.ref + "\n");
+                lines.add("\n" + b.ref + "\n");
                 for(Montant m : b.montants){
                     lines.add(m.ref + "\t");
                 }
             }
             lines.add("\nOUVERTURES");
             for (Window w : area.windows){
-                lines.add("\n" +w.ref + "\n");
+                lines.add("\n" + w.ref + "\n");
                 for(Montant m : w.montants){
                     lines.add(m.ref + "\t");
                 }
