@@ -48,14 +48,15 @@ public abstract class Polygone {
 
 
     // A revoir
-    public double[] HMinMax(){
-        double max = 0, min = Double.POSITIVE_INFINITY;
+    public double[] getWidthHMinHMax(){
+        double Hmax = 0, width = Double.POSITIVE_INFINITY, Hmin = 0;
         for (Segment s : this.getSegments()){
-            max = s.getLenght()>max ? s.getLenght() : max;
-            min = s.getLenght()<min && s.getLenght()!= DATACONTAINER.MONTANTWITH ? s.getLenght() : min;
+            Hmax = s.getLenght()>Hmax ? s.getLenght() : Hmax;
+            Hmin = s.getLenght()>Hmin && s.getLenght()<Hmax ? s.getLenght() : Hmin;
+            width = s.getLenght()<width ? s.getLenght() : width;
         }
-        if (min==max){min = DATACONTAINER.MONTANTWITH;}
-        return new double[]{Utilies.round3(min), Utilies.round3(max)};
+        if (Hmin==width){Hmin = Hmax;}
+        return new double[]{Utilies.round3(width), Utilies.round3(Hmin), Utilies.round3(Hmax)};
     }
 
 

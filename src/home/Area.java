@@ -11,6 +11,7 @@ public abstract class Area {
     public ArrayList<Beam> beams;
     public LinkedList<Montant> outlinesMontants;
     public LinkedList<Montant> verticalMontant;
+    public LinkedList<Montant> midMontant;
     public String name;
 
     public Area(){
@@ -18,6 +19,7 @@ public abstract class Area {
         this.beams = new ArrayList<>();
         this.outlinesMontants = new LinkedList<>();
         this.verticalMontant = new LinkedList<>();
+        this.midMontant = new LinkedList<>();
     }
 
     public abstract void setOutLines();
@@ -92,8 +94,6 @@ public abstract class Area {
                 buttomMontant.ref = b.ref + " M-0" + String.valueOf(i);
                 i++;
                 tempMontants.add(buttomMontant);
-
-                System.out.println(x);
                 x += DATACONTAINER.MONTANTWITH;
             }
             if (x!=b.getShape().buttomRight.x){
@@ -135,10 +135,10 @@ public abstract class Area {
     }
 
     public void generateMidMontant(){
+        int montantCount=1;
         for (int i = 0 ; i < verticalMontant.size()-1 ; i++){
             double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
             double x;
-            int montantCount=1;
             Montant m = null;
             if ( dist > DATACONTAINER.MONTANTDIST && dist < 2 * DATACONTAINER.MONTANTDIST){
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
@@ -157,12 +157,17 @@ public abstract class Area {
                 LinkedList<Window> colider = this.getColider(m,false);
                 if (colider.size()!=0){
                     if (m.isUnderBeam(beams, windows)) {
-                        verticalMontant.addAll(i+1, recursivDivision(m,colider,CollisionBehaviour.STOP_LAST_BUTTOM));
+                        LinkedList temp = recursivDivision(m,colider,CollisionBehaviour.STOP_LAST_BUTTOM);
+                        midMontant.addAll(temp);
+                        verticalMontant.addAll(i+1, temp );
                     }else {
-                        verticalMontant.addAll(i+1, recursivDivision(m,colider,CollisionBehaviour.NEVER_STOP));
+                        LinkedList temp = recursivDivision(m,colider,CollisionBehaviour.NEVER_STOP);
+                        midMontant.addAll(temp);
+                        verticalMontant.addAll(i+1, temp);
                     }
                 }else{
                     verticalMontant.add(i+1,m);
+                    midMontant.add(m);
                 }
             }
         }
@@ -172,7 +177,6 @@ public abstract class Area {
         LinkedList<Montant> montantPart = new LinkedList();
         Intersection intersection;
         Montant[] temp;
-        String ref = m.ref;
         if (coliders.size()==0){
             montantPart.add(m);
             return montantPart;

@@ -355,9 +355,12 @@ public class Quadrilateral extends Polygone {
         return topLeft;
     }
 
-    public Point getWritingPoint(int i){
-        int i2 = i%10;
-        return new Point(buttomLeft.x + buttom.getLenght()/i2, buttomLeft.y+left.getLenght()/i2);
+    public Point getCenter(){
+        double x1 = this.getMinX();
+        double x2 = this.getMaxX();
+        double y1 = this.getMinY();
+        double y2 = this.getMaxY();
+        return new Point(x1 + ((x2-x1)/2),y1 + ((y2-y1)/2));
     }
 
     public static void main(String[] argd){

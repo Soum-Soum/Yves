@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Yves" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a874fc83-5c1d-47ab-8a70-e3f71515df0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/controler/StartControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Yves.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yves.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Yves.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/Generated_Img.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/Generated_Img.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/lol.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Yves/view/resources/generatedimg/lol.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/DATACONTAINER.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DATACONTAINER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Yves/view/resources/scene/areaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Yves/view/resources/scene/areaView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/file/FileWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/FileWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Area.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/Montant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Montant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/PentagonalArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/PentagonalArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/QuadrilateralArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/QuadrilateralArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/QuadrialteralBeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/QuadrialteralBeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/img/ImageDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/ImageDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AppManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AppManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/math/Polygone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Polygone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/controler/AreaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/controler/AreaControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/math/Quadrilateral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/math/Quadrilateral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/controler/FinalControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/controler/FinalControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/resources/generatedimg/Generated_Img.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/resources/generatedimg/Generated_Img.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/resources/generatedimg/lol.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/resources/generatedimg/lol.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/resources/scene/areaView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/resources/scene/areaView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/resources/scene/finalView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/resources/scene/finalView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/the-file-name.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/the-file-name.tsv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,36 +42,40 @@
     <session id="-353453656">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="3" />
-          <entry key="java" value="19" />
-          <entry key="tsv" value="1" />
+          <entry key="java" value="36" />
+          <entry key="jpg" value="1" />
+          <entry key="tsv" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="19" />
-          <entry key="TSV" value="1" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="36" />
+          <entry key="TSV" value="2" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="3" />
-          <entry key="java" value="1900" />
+          <entry key="java" value="2770" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1900" />
+          <entry key="JAVA" value="2770" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -78,69 +84,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/home/Montant.java">
+        <entry file="file://$PROJECT_DIR$/src/math/Quadrilateral.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="84" column="33" lean-forward="true" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
+            <state relative-caret-position="750">
+              <caret line="362" column="60" selection-start-line="362" selection-start-column="60" selection-end-line="362" selection-end-column="60" />
               <folding>
-                <element signature="method#substract#0;class#Montant#0" />
-                <element signature="method#setMontantType#0;class#Montant#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1568#1569#0" expanded="true" />
-                <element signature="e#1604#1605#0" expanded="true" />
-                <element signature="e#2173#2174#0" expanded="true" />
-                <element signature="e#2229#2230#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/DATACONTAINER.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/controler/StartControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#Quadrilateral#2;class#Quadrilateral#0" />
+                <element signature="method#Quadrilateral#3;class#Quadrilateral#0" />
+                <element signature="method#getMinY#0;class#Quadrilateral#0" />
+                <element signature="method#getMaxY#0;class#Quadrilateral#0" />
+                <element signature="method#print#0;class#Quadrilateral#0" />
+                <element signature="method#getVerticalSegment#0;class#Quadrilateral#0" />
+                <element signature="method#setSegments#0;class#Quadrilateral#0" />
+                <element signature="method#getTriangles#0;class#Quadrilateral#0" />
+                <element signature="method#getIntersection#0;class#Quadrilateral#0" />
+                <element signature="method#getTopPoint#0;class#Quadrilateral#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/controler/FinalControler.java">
+        <entry file="file://$PROJECT_DIR$/src/home/Area.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="81" column="84" selection-start-line="81" selection-start-column="84" selection-end-line="81" selection-end-column="84" />
+            <state relative-caret-position="184">
+              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding>
+                <element signature="method#setVerticalMontant#0;class#Area#0" />
+                <element signature="method#recursivDivision#0;class#Area#0" />
+                <element signature="method#getColider#0;class#Area#0" />
+                <element signature="method#addMontantToList#0;class#Area#0" />
+                <element signature="method#addMontantToList#1;class#Area#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/the-file-name.tsv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="244">
+              <caret line="141" column="77" selection-start-line="141" selection-start-column="77" selection-end-line="141" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -157,6 +141,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>P-</find>
+      <find>sys</find>
+      <find>appma</find>
+      <find>strPath</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,20 +153,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/home/Window.java" />
-        <option value="$PROJECT_DIR$/src/img/ImageDrawer.java" />
-        <option value="$PROJECT_DIR$/src/file/FileWriter.java" />
-        <option value="$PROJECT_DIR$/src/home/Area.java" />
         <option value="$PROJECT_DIR$/src/home/PentagonalArea.java" />
         <option value="$PROJECT_DIR$/src/home/QuadrilateralArea.java" />
-        <option value="$PROJECT_DIR$/src/home/Montant.java" />
-        <option value="$PROJECT_DIR$/src/math/Polygone.java" />
         <option value="$PROJECT_DIR$/src/view/controler/AreaControler.java" />
         <option value="$PROJECT_DIR$/src/view/resources/scene/startView.fxml" />
         <option value="$PROJECT_DIR$/src/data/DATACONTAINER.java" />
-        <option value="$PROJECT_DIR$/src/main/AppManager.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/view/controler/StartControler.java" />
+        <option value="$PROJECT_DIR$/src/home/Beam.java" />
+        <option value="$PROJECT_DIR$/src/math/Quadrilateral.java" />
+        <option value="$PROJECT_DIR$/src/main/AppManager.java" />
         <option value="$PROJECT_DIR$/src/view/controler/FinalControler.java" />
+        <option value="$PROJECT_DIR$/src/img/ImageDrawer.java" />
+        <option value="$PROJECT_DIR$/src/file/FileWriter.java" />
+        <option value="$PROJECT_DIR$/src/math/Polygone.java" />
+        <option value="$PROJECT_DIR$/src/home/Area.java" />
+        <option value="$PROJECT_DIR$/src/home/Montant.java" />
+        <option value="$PROJECT_DIR$/src/home/QuadrialteralBeam.java" />
       </list>
     </option>
   </component>
@@ -190,18 +180,18 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-425" />
-    <option name="y" value="-8" />
+    <option name="x" value="255" />
+    <option name="y" value="-9" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -248,6 +238,12 @@
               <item name="Yves" type="b2602c69:ProjectViewProjectNode" />
               <item name="Yves" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="math" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Yves" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Yves" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -268,12 +264,20 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="yves" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540517749250" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540517790673" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -337,18 +341,21 @@
       <updated>1540505534754</updated>
       <workItem from="1540505538027" duration="86000" />
       <workItem from="1540505650490" duration="5357000" />
-      <workItem from="1540514718525" duration="2871000" />
+      <workItem from="1540514718525" duration="3466000" />
+      <workItem from="1540584308630" duration="399000" />
+      <workItem from="1540584710751" duration="2994000" />
+      <workItem from="1540592022301" duration="3151000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8314000" />
+    <option name="totallyTimeSpent" value="15453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26332623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -357,7 +364,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32929516" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32929516" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39977974" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -366,7 +373,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32929516" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -389,7 +396,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/file/FileWriter.java</url>
-          <line>43</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -409,49 +416,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/img/ImageDrawer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2047">
-          <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Area.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="91" column="48" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
-          <folding>
-            <element signature="method#setVerticalMontant#0;class#Area#0" />
-            <element signature="method#generateMidMontant#0;class#Area#0" />
-            <element signature="method#getColider#0;class#Area#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Quadrilateral.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="method#Quadrilateral#2;class#Quadrilateral#0" />
-            <element signature="method#Quadrilateral#3;class#Quadrilateral#0" />
-            <element signature="method#getMinY#0;class#Quadrilateral#0" />
-            <element signature="method#getMaxY#0;class#Quadrilateral#0" />
-            <element signature="method#print#0;class#Quadrilateral#0" />
-            <element signature="method#getVerticalSegment#0;class#Quadrilateral#0" />
-            <element signature="method#setSegments#0;class#Quadrilateral#0" />
-            <element signature="method#getTriangles#0;class#Quadrilateral#0" />
-            <element signature="method#getIntersection#0;class#Quadrilateral#0" />
-            <element signature="method#getTopPoint#0;class#Quadrilateral#0" />
-            <element signature="method#getWritingPoint#0;class#Quadrilateral#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -462,66 +430,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/file/FileWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/the-file-name.tsv">
-      <provider editor-type-id="csv-text-editor">
-        <state relative-caret-position="-161">
-          <caret line="44" column="1" lean-forward="true" selection-start-line="44" selection-start-column="1" selection-end-line="44" selection-end-column="1" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Montant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="84" column="33" lean-forward="true" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
-          <folding>
-            <element signature="method#substract#0;class#Montant#0" />
-            <element signature="method#setMontantType#0;class#Montant#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="56" column="54" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1604#1605#0" expanded="true" />
-            <element signature="e#2173#2174#0" expanded="true" />
-            <element signature="e#2229#2230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/controler/AreaControler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="111" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AppManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/DATACONTAINER.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -540,23 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/controler/StartControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/resources/scene/finalView.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -565,12 +460,230 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/controler/FinalControler.java">
+    <entry file="file://$PROJECT_DIR$/src/data/DATACONTAINER.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="81" column="84" selection-start-line="81" selection-start-column="84" selection-end-line="81" selection-end-column="84" />
+        <state relative-caret-position="184">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/controler/StartControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/controler/FinalControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="989">
+          <caret line="66" column="52" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lol.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/img/ImageDrawer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-256">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Quadrilateral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="362" column="60" selection-start-line="362" selection-start-column="60" selection-end-line="362" selection-end-column="60" />
+          <folding>
+            <element signature="method#Quadrilateral#2;class#Quadrilateral#0" />
+            <element signature="method#Quadrilateral#3;class#Quadrilateral#0" />
+            <element signature="method#getMinY#0;class#Quadrilateral#0" />
+            <element signature="method#getMaxY#0;class#Quadrilateral#0" />
+            <element signature="method#print#0;class#Quadrilateral#0" />
+            <element signature="method#getVerticalSegment#0;class#Quadrilateral#0" />
+            <element signature="method#setSegments#0;class#Quadrilateral#0" />
+            <element signature="method#getTriangles#0;class#Quadrilateral#0" />
+            <element signature="method#getIntersection#0;class#Quadrilateral#0" />
+            <element signature="method#getTopPoint#0;class#Quadrilateral#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/math/Polygone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1711#1712#0" expanded="true" />
+            <element signature="e#1747#1748#0" expanded="true" />
+            <element signature="e#2316#2317#0" expanded="true" />
+            <element signature="e#2372#2373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/the-file-name.tsv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="244">
+          <caret line="141" column="77" selection-start-line="141" selection-start-column="77" selection-end-line="141" selection-end-column="77" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/file/FileWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="43" column="31" lean-forward="true" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Montant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="85" column="47" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+          <folding>
+            <element signature="method#substract#0;class#Montant#0" />
+            <element signature="method#setMontantType#0;class#Montant#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Beam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AppManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1679">
+          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/QuadrialteralBeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="method#setVerticalMontant#0;class#Area#0" />
+            <element signature="method#recursivDivision#0;class#Area#0" />
+            <element signature="method#getColider#0;class#Area#0" />
+            <element signature="method#addMontantToList#0;class#Area#0" />
+            <element signature="method#addMontantToList#1;class#Area#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Yves</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Jama-1.0.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Yves</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Jama-1.0.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

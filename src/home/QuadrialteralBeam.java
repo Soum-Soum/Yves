@@ -31,7 +31,7 @@ public class QuadrialteralBeam extends Beam {
         }
         shape.thetaTop =area.getInerShape().getTheta(shape.buttomLeft.x);
         this.shape.setSegments();
-        this.ref = "A-" + area.name + " P-n°" + String.valueOf(area.beams.size()+1);
+        this.ref = "A-" + area.name + " P-" + String.valueOf(area.beams.size()+1);
     }
 
     @Override

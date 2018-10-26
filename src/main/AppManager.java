@@ -94,12 +94,6 @@ public class AppManager {
             area.setBeamMontants();
             area.setVerticalMontant();
             area.generateMidMontant();
-            FileWriter fileWriter = new FileWriter();
-            try {
-                fileWriter.writeFile(areas);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -108,8 +102,17 @@ public class AppManager {
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }
-        String path = imageDrawer.saveIMG("Generated_Img");
+        String path = imageDrawer.saveIMG(controler.strPathImg + "Generated_Img.jpg");
         controler.upgradeImg(path);
+    }
+
+    public void generateFile(FinalControler controler){
+        FileWriter fileWriter = new FileWriter();
+        try {
+            fileWriter.writeFile(areas, controler.strPathFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Area getAreaByName(String name){

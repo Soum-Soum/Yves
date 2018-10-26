@@ -17,7 +17,7 @@ public class FileWriter {
 
     public FileWriter(){}
 
-    public void writeFile(ArrayList<Area> areas) throws IOException {
+    public void writeFile(ArrayList<Area> areas, String path) throws IOException {
         List<String> lines = new ArrayList<>();
         for (Area area : areas){
             lines.add(area.name);
@@ -39,8 +39,12 @@ public class FileWriter {
                     lines.add(m.printMontant());
                 }
             }
+            lines.add("\nAUTRE\n");
+            for (Montant m : area.midMontant){
+                lines.add(m.printMontant());
+            }
         }
-        Path file = Paths.get("the-file-name.tsv");
+        Path file = Paths.get(path+"the-file-name.tsv");
         Files.write(file, lines, Charset.forName("UTF-8"));
     }
 }

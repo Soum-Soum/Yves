@@ -13,8 +13,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 
 public class ImageDrawer {
 
@@ -35,10 +33,10 @@ public class ImageDrawer {
         graph.setStroke(stroke);
     }
 
-    public String saveIMG(String name){
+    public String saveIMG(String path){
         try {
-            ImageIO.write(imageBuffer, "jpg", new File("src/view/resources/generatedimg/"+name+".jpg"));
-            return "src/view/resources/generatedimg/"+name+".jpg";
+            ImageIO.write(imageBuffer, "jpg", new File(path));
+            return path;
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -49,28 +47,21 @@ public class ImageDrawer {
         int i=1;
         for (Montant m : area.outlinesMontants){
             drawSegment(m.getSegments());
-            /*drawID(m,i);
-            i++;*/
+            drawID(m,m.ref);
         }
         for (Window w : area.windows){
             if (w.haveTraverse){drawSegment(w.traverse.getSegments());}
             for (Montant m : w.montants ){
                 drawSegment(m.getSegments());
-                /*drawID(m,i);
-                i++;*/
             }
         }
         for (Beam b : area.beams){
             for (Montant m : b.montants){
                 drawSegment(m.getSegments());
-                /*drawID(m,i);
-                i++;*/
             }
         }
         for (Montant m : area.verticalMontant){
             drawSegment(m.getSegments());
-            /*drawID(m,i);
-            i++;*/
         }
     }
 
@@ -80,8 +71,8 @@ public class ImageDrawer {
         }
     }
 
-    public void drawID(Montant m, int i){
-        Point center = m.getWritingPoint(i);
+    public void drawID(Quadrilateral quadrilateral, String i){
+        Point center = quadrilateral.getCenter();
         this.graph.drawString(String.valueOf(i),(int)(center.x),(int)(height - center.y));
     }
 
@@ -107,10 +98,10 @@ public class ImageDrawer {
         area.setVerticalMontant();
         area.generateMidMontant();
         imageDrawer.drawArea(area);
-        imageDrawer.saveIMG("lol");
+        imageDrawer.saveIMG("lol.jpg");
         FileWriter fileWriter = new FileWriter();
         ArrayList<Area> mdr = new ArrayList<>();
         mdr.add(area);
-        fileWriter.writeFile(mdr);
+        fileWriter.writeFile(mdr,"");
     }
 }

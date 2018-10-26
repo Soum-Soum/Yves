@@ -30,6 +30,7 @@ public class FinalControler {
     public Scene prevScene;
     public AppManager appManager;
     private static final int MIN_PIXELS = 10;
+    public String strPathImg="", strPathFile="";
 
 
     @FXML
@@ -55,6 +56,7 @@ public class FinalControler {
         validate.setOnAction(event -> {
             appManager.buildMontants();
             appManager.generateImage(this);
+            appManager.generateFile(this);
         });
 
         sameDir.setOnMouseClicked(event -> {
@@ -62,6 +64,7 @@ public class FinalControler {
                 pathImg.setDisable(true);
                 browseImg.setDisable(true);
                 pathImg.setText(pathFile.getText());
+                strPathImg = pathFile.getText()+"/";
             }else {
                 pathImg.setDisable(false);
                 browseImg.setDisable(false);
@@ -74,6 +77,7 @@ public class FinalControler {
             DirectoryChooser directoryChooser = new DirectoryChooser();
             File selectedDirectory = directoryChooser.showDialog(stage);
             pathFile.setText(selectedDirectory.getAbsolutePath());
+            strPathFile = pathFile.getText() +"/";
         });
 
         browseImg.setOnAction(event -> {
@@ -81,20 +85,19 @@ public class FinalControler {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             File selectedDirectory = directoryChooser.showDialog(stage);
             pathImg.setText(selectedDirectory.getAbsolutePath());
+            strPathImg = pathImg.getText()+"/";
         });
     }
 
     public void upgradeImg(String path){
-        //Image image = new Image(new File(path).toURI().toString());
-        Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
+        Image image = new Image(new File(path).toURI().toString());
+        //Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
         Stage imageStage = new Stage();
         double width = image.getWidth();
         double height = image.getHeight();
-
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
         reset(imageView, width / 2, height / 2);
-
         ObjectProperty<Point2D> mouseDown = new SimpleObjectProperty<>();
 
         imageView.setOnMousePressed(e -> {

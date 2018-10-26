@@ -1,11 +1,149 @@
-
+Area
 CONTOURS
 
-Ref : A-  C-Montant Bas	Hmin : 5.0	Hmax : 200.0	Angle_Haut/Gauche : 90.0
-Ref : A-  C-Montant Gauche	Hmin : 5.0	Hmax : 190.0
-Ref : A-  C-Montant Droite	Hmin : 5.0	Hmax : 190.0
-Ref : A-  C-Montant Haut	Hmin : 5.0	Hmax : 200.0
+Ref : A- Area C-Montant Bas	Forme :RECTANGLE	Largeur : 5.0	Hmin : 2000.0	Hmax : 2000.0
+Ref : A- Area C-Montant Haut Gauche	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 5.774	Hmax : 1154.701	Angle_Haut/Gauche : 60.0
+Ref : A- Area C-Montant Haut Droit	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 5.774	Hmax : 1154.701	Angle_Haut/Gauche : 120.0
+Ref : A- Area C-Montant Gauche	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 192.113	Angle_Haut/Gauche : 30.0
+Ref : A- Area C-Montant Droite	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 189.226	Hmax : 192.113	Angle_Haut/Gauche : 30.0
 
 POUTRES
 
+A-Area P-n°1
+
+Ref : A-Area P-n°1 M-01	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 506.769	Angle_Haut/Gauche : 30.0
+Ref : A-Area P-n°1 M-02	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-03	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-04	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-05	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-06	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-07	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-08	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-09	Forme :RECTANGLE	Largeur : 5.0	Hmin : 449.863	Hmax : 449.863
+Ref : A-Area P-n°1 M-010	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 532.75	Angle_Haut/Gauche : 30.0
+
+A- Area P- 02
+
+Ref : A- Area P- 02 M-01	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 179.256	Angle_Haut/Gauche : 30.0
+Ref : A- Area P- 02 M-02	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-03	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-04	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-05	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-06	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-07	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-08	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-09	Forme :RECTANGLE	Largeur : 5.0	Hmin : 110.803	Hmax : 110.803
+Ref : A- Area P- 02 M-010	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 187.916	Hmax : 190.803	Angle_Haut/Gauche : 30.0
+
 OUVERTURES
+
+A- Area O- 05 N- Window1
+
+Ref : A- Area O- 05 N- Window1 M-04	Forme :RECTANGLE	Largeur : 5.0	Hmin : 200.0	Hmax : 200.0
+Ref : A- Area O- 05 N- Window1 M-05	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 5.774	Hmax : 242.487	Angle_Haut/Gauche : 60.0
+Ref : A- Area O- 05 N- Window1 M-01	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 359.545	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window1 M-02	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 145.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window1 M-03	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window1 M-06	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window1 M-07	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 263.357	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window1 M-08	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 483.675	Angle_Haut/Gauche : 30.0
+
+A- Area O- 05 N- Window2
+
+Ref : A- Area O- 05 N- Window2 M-04	Forme :PARALLELOGRAM1	Largeur : 5.257	Hmin : 5.257	Hmax : 525.731	Angle_Haut/Gauche : 72.0
+Ref : A- Area O- 05 N- Window2 M-05	Forme :RECTANGLE	Largeur : 5.0	Hmin : 510.0	Hmax : 510.0
+Ref : A- Area O- 05 N- Window2 M-01 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.774	Hmax : 400.294	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window2 M-01 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window2 M-02 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 298.414	Hmax : 298.414	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window2 M-02 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window2 M-03 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.257	Hmax : 96.12	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 18.0
+Ref : A- Area O- 05 N- Window2 M-03 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window2 M-06 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.257	Hmax : 152.203	Angle_Haut/Gauche : 18.0
+Ref : A- Area O- 05 N- Window2 M-06 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 127.388	Hmax : 127.388	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window2 M-06 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window2 M-07 P-03	Forme :RECTANGLE	Largeur : 5.0	Hmin : 195.0	Hmax : 195.0
+Ref : A- Area O- 05 N- Window2 M-07 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 128.728	Hmax : 128.728	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window2 M-07 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window2 M-08 P-03	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 237.598	Hmax : 240.485	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window2 M-08 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 130.068	Hmax : 130.068	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window2 M-08 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+
+A- Area O- 05 N- Window3
+
+Ref : A- Area O- 05 N- Window3 M-04	Forme :RECTANGLE	Largeur : 5.0	Hmin : 750.0	Hmax : 750.0
+Ref : A- Area O- 05 N- Window3 M-05	Forme :PARALLELOGRAM1	Largeur : 5.176	Hmin : 786.81	Hmax : 786.81	Angle_Haut/Gauche : 105.0
+Ref : A- Area O- 05 N- Window3 M-01	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 532.75	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window3 M-02	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 295.0	Hmax : 296.34	Angle_Haut/Gauche : 15.0
+Ref : A- Area O- 05 N- Window3 M-03	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window3 M-06	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window3 M-07	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 92.698	Hmax : 94.038	Angle_Haut/Gauche : 15.0
+Ref : A- Area O- 05 N- Window3 M-08 P-02	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 208.73	Hmax : 211.617	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window3 M-08 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 240.0	Hmax : 240.0
+
+A- Area O- 05 N- Window4
+
+Ref : A- Area O- 05 N- Window4 M-04	Forme :PARALLELOGRAM1	Largeur : 5.0	Hmin : 500.0	Hmax : 500.0	Angle_Haut/Gauche : 90.0
+Ref : A- Area O- 05 N- Window4 M-05	Forme :RECTANGLE	Largeur : 5.0	Hmin : 510.0	Hmax : 510.0
+Ref : A- Area O- 05 N- Window4 M-01 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 193.69	Angle_Haut/Gauche : 30.0
+Ref : A- Area O- 05 N- Window4 M-01 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.257	Hmax : 208.765	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 18.0
+Ref : A- Area O- 05 N- Window4 M-01 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window4 M-02 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 152.004	Hmax : 152.004	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window4 M-02 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window4 M-03 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 48.343	Hmax : 48.343	Angle_Bas/Droite : 15.0
+Ref : A- Area O- 05 N- Window4 M-03 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area O- 05 N- Window4 M-06	Forme :RECTANGLE	Largeur : 5.0	Hmin : 240.0	Hmax : 240.0
+Ref : A- Area O- 05 N- Window4 M-07	Forme :RECTANGLE	Largeur : 5.0	Hmin : 345.0	Hmax : 345.0
+Ref : A- Area O- 05 N- Window4 M-08	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 472.128	Hmax : 475.015	Angle_Haut/Gauche : 30.0
+
+AUTRE
+
+Ref : A- Area MV- 01	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 226.755	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 02	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 261.396	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 296.037	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 04	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 327.791	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 05 P-02	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 211.658	Hmax : 211.658	Angle_Bas/Droite : 30.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 05 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 06 P-02	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 211.658	Hmax : 211.658	Angle_Bas/Droite : 30.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 06 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 07 P-02	Forme :PARALLELOGRAM1	Largeur : 5.774	Hmin : 211.658	Hmax : 211.658	Angle_Bas/Droite : 30.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 07 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 08 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.774	Hmax : 290.405	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 08 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 09 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.774	Hmax : 341.123	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 09 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 010 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.774	Hmax : 370.708	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 010 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 011 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 118.635	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 011 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.257	Hmax : 131.692	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 011 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 012 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.774	Hmax : 150.389	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 012 P-02	Forme :REGULARTRAPEZIUMRIGHT	Largeur : 5.176	Hmin : 5.257	Hmax : 164.3	Angle_Bas/Droite : 15.0	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 012 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 013 P-04	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 153.275	Hmax : 156.162	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 013 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.257	Hmax : 79.096	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 013 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 67.1	Hmax : 67.1	Angle_Bas/Droite : 15.0
+Ref : A- Area MV- 013 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 014 P-04	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 118.634	Hmax : 121.521	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 014 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.257	Hmax : 98.591	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 014 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 83.177	Hmax : 83.177	Angle_Bas/Droite : 15.0
+Ref : A- Area MV- 014 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 015 P-04	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 83.993	Hmax : 86.88	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 015 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.257	Hmax : 118.086	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 015 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 99.254	Hmax : 99.254	Angle_Bas/Droite : 15.0
+Ref : A- Area MV- 015 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 016 P-04	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 53.682	Hmax : 56.569	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 016 P-03	Forme :TRAPEZIUM1	Largeur : 5.0	Hmin : 5.257	Hmax : 135.145	Angle_Haut/Gauche : 18.0
+Ref : A- Area MV- 016 P-02	Forme :TRAPEZIUM3	Largeur : 5.0	Hmin : 113.321	Hmax : 113.321	Angle_Bas/Droite : 15.0
+Ref : A- Area MV- 016 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 40.0	Hmax : 40.0
+Ref : A- Area MV- 017 P-02	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 174.089	Hmax : 176.976	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 017 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 240.0	Hmax : 240.0
+Ref : A- Area MV- 018 P-02	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 150.995	Hmax : 153.882	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 018 P-01	Forme :RECTANGLE	Largeur : 5.0	Hmin : 240.0	Hmax : 240.0
+Ref : A- Area MV- 019	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 437.487	Hmax : 440.374	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 020	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 402.846	Hmax : 405.733	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 021	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 368.205	Hmax : 371.092	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 022	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 333.564	Hmax : 336.451	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 023	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 298.923	Hmax : 301.81	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 024	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 264.282	Hmax : 267.169	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 025	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 229.641	Hmax : 232.528	Angle_Haut/Gauche : 30.0
+Ref : A- Area MV- 026	Forme :TRAPEZIUM2	Largeur : 5.0	Hmin : 209.434	Hmax : 212.321	Angle_Haut/Gauche : 30.0
