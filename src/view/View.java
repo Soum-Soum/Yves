@@ -6,10 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.AppManager;
-import view.controler.AreaControler;
-import view.controler.BeamControler;
-import view.controler.FinalControler;
-import view.controler.WindowsControler;
+import view.controler.*;
 
 import java.io.IOException;
 
@@ -23,12 +20,20 @@ public class View extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         AppManager appManager = new AppManager();
+        FXMLLoader startLoader = new FXMLLoader(getClass().getResource("resources/scene/startView.fxml"));
+        Parent startRoot = startLoader.load();
+        StartControler startControler= startLoader.getController();
+        startControler.init();
+        Scene firstScene= new Scene(startRoot);
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/scene/areaView.fxml"));
         Parent root = loader.load();
         AreaControler controler = loader.getController();
         controler.appManager = appManager;
+        controler.prevScene = firstScene;
         controler.init();
         Scene scene1 = new Scene(root);
+        startControler.nextScene = scene1;
 
         FXMLLoader loaderWindow = new FXMLLoader(getClass().getResource("resources/scene/windowsView.fxml"));
         Parent rootWindow = loaderWindow.load();
@@ -58,7 +63,7 @@ public class View extends Application {
         finalControler.appManager=appManager;
         finalControler.prevScene=beamScene;
 
-        primaryStage.setScene(scene1);
+        primaryStage.setScene(firstScene);
         primaryStage.show();
     }
 }

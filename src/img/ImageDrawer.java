@@ -94,8 +94,14 @@ public class ImageDrawer {
         area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
         area.windows.add(new Window(new Segment(800,100,800,350),750,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2", Math.PI/12,0));
         area.windows.add(new Window(new Segment(1200,300,1200,400),500,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "750", "Area")));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "1150", "Area")));
+        int i = 1;
+        for (Window w : area.windows){
+            w.name = "Window" + String.valueOf(i);
+            w.ref = "A- " + area.name + " O- 0" + String.valueOf(area.windows.size()+1) + " N- "+ w.name;
+            i++;
+        }
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1170", "Area")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

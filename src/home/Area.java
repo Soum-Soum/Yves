@@ -26,8 +26,6 @@ public abstract class Area {
 
     public abstract Polygone getInerShape();
 
-
-    // à corriger pour les trapèze 3 et 4
     public void setWindowsMontants(){
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
@@ -74,7 +72,6 @@ public abstract class Area {
                         ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
             }
             w.setRefMontants();
-            w.montants.addAll(Arrays.asList(w.buttomMontant,w.topMontant));
         }
     }
 
@@ -92,7 +89,7 @@ public abstract class Area {
             while (b.getShape().buttomRight.x-x>=DATACONTAINER.MONTANTWITH){
                 Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
                         true,ShapeType.RECTANGLE, 0,0);
-                buttomMontant.ref = b.ref + " M- 0" + String.valueOf(i);
+                buttomMontant.ref = b.ref + " M-0" + String.valueOf(i);
                 i++;
                 tempMontants.add(buttomMontant);
 
@@ -102,24 +99,28 @@ public abstract class Area {
             if (x!=b.getShape().buttomRight.x){
                 Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,
                         true,ShapeType.RECTANGLE, 0,0);
-                buttomMontant.ref = b.ref + " M- 0" + String.valueOf(i);
+                buttomMontant.ref = b.ref + " M-0" + String.valueOf(i);
                 i++;
                 tempMontants.add(buttomMontant);
             }
-            addMontantToList(b.montants, tempMontants,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
-            rightMontant.ref = b.ref+ "M-0" + String.valueOf(i);
-            addMontantToList(b.montants,rightMontant,true, false, CollisionBehaviour.STOP_FIRTS_TOP);
+            addMontantToList(b.montants, tempMontants,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
+            rightMontant.ref = b.ref+ " M-0" + String.valueOf(i);
+            addMontantToList(b.montants,rightMontant,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
         }
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
             if (leftUnderBeam && rightUnderBeam){
+                w.montants.addAll(Arrays.asList(w.leftMontant, w.midLeftMontant, w.buttomMontant, w.topMontant ,w.midRightMontant, w.rightMontant));
                 addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else if (leftUnderBeam){
+                w.montants.addAll(Arrays.asList(w.leftMontant, w.midLeftMontant, w.buttomMontant, w.topMontant));
                 addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midRightMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else if (rightUnderBeam){
-                addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midLeftMontant,w.leftMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant ,w.midRightMontant, w.rightMontant));
+                addMontantToList(w.montants, Arrays.asList(w.leftMontant,w.midLeftMontant,w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else {
-                addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midLeftMontant,w.midRightMontant,w.leftMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant));
+                addMontantToList(w.montants, Arrays.asList(w.leftMontant,w.midLeftMontant,w.buttomLeftMontant,w.buttomRightMontant,w.midRightMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }
         }
     }
@@ -143,13 +144,13 @@ public abstract class Area {
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x), this.getInerShape().getTheta(x),0);
-                m.ref = "A- " + this.name + "MV- 0" + String.valueOf(montantCount);
+                m.ref = "A- " + this.name + " MV- 0" + String.valueOf(montantCount);
                 montantCount++;
             }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
                 x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x),this.getInerShape().getTheta(x),0);
-                m.ref = "A- " + this.name + "MV- 0" + String.valueOf(montantCount);
+                m.ref = "A- " + this.name + " MV- 0" + String.valueOf(montantCount);
                 montantCount++;
             }
             if (m!=null){
@@ -232,7 +233,7 @@ public abstract class Area {
         int i=1;
         if (montantPart.size()>1){
             for (Montant montant: montantPart){
-                montant.ref = m.ref + " P- 0" + String.valueOf(montantPart.size() - (i-1));
+                montant.ref = m.ref + " P-0" + String.valueOf(montantPart.size() - (i-1));
                 i++;
             }
         }else {
@@ -270,8 +271,12 @@ public abstract class Area {
             }
             list.addAll(tempList);
         }else{
-            verticalMontant.add(m);
-            list.add(m);
+            if (addToVerticalList){
+                verticalMontant.add(m);
+            }
+            if (list!=null){
+                list.add(m);
+            }
         }
     }
 
@@ -284,10 +289,16 @@ public abstract class Area {
                 if (addToVerticalList){
                     verticalMontant.addAll(tempList);
                 }
-                list.addAll(tempList);
+                if (list!=null){
+                    list.addAll(tempList);
+                }
             }else{
-                verticalMontant.add(m);
-                list.add(m);
+                if (addToVerticalList){
+                    verticalMontant.add(m);
+                }
+                if (list!=null){
+                    list.add(m);
+                }
             }
         }
     }

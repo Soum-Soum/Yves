@@ -1,5 +1,8 @@
 package math;
 
+import data.DATACONTAINER;
+import util.Utilies;
+
 import java.util.ArrayList;
 
 public abstract class Polygone {
@@ -42,6 +45,20 @@ public abstract class Polygone {
         }
         return min;
     }
+
+
+    // A revoir
+    public double[] HMinMax(){
+        double max = 0, min = Double.POSITIVE_INFINITY;
+        for (Segment s : this.getSegments()){
+            max = s.getLenght()>max ? s.getLenght() : max;
+            min = s.getLenght()<min && s.getLenght()!= DATACONTAINER.MONTANTWITH ? s.getLenght() : min;
+        }
+        if (min==max){min = DATACONTAINER.MONTANTWITH;}
+        return new double[]{Utilies.round3(min), Utilies.round3(max)};
+    }
+
+
 
     public double getMaxX(){
         return buttomRight.x;

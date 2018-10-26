@@ -1,110 +1,11 @@
-Area
 
 CONTOURS
-A- Area C- Montant Bas	
-A- Area C- Montant Haut Gauche	
-A- Area C- Montant Haut Droit	
-A- Area C- Montant Gauche	
-A- Area C- Montant Droite	
+
+Ref : A-  C-Montant Bas	Hmin : 5.0	Hmax : 200.0	Angle_Haut/Gauche : 90.0
+Ref : A-  C-Montant Gauche	Hmin : 5.0	Hmax : 190.0
+Ref : A-  C-Montant Droite	Hmin : 5.0	Hmax : 190.0
+Ref : A-  C-Montant Haut	Hmin : 5.0	Hmax : 200.0
 
 POUTRES
 
-A-Area P-n°1
-
-A-Area P-n°1 M-01	
-A-Area P-n°1 M- 02	
-A-Area P-n°1 M- 03	
-A-Area P-n°1 M- 04	
-A-Area P-n°1 M- 05	
-A-Area P-n°1 M- 06	
-A-Area P-n°1 M- 07	
-A-Area P-n°1 M- 08	
-A-Area P-n°1 M- 09	
-A-Area P-n°1 M- 010	
-A-Area P-n°1 M- 011	
-A-Area P-n°1 M- 012	
-A-Area P-n°1 M- 013	
-A-Area P-n°1 M- 014	
-A-Area P-n°1 M- 015	
-A-Area P-n°1 M- 016	
-A-Area P-n°1 M- 017	
-A-Area P-n°1M- 018	
-
-A- Area P- 02
-
-A- Area P- 02 M-01	
-A- Area P- 02 M- 02	
-A- Area P- 02 M- 03	
-A- Area P- 02 M- 04	
-A- Area P- 02 M- 05	
-A- Area P- 02 M- 06	
-A- Area P- 02 M- 07	
-A- Area P- 02 M- 08	
-A- Area P- 02 M- 09	
-A- Area P- 02 M- 010	
-A- Area P- 02 M- 011	
-A- Area P- 02 M- 012	
-A- Area P- 02 M- 013	
-A- Area P- 02 M- 014	
-A- Area P- 02 M- 015	
-A- Area P- 02 M- 016	
-A- Area P- 02 M- 017	
-A- Area P- 02M- 018	
-
 OUVERTURES
-
-null
-
-null M-04	
-null M-05	
-null M-03	
-	
-null M-02	
-null M-06	
-null M-01	
-null M-07	
-
-null
-
-null M-04	
-null M-05	
-null M-03 P- 02	
-null M-03 P- 01	
- P- 03	
- P- 02	
- P- 01	
-null M-02 P- 02	
-null M-02 P- 01	
-null M-06 P- 03	
-null M-06 P- 02	
-null M-06 P- 01	
-null M-01 P- 02	
-null M-01 P- 01	
-null M-07 P- 03	
-null M-07 P- 02	
-null M-07 P- 01	
-
-null
-
-null M-04	
-null M-05	
-null M-03	
-	
-null M-06	
-null M-07 P- 02	
-null M-07 P- 01	
-
-null
-
-null M-04	
-null M-05	
-null M-03 P- 02	
-null M-03 P- 01	
-	
-null M-02 P- 02	
-null M-02 P- 01	
-null M-06	
-null M-01 P- 03	
-null M-01 P- 02	
-null M-01 P- 01	
-null M-07	

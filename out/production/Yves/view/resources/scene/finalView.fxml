@@ -8,15 +8,36 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: daebf3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controler.FinalControler">
    <children>
-      <Button fx:id="validate" layoutX="553.0" layoutY="24.0" mnemonicParsing="false" text="Validate">
+      <Button fx:id="validate" layoutX="600.0" layoutY="154.0" mnemonicParsing="false" text="Validate">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="prev" layoutX="434.0" layoutY="24.0" mnemonicParsing="false" text="&lt;- Prev">
+      <Button fx:id="prev" layoutX="481.0" layoutY="154.0" mnemonicParsing="false" text="&lt;- Prev">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Label layoutX="86.0" layoutY="449.0" prefHeight="35.0" prefWidth="201.0" text="Save img :">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pathImg" layoutX="288.0" layoutY="454.0" prefHeight="25.0" prefWidth="739.0" />
+      <TextField fx:id="pathFile" layoutX="288.0" layoutY="489.0" prefHeight="25.0" prefWidth="739.0" />
+      <Label layoutX="86.0" layoutY="484.0" prefHeight="35.0" prefWidth="201.0" text="Save File :">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="browseImg" layoutX="1027.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Parcourir" />
+      <Button fx:id="browseFile" layoutX="1027.0" layoutY="489.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Parcourir" />
+      <CheckBox mnemonicParsing="false" text="CheckBox" />
+      <CheckBox fx:id="sameDir" layoutX="287.0" layoutY="421.0" mnemonicParsing="false" />
+      <Label layoutX="86.0" layoutY="412.0" prefHeight="35.0" prefWidth="201.0" text="Same Dir : ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

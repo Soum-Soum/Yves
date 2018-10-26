@@ -23,20 +23,20 @@ public class FileWriter {
             lines.add(area.name);
             lines.add("CONTOURS\n");
             for (Montant m :  area.outlinesMontants){
-                lines.add(m.ref + "\t");
+                lines.add(m.printMontant());
             }
-            lines.add("POUTRES\n");
+            lines.add("\nPOUTRES");
             for (Beam b : area.beams){
                 lines.add("\n" + b.ref + "\n");
                 for(Montant m : b.montants){
-                    lines.add(m.ref + "\t");
+                    lines.add(m.printMontant());
                 }
             }
             lines.add("\nOUVERTURES");
             for (Window w : area.windows){
                 lines.add("\n" + w.ref + "\n");
                 for(Montant m : w.montants){
-                    lines.add(m.ref + "\t");
+                    lines.add(m.printMontant());
                 }
             }
         }

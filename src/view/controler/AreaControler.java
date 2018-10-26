@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class AreaControler {
 
     private final ObservableList<ViewArea> data = FXCollections.observableArrayList();
-    public Scene nextScene;
+    public Scene nextScene, prevScene;
     public AppManager appManager;
 
     @FXML
@@ -25,7 +25,7 @@ public class AreaControler {
     @FXML
     Label error;
     @FXML
-    Button add, remove, next, validate;
+    Button add, remove, next, prev, validate;
     @FXML
     TextField heightxWidth, xY, thetaDeg, thetaPercent, faitageValue,name;
     @FXML
@@ -109,6 +109,11 @@ public class AreaControler {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
             appManager.generateAreas(data);
+        });
+
+        prev.setOnAction(event -> {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(prevScene);
         });
 
         thetaDeg.setOnAction(event -> {

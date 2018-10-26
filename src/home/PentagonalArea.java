@@ -18,17 +18,17 @@ public class PentagonalArea extends Area{
     @Override
     public void setOutLines() {
         Montant buttomMontant = Montant.getNormalMontant(shap.buttom, DATACONTAINER.MONTANTWITH,false, ShapeType.RECTANGLE,0,0);
-        buttomMontant.ref = "A- " + this.name + " C- Montant Bas";
+        buttomMontant.ref = "A- " + this.name + " C-Montant Bas";
         Montant topLeftMontant = Montant.getParalelMontant(shap.topLeft,DATACONTAINER.MONTANTWITH,true,ShapeType.PARALLELOGRAM1);
-        topLeftMontant.ref = "A- " + this.name + " C- Montant Haut Gauche";
+        topLeftMontant.ref = "A- " + this.name + " C-Montant Haut Gauche";
         Montant topRightMontant = Montant.getParalelMontant(shap.topRight,DATACONTAINER.MONTANTWITH,true,ShapeType.PARALLELOGRAM1);
-        topRightMontant.ref = "A- " + this.name + " C- Montant Haut Droit";
+        topRightMontant.ref = "A- " + this.name + " C-Montant Haut Droit";
         Segment leftSeg = new Segment(buttomMontant.topLeft,topLeftMontant.buttomLeft);
         Segment rightSeg = new Segment(buttomMontant.topRight,topRightMontant.buttomRight);
         Montant leftMontant = Montant.getNormalMontant(leftSeg,DATACONTAINER.MONTANTWITH,true,ShapeType.TRAPEZIUM1,shap.thetaLeft,0);
-        leftMontant.ref="A- " + this.name + " C- Montant Gauche";
+        leftMontant.ref="A- " + this.name + " C-Montant Gauche";
         Montant rightMontant = Montant.getNormalMontant(rightSeg,DATACONTAINER.MONTANTWITH,false,ShapeType.TRAPEZIUM2,shap.thetaRight,0);
-        rightMontant.ref="A- " + this.name + " C- Montant Droite";
+        rightMontant.ref="A- " + this.name + " C-Montant Droite";
         inerShape = new Pentagon(rightMontant.buttomLeft, leftMontant.buttomRight, rightMontant.topLeft, leftMontant.topRight, topLeftMontant.buttomRight,this.shap.faitageValue,this.shap.thetaLeft,this.shap.thetaRight);
         outlinesMontants.addAll(Arrays.asList(buttomMontant,topLeftMontant,topRightMontant,leftMontant,rightMontant));
     }

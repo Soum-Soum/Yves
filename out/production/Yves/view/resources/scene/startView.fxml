@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: daebf3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controler.StartControler">
+   <children>
+      <TextField fx:id="traverseWidth" layoutX="678.0" layoutY="436.0" />
+      <Label layoutX="374.0" layoutY="431.0" prefHeight="35.0" prefWidth="297.0" text="Largeur Traverse ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="montantDist" layoutX="678.0" layoutY="389.0" />
+      <Label layoutX="374.0" layoutY="384.0" prefHeight="35.0" prefWidth="297.0" text="Espacement Montant">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="335.0" prefHeight="35.0" prefWidth="297.0" text="Largeur Montant">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="montantWidth" layoutX="678.0" layoutY="340.0" />
+      <Label alignment="CENTER" layoutX="452.0" layoutY="103.0" prefHeight="35.0" prefWidth="297.0" text="YVES" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="70.0" />
+         </font>
+      </Label>
+      <Button fx:id="next" layoutX="607.0" layoutY="555.0" mnemonicParsing="false" text="Next -&gt;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="validate" layoutX="504.0" layoutY="555.0" mnemonicParsing="false" text="Valider">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

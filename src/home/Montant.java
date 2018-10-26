@@ -2,6 +2,7 @@ package home;
 
 import data.DATACONTAINER;
 import math.*;
+import util.Utilies;
 
 import java.util.List;
 
@@ -77,6 +78,19 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
 
     public boolean isUnderBeam(List<Beam> list , List<Window> list2){
         return  this.buttomLeft.isUnderBeam(list,list2) && this.buttomRight.isUnderBeam(list,list2);
+    }
+
+    public String printMontant(){
+        String str ="";
+        double temp[] = this.HMinMax();
+        str += "Ref : " + this.ref + "\tHmin : " +temp[0] + "\tHmax : " + temp[1];
+        if (this.thetaButtom != 0){
+            str += "\tAngle_Bas/Droite : " + Utilies.round3((this.thetaButtom/(Math.PI*2))*360);
+        }
+        if (this.thetaTop != 0){
+            str += "\tAngle_Haut/Gauche : " + Utilies.round3((this.thetaTop/(Math.PI*2))*360);
+        }
+        return str;
     }
 
     @Override

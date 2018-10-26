@@ -32,8 +32,6 @@ public class Window extends Quadrilateral {
             this.traverse = new Montant(new Segment(this.topMontant.topLeft,this.topMontant.topRight),DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.RECTANGLE, 0,0);
         }
         this.outLines = new Quadrilateral(this.buttomMontant.buttomLeft,this.buttomMontant.buttomRight,this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
-        /*this.outLines = new Quadrilateral(new Point(this.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(this.buttomMontant.buttomRight,DATACONTAINER.MONTANTWITH,0),
-                this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);*/
     }
 
     public void setRefMontants(){
@@ -42,7 +40,8 @@ public class Window extends Quadrilateral {
         this.buttomLeftMontant.ref = this.ref + " M-03";
         this.buttomMontant.ref = this.ref + " M-04";
         this.topMontant.ref = this.ref + " M-05";
-        this.midRightMontant.ref = this.ref + " M-06";
-        this.rightMontant.ref = this.ref + " M-07";
+        this.buttomRightMontant.ref = this.ref + " M-06";
+        this.midRightMontant.ref = this.ref + " M-07";
+        this.rightMontant.ref = this.ref + " M-08";
     }
 }

@@ -103,12 +103,6 @@ public class AppManager {
         }
     }
 
-    public void setMontantsRefs(){
-        for (Area area : areas){
-
-        }
-    }
-
     public void generateImage(FinalControler controler){
         ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200));
         for (Area area : areas){

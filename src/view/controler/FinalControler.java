@@ -10,6 +10,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import main.AppManager;
 
@@ -31,6 +34,14 @@ public class FinalControler {
 
     @FXML
     Button prev, validate;
+    @FXML
+    TextField pathImg, pathFile;
+    @FXML
+    Button browseImg, browseFile;
+    @FXML
+    CheckBox sameDir;
+
+
 
     public FinalControler() {
     }
@@ -45,11 +56,37 @@ public class FinalControler {
             appManager.buildMontants();
             appManager.generateImage(this);
         });
+
+        sameDir.setOnMouseClicked(event -> {
+            if(sameDir.isSelected()){
+                pathImg.setDisable(true);
+                browseImg.setDisable(true);
+                pathImg.setText(pathFile.getText());
+            }else {
+                pathImg.setDisable(false);
+                browseImg.setDisable(false);
+                pathImg.setText("");
+            }
+        });
+
+        browseFile.setOnAction(event -> {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            File selectedDirectory = directoryChooser.showDialog(stage);
+            pathFile.setText(selectedDirectory.getAbsolutePath());
+        });
+
+        browseImg.setOnAction(event -> {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            File selectedDirectory = directoryChooser.showDialog(stage);
+            pathImg.setText(selectedDirectory.getAbsolutePath());
+        });
     }
 
     public void upgradeImg(String path){
-        Image image = new Image(new File(path).toURI().toString());
-        //Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
+        //Image image = new Image(new File(path).toURI().toString());
+        Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
         Stage imageStage = new Stage();
         double width = image.getWidth();
         double height = image.getHeight();
@@ -131,7 +168,6 @@ public class FinalControler {
 
         imageStage.setScene(new Scene(rootStageImage));
         imageStage.show();
-        imageStage.setFullScreen(true);
         container.setPrefSize(imageStage.getScene().getWidth(), imageStage.getScene().getHeight()-100);
     }
 
