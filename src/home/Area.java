@@ -30,7 +30,8 @@ public abstract class Area {
 
     public void setWindowsMontants(){
         for (Window w : windows){
-            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
+            boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
+            //boolean
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
                 w.buttomMontant = new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0);
             }else {
@@ -108,15 +109,18 @@ public abstract class Area {
             addMontantToList(b.montants,rightMontant,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
         }
         for (Window w : windows){
-            boolean leftUnderBeam = w.buttomLeft.isUnderBeam(beams, windows) , rightUnderBeam = w.buttomRight.isUnderBeam(beams, windows);
+            boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
             if (leftUnderBeam && rightUnderBeam){
-                w.montants.addAll(Arrays.asList(w.leftMontant, w.midLeftMontant, w.buttomMontant, w.topMontant ,w.midRightMontant, w.rightMontant));
+                w.montants.addAll(Arrays.asList( w.buttomMontant, w.topMontant ));
+                //w.leftMontant, w.midLeftMontant, ... ,w.midRightMontant, w.rightMontant
                 addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else if (leftUnderBeam){
-                w.montants.addAll(Arrays.asList(w.leftMontant, w.midLeftMontant, w.buttomMontant, w.topMontant));
+                w.montants.addAll(Arrays.asList( w.buttomMontant, w.topMontant));
+                //w.leftMontant, w.midLeftMontant,...
                 addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midRightMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else if (rightUnderBeam){
-                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant ,w.midRightMontant, w.rightMontant));
+                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant));
+                //...,w.midRightMontant, w.rightMontant
                 addMontantToList(w.montants, Arrays.asList(w.leftMontant,w.midLeftMontant,w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
             }else {
                 w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant));

@@ -77,7 +77,7 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
     }
 
     public boolean isUnderBeam(List<Beam> list , List<Window> list2){
-        return  this.buttomLeft.isUnderBeam(list,list2) && this.buttomRight.isUnderBeam(list,list2);
+        return  this.buttomLeft.isUnderObstacle(list,list2) && this.buttomRight.isUnderObstacle(list,list2);
     }
 
     public String printMontant(){

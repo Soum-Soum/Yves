@@ -23,17 +23,23 @@ public class Point {
         return "(" + x + "," + y + ")";
     }
 
-    public boolean isUnderBeam(List<Beam> list, List<Window> list2){
+    public boolean isUnderObstacle(List<Beam> list, List<Window> list2){
         for (Beam b : list){
             if (this.x>=b.getShape().buttomLeft.x- DATACONTAINER.MONTANTWITH && this.x<=b.getShape().buttomRight.x+ DATACONTAINER.MONTANTWITH){
                 for (Window w :list2){
-                    if (this.x>=w.buttomLeft.x- 2*DATACONTAINER.MONTANTWITH && this.x<=w.buttomRight.x+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY()){
-                        return false;
+                    if (!(this.x>=w.buttomLeft.x- 2*DATACONTAINER.MONTANTWITH && this.x<=w.buttomRight.x+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY())){
+                        return true;
                     }
                 }
+            }
+        }
+        for (Window w : list2){
+            if ((this.x == w.buttomLeft.x || this.x==w.buttomRight.x) && this.y< w.getMinY()){
                 return true;
             }
         }
         return false;
     }
+
+
 }
