@@ -33,15 +33,6 @@ public class Line {
         return null;
     }
 
-    //FAUX
-/*    public Line getParallelLine(double step, boolean isOnRightSide){
-        if (isOnRightSide){
-            return new Line(a,b,c-step);
-        }else {
-            return new Line(a,b,c+step);
-        }
-    }*/
-
     public void print(){
         System.out.println("a = " + this.a);
         System.out.println("b = " + this.b);

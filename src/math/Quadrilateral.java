@@ -2,9 +2,13 @@ package math;
 
 
 import home.Montant;
+import jdk.jshell.execution.Util;
+import util.InsertionSort;
+import util.Utilies;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 
 public class Quadrilateral extends Polygone {
@@ -260,6 +264,30 @@ public class Quadrilateral extends Polygone {
         setSegments();
     }
 
+    // A revoir
+    public double[] getWidthHMinHMax(){
+        double tab[] = new double[4];
+        ArrayList<Segment> l = this.getSegments();
+        for (int i=0;i<tab.length;i++){
+            tab[i]= Utilies.round3(l.get(i).getLenght());
+        }
+        InsertionSort.SORT(tab);
+        return tab;
+    }
+
+    public boolean isVertical(){
+        if (this.buttom.getLenght()<this.left.getLenght()){
+            return  true;
+        }
+        return false;
+    }
+    public boolean isHorizontal(){
+        if (this.buttom.getLenght()>this.left.getLenght()){
+            return  true;
+        }
+        return false;
+    }
+
     @Override
     public double getMinY() {
         switch (type){
@@ -356,11 +384,8 @@ public class Quadrilateral extends Polygone {
     }
 
     public Point getCenter(){
-        double x1 = this.getMinX();
-        double x2 = this.getMaxX();
-        double y1 = this.getMinY();
-        double y2 = this.getMaxY();
-        return new Point(x1 + ((x2-x1)/2),y1 + ((y2-y1)/2));
+        return new Line(new Segment(topLeft,buttomRight)).intersect(new Line(new Segment(buttomLeft,topRight)));
+
     }
 
     public static void main(String[] argd){

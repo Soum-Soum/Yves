@@ -2,6 +2,7 @@ package home;
 
 import data.DATACONTAINER;
 import math.*;
+import util.Utilies;
 
 import java.util.Arrays;
 
@@ -41,6 +42,16 @@ public class PentagonalArea extends Area{
     @Override
     public Polygone getInerShape() {
         return inerShape;
+    }
+
+    @Override
+    public void setSums(Montant m) {
+        m.buttomSum = Utilies.round3(m.getMinX());
+        if (m.getMinX()<this.shap.top.x){
+            m.topSum = Utilies.round3(new Segment(this.shap.mediumLeft,new Line(new Segment(m.getMinX(),0,m.getMinX(),1)).intersect(new Line(this.shap.topLeft))).getLenght());
+        }else {
+            m.topSum = Utilies.round3(this.shap.topLeft.getLenght() + new Segment(this.shap.top,new Line(new Segment(m.getMinX(),0,m.getMinX(),1)).intersect(new Line(this.shap.topRight))).getLenght());
+        }
     }
 
     public static void main(String[] args){

@@ -28,10 +28,11 @@ public abstract class Area {
 
     public abstract Polygone getInerShape();
 
+    public abstract void setSums(Montant m);
+
     public void setWindowsMontants(){
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
-            //boolean
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
                 w.buttomMontant = new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0);
             }else {
@@ -48,8 +49,10 @@ public abstract class Area {
                     true,w.type, thetaTop,0);
             w.leftMontant = new Montant(this.getInerShape().getVerticalSegment(w.midLeftMontant.buttomLeft.x),DATACONTAINER.MONTANTWITH,
                     false,this.getInerShape().getType(w.midLeftMontant.buttomLeft.x),this.getInerShape().getTheta(w.midLeftMontant.buttomLeft.x), 0);
+            setSums(w.leftMontant);
             w.rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.midRightMontant.buttomRight.x),DATACONTAINER.MONTANTWITH,
                     true,this.getInerShape().getType(w.midRightMontant.buttomRight.x),this.getInerShape().getTheta(w.midRightMontant.buttomRight.x), 0);
+            setSums(w.rightMontant);
             Segment topSegment = new Segment(w.midLeftMontant.topLeft,w.midRightMontant.topRight);
             if (leftUnderBeam){
                 topSegment = new Segment(w.topLeft,topSegment.tail);
@@ -82,30 +85,28 @@ public abstract class Area {
         for (Beam b : beams){
             Montant leftMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWITH,
                     false,this.getShape().getType(b.getShape().buttomLeft.x),this.getShape().getTheta(b.getShape().buttomLeft.x),0);
-            leftMontant.ref = b.ref +  " M-01";
+            setSums(leftMontant);
             addMontantToList(b.montants,leftMontant,true, false,CollisionBehaviour.STOP_FIRTS_TOP);
             Montant rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWITH,
                     true,this.getShape().getType(b.getShape().buttomRight.x),this.getShape().getTheta(b.getShape().buttomRight.x),0);
             double x = b.getShape().buttomLeft.x;
-            int i = 2;
             ArrayList<Montant> tempMontants = new ArrayList<>();
             while (b.getShape().buttomRight.x-x>=DATACONTAINER.MONTANTWITH){
                 Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
                         true,ShapeType.RECTANGLE, 0,0);
-                buttomMontant.ref = b.ref + " M-0" + String.valueOf(i);
-                i++;
+                buttomMontant.numberWritable=false;
                 tempMontants.add(buttomMontant);
                 x += DATACONTAINER.MONTANTWITH;
             }
             if (x!=b.getShape().buttomRight.x){
                 Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,
                         true,ShapeType.RECTANGLE, 0,0);
-                buttomMontant.ref = b.ref + " M-0" + String.valueOf(i);
-                i++;
+                buttomMontant.numberWritable=false;
                 tempMontants.add(buttomMontant);
             }
+            tempMontants.get(tempMontants.size()/2).numberWritable=true;
             addMontantToList(b.montants, tempMontants,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
-            rightMontant.ref = b.ref+ " M-0" + String.valueOf(i);
+            setSums(rightMontant);
             addMontantToList(b.montants,rightMontant,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
         }
         for (Window w : windows){
@@ -139,7 +140,6 @@ public abstract class Area {
     }
 
     public void generateMidMontant(){
-        int montantCount=1;
         for (int i = 0 ; i < verticalMontant.size()-1 ; i++){
             double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
             double x;
@@ -148,14 +148,12 @@ public abstract class Area {
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x), this.getInerShape().getTheta(x),0);
-                m.ref = "A- " + this.name + " MV- 0" + String.valueOf(montantCount);
-                montantCount++;
+                setSums(m);
             }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
                 x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x),this.getInerShape().getTheta(x),0);
-                m.ref = "A- " + this.name + " MV- 0" + String.valueOf(montantCount);
-                montantCount++;
+                setSums(m);
             }
             if (m!=null){
                 LinkedList<Window> colider = this.getColider(m,false);
@@ -180,7 +178,7 @@ public abstract class Area {
     public LinkedList recursivDivision(Montant m, LinkedList<Window> coliders, CollisionBehaviour behaviour){
         LinkedList<Montant> montantPart = new LinkedList();
         Intersection intersection;
-        Montant[] temp;
+        Montant[] temp = new Montant[2];
         if (coliders.size()==0){
             montantPart.add(m);
             return montantPart;
@@ -193,7 +191,6 @@ public abstract class Area {
                         temp = m.substract(intersection);
                         montantPart.add(temp[0]);
                     }
-                    //add qqc???
                     break;
                 case STOP_LAST_TOP:
                     intersection = new Intersection(coliders.get(0).outLines.getIntersection(m), coliders.get(0));
@@ -203,7 +200,8 @@ public abstract class Area {
                         montantPart.add(temp[0]);
                     }
                     if (coliders.size()!=1){
-                        montantPart.addAll(recursivDivision(m,coliders,behaviour));
+                        //montantPart.addAll(recursivDivision(m,coliders,behaviour));
+                        montantPart.addAll(recursivDivision(temp[1],coliders,behaviour));
                     }
                     break;
                 case STOP_FIRST_BUTTOM:
@@ -222,7 +220,8 @@ public abstract class Area {
                         montantPart.add(temp[1]);
                     }
                     if (coliders.size()!=1){
-                        montantPart.addAll(recursivDivision(m,coliders,behaviour));
+                        montantPart.addAll(recursivDivision(temp[0],coliders,behaviour));
+                        //montantPart.addAll(recursivDivision(m,coliders,behaviour));
                     }
                     break;
                 default:
@@ -236,18 +235,6 @@ public abstract class Area {
                         montantPart.addAll(recursivDivision(m,coliders,behaviour));
                     }
                     break;
-            }
-        }
-        int i=1;
-        if (montantPart.size()>1){
-            for (Montant montant: montantPart){
-                montant.ref = m.ref + " P-0" + String.valueOf(montantPart.size() - (i-1));
-                i++;
-            }
-        }else {
-            for (Montant montant: montantPart){
-                montant.ref = m.ref;
-                i++;
             }
         }
         return montantPart;
@@ -291,7 +278,7 @@ public abstract class Area {
     public void addMontantToList(List<Montant> list, List<Montant> listMontant, boolean needTraverse, boolean addToVerticalList, CollisionBehaviour behaviour){
         for(int i=0;i<listMontant.size();i++){
             Montant m =listMontant.get(i);
-            LinkedList<Window> colider = this.getColider(listMontant.get(i), needTraverse);
+            LinkedList<Window> colider = this.getColider(m, needTraverse);
             if (colider.size()!=0){
                 LinkedList<Montant> tempList = recursivDivision(m,colider, behaviour);
                 if (addToVerticalList){

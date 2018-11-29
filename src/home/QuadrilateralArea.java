@@ -1,10 +1,8 @@
 package home;
 
 import data.DATACONTAINER;
-import math.Polygone;
-import math.Quadrilateral;
-import math.Segment;
-import math.ShapeType;
+import math.*;
+import util.Utilies;
 
 
 import java.util.Arrays;
@@ -30,14 +28,10 @@ public class QuadrilateralArea extends Area {
             topMontant = Montant.getNormalMontant(shap.top,DATACONTAINER.MONTANTWITH, true, ShapeType.RECTANGLE,0,0);
             buttomMontant = Montant.getParalelMontant(shap.buttom,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1);
         }
-        buttomMontant.ref = "A- " + this.name + " C-Montant Bas";
-        topMontant.ref = "A- " + this.name + " C-Montant Haut";
         Segment leftSeg = new Segment(shap.buttomLeft.x,shap.buttomLeft.y+DATACONTAINER.MONTANTWITH,shap.buttomLeft.x,topMontant.buttomLeft.y);
         Montant leftMontant = new Montant(leftSeg,DATACONTAINER.MONTANTWITH,true,shap.type,shap.thetaTop,shap.thetaButtom);
-        leftMontant.ref = "A- " + this.name + " C-Montant Gauche";
         Segment rightSeg = new Segment(shap.buttomRight.x,shap.buttomRight.y+DATACONTAINER.MONTANTWITH,shap.buttomRight.x,topMontant.buttomRight.y);
         Montant rightMontant = new Montant(rightSeg,DATACONTAINER.MONTANTWITH,false,shap.type,shap.thetaTop, shap.thetaButtom);
-        rightMontant.ref = "A- " + this.name + " C-Montant Droite";
         inerShape = new Quadrilateral(leftMontant.buttomRight,rightMontant.buttomLeft,leftMontant.topRight,rightMontant.topLeft, shap.type, this.shap.thetaTop, shap.thetaButtom);
         outlinesMontants.addAll(Arrays.asList(buttomMontant, leftMontant, rightMontant, topMontant));
     }
@@ -50,6 +44,12 @@ public class QuadrilateralArea extends Area {
     @Override
     public Polygone getInerShape() {
         return inerShape;
+    }
+
+    @Override
+    public void setSums(Montant m) {
+        m.buttomSum = Utilies.round3(m.getMinX());
+        m.topSum = Utilies.round3(new  Segment(this.shap.topLeft,new Line(new Segment(m.getMinX(),0,m.getMinX(),1)).intersect(new Line(this.shap.top))).getLenght());
     }
 
     public static void main(String[] args){

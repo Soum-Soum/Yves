@@ -9,13 +9,20 @@ import java.util.List;
 public class Montant extends Quadrilateral implements Comparable<Montant>{
 
     public String ref="";
+    public int number;
+    public double topSum=-1, buttomSum=-1;
+    public boolean numberWritable = true;
 
     public Montant(Segment segment, double width, boolean isOnRightSide, ShapeType type, double thetaTop, double thetaButtom) {
         super(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
+        this.number = DATACONTAINER.MONTANTCOUNT;
+        DATACONTAINER.MONTANTCOUNT+=1;
     }
 
     public Montant(Segment segment, double width, boolean isOnRightSide, ShapeType type) {
         super(segment, width, isOnRightSide, type);
+        this.number = DATACONTAINER.MONTANTCOUNT;
+        DATACONTAINER.MONTANTCOUNT+=1;
     }
 
     public static Montant getNormalMontant(Segment segment, double width, boolean isOnRightSide, ShapeType type, double thetaTop, double thetaButtom){
@@ -25,25 +32,18 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
         return new Montant(segment, width, isOnRightSide, type);
     }
 
-    public boolean isVertical(){
-        if (this.buttom.getLenght()<this.left.getLenght()){
-            return  true;
-        }
-        return false;
-    }
-    public boolean isHorizontal(){
-        if (this.buttom.getLenght()>this.left.getLenght()){
-            return  true;
-        }
-        return false;
-    }
-
     public Montant[] substract(Intersection intersection){
         Montant[] temp = new Montant[2];
         ShapeType topType = setMontantType(this.top.goesUp(), intersection.intersection.top.goesUp());
         ShapeType buttomTYpe = setMontantType(intersection.intersection.buttom.goesUp(),this.buttom.goesUp());
         temp[0] = new Montant(new Segment(intersection.intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,true,topType, this.thetaTop, intersection.window.thetaTop); //TOP MONTANT
+        temp[0].topSum =this.topSum;
+        temp[0].buttomSum = -1;
+        temp[0].numberWritable=this.numberWritable;
         temp[1] = new Montant(new Segment(this.buttomLeft, intersection.intersection.buttomLeft),DATACONTAINER.MONTANTWITH,true, buttomTYpe, intersection.window.thetaButtom, this.thetaTop); //BUTTOM MONTANT
+        temp[1].topSum = -1;
+        temp[1].buttomSum = buttomSum;
+        temp[1].numberWritable=this.numberWritable;
         return temp;
     }
 
@@ -83,7 +83,23 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
     public String printMontant(){
         String str ="";
         double temp[] = this.getWidthHMinHMax();
-        str += "Ref : " + this.ref +"\tForme : " + this.type.toString() +"\tLargeur : " + temp[0] + "\tHmin : " + temp[1] + "\tHmax : " + temp[2];
+        str += "Number : " + this.number +"\tForme : " + this.type.toString();
+        if (temp[0]==temp[1]){
+            str+= "\tLargeur : " + temp[0];
+        }else{
+            str += "\tLmin : " + temp[0] + "\tLmax : " + temp[1];
+        }
+        if (temp[2]==temp[3]){
+            str+= "\tHauteur : " + temp[2];
+        }else{
+            str += "\tHmin : " + temp[2] + "\tHmax : " + temp[3];
+        }
+        if (this.topSum!=-1){
+            str += "\tSumTop : " + this.topSum;
+        }
+        if (this.buttomSum!=-1){
+            str += "\tSumButtom : " + this.buttomSum;
+        }
         if (this.thetaButtom != 0){
             str += "\tAngle_Bas/Droite : " + Utilies.round3((this.thetaButtom/(Math.PI*2))*360);
         }
