@@ -32,9 +32,14 @@
       </Label>
       <Button fx:id="browseImg" layoutX="1027.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Parcourir" />
       <Button fx:id="browseFile" layoutX="1027.0" layoutY="489.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Parcourir" />
-      <CheckBox mnemonicParsing="false" text="CheckBox" />
       <CheckBox fx:id="sameDir" layoutX="287.0" layoutY="421.0" mnemonicParsing="false" />
       <Label layoutX="86.0" layoutY="412.0" prefHeight="35.0" prefWidth="201.0" text="Same Dir : ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="scaleFactor" layoutX="545.0" layoutY="417.0" />
+      <Label layoutX="324.0" layoutY="412.0" prefHeight="35.0" prefWidth="201.0" text="Scale factor :">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

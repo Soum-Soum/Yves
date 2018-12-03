@@ -31,12 +31,13 @@ public class FinalControler {
     public AppManager appManager;
     private static final int MIN_PIXELS = 10;
     public String strPathImg="", strPathFile="";
+    public double scaleValue = 1.0;
 
 
     @FXML
     Button prev, validate;
     @FXML
-    TextField pathImg, pathFile;
+    TextField pathImg, pathFile, scaleFactor ;
     @FXML
     Button browseImg, browseFile;
     @FXML
@@ -70,6 +71,10 @@ public class FinalControler {
                 browseImg.setDisable(false);
                 pathImg.setText("");
             }
+        });
+
+        scaleFactor.setOnAction(event -> {
+            this.scaleValue = Double.parseDouble(scaleFactor.getText());
         });
 
         browseFile.setOnAction(event -> {

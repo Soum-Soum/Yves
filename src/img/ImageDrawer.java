@@ -29,6 +29,7 @@ public class ImageDrawer {
         this.width= (int) (width*scalingValue);
         this.height= (int) (height*scalingValue);
         this.scalingValue= scalingValue;
+        System.out.println(this.width + "---" + this.height);
         this.imageBuffer = new BufferedImage(this.width,this.height,BufferedImage.TYPE_INT_RGB);
         graph = imageBuffer.createGraphics();
         graph.setColor(Color.WHITE);
@@ -83,10 +84,6 @@ public class ImageDrawer {
 
     public void drawSegment(ArrayList<Segment> segments){
         for (Segment segment : segments){
-            //System.out.println(scalingValue*segment.head.x);
-            //System.out.println(scalingValue*(height-segment.head.y));
-            //System.out.println(scalingValue*segment.tail.x);
-            //System.out.println(scalingValue*(height-segment.tail.y));
             graph.drawLine((int)(Math.round(scalingValue*segment.head.x)),(int)(Math.round(height-(scalingValue*segment.head.y))),(int)(Math.round(scalingValue*segment.tail.x)),(int)(Math.round(height-(scalingValue*segment.tail.y))));
         }
     }
@@ -110,9 +107,7 @@ public class ImageDrawer {
         Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
         PentagonalArea area = new PentagonalArea(pentagon,"Area");
         area.setOutLines();
-        //area.windows.add(new Window(new Segment(500,100,500,200),200,true, ShapeType.TRAPEZIUM1,"TRAPEZIUM1",Math.PI/6,0));
         area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
-        //area.windows.add(new Window(new Segment(800,100,800,350),750,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2", Math.PI/12,0));
         area.windows.add(new Window(new Segment(1000,200,1000,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
         int i = 1;
         for (Window w : area.windows){

@@ -16,7 +16,6 @@
     <root id="root">
       <element id="archive" name="Yves.jar">
         <element id="module-output" name="Yves" />
-        <element id="library" level="project" name="Jama-1.0.3" />
       </element>
     </root>
   </artifact>

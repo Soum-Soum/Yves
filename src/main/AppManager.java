@@ -98,7 +98,7 @@ public class AppManager {
     }
 
     public void generateImage(FinalControler controler){
-        ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200),1);
+        ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200),controler.scaleValue);
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }
