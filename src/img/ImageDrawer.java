@@ -22,7 +22,7 @@ public class ImageDrawer {
     BufferedImage imageBuffer;
     int width, height;
     double scalingValue;
-    Graphics2D graph;
+    public Graphics2D graph;
     Stroke stroke;
 
     public ImageDrawer(int width ,int height, double scalingValue) {
@@ -51,7 +51,7 @@ public class ImageDrawer {
     }
 
     public void drawArea(Area area){
-        for (Montant m : area.outlinesMontants){
+        for (Montant m : area.outlinesMontants.values()){
             drawSegment(m.getSegments());
             if (m.numberWritable){
                 drawID(m,m.number);
@@ -59,15 +59,31 @@ public class ImageDrawer {
         }
         for (Window w : area.windows){
             if (w.haveTraverse){drawSegment(w.traverse.getSegments());}
-            for (Montant m : w.montants ){
+            for (LinkedList<Montant> l : w.montantsAfterCut.values() ){
+                for(Montant m : l){
+                    drawSegment(m.getSegments());
+                    if (m.numberWritable){
+                        drawID(m,m.number);
+                    }
+                }
+            }
+        }
+        for (Beam b : area.beams){
+            for (Montant m : b.leftMontant){
                 drawSegment(m.getSegments());
                 if (m.numberWritable){
                     drawID(m,m.number);
                 }
             }
-        }
-        for (Beam b : area.beams){
-            for (Montant m : b.montants){
+            for (LinkedList<Montant> l : b.midsMontants){
+                for (Montant m : l){
+                    drawSegment(m.getSegments());
+                    if (m.numberWritable){
+                        drawID(m,m.number);
+                    }
+                }
+            }
+            for (Montant m : b.rightMontant){
                 drawSegment(m.getSegments());
                 if (m.numberWritable){
                     drawID(m,m.number);
@@ -84,7 +100,7 @@ public class ImageDrawer {
 
     public void drawSegment(ArrayList<Segment> segments){
         for (Segment segment : segments){
-            graph.drawLine((int)(Math.round(scalingValue*segment.head.x)),(int)(Math.round(height-(scalingValue*segment.head.y))),(int)(Math.round(scalingValue*segment.tail.x)),(int)(Math.round(height-(scalingValue*segment.tail.y))));
+            graph.drawLine((int)(Math.round(100+scalingValue*segment.head.x)),(int)(Math.round(height-(100+scalingValue*segment.head.y))),(int)(Math.round(100+scalingValue*segment.tail.x)),(int)(Math.round(height-(100+scalingValue*segment.tail.y))));
         }
     }
 
@@ -94,29 +110,45 @@ public class ImageDrawer {
         p.x -= DATACONTAINER.MONTANTWITH/2;
         for (Integer j : l ) {
             if (quadrilateral.isVertical()){
-                this.graph.drawString(j.toString(),(int) (scalingValue*p.x), (int) (height - (scalingValue*p.y)));
+                this.graph.drawString(j.toString(),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
                 p.y -=10;
             }else {
-                this.graph.drawString(String.valueOf(i),(int) (scalingValue*p.x), (int) (height - (scalingValue*p.y)));
+                this.graph.drawString(String.valueOf(i),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
             }
         }
     }
 
+    public void updateFontSize(double factor){
+        if (factor <= 3) {
+            graph.setFont(new Font("Arial Black", Font.PLAIN, 14));
+        } else if (factor <= 6){
+            graph.setFont(new Font("Arial Black", Font.PLAIN, 32));
+        }else if (factor <= 9){
+            graph.setFont(new Font("Arial Black", Font.PLAIN, 46));
+        }else {
+            graph.setFont(new Font("Arial Black", Font.PLAIN, 64));
+        }
+    }
+
     public static void main(String[] args) throws IOException {
-        ImageDrawer imageDrawer = new ImageDrawer(2400,1000,1.5);
+        ImageDrawer imageDrawer = new ImageDrawer(2400,1200,1.5);
         Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
-        PentagonalArea area = new PentagonalArea(pentagon,"Area");
+        //PentagonalArea area = new PentagonalArea(pentagon,"Area");
+        Quadrilateral rectangle = new Quadrilateral(new Segment(50,50,50,1000),2000,true,ShapeType.RECTANGLE,0,0);
+        QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");
         area.setOutLines();
         area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
-        area.windows.add(new Window(new Segment(1000,200,1000,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
-        int i = 1;
-        for (Window w : area.windows){
-            w.name = "Window" + String.valueOf(i);
-            w.ref = "A- " + area.name + " O- 0" + String.valueOf(area.windows.size()+1) + " N- "+ w.name;
-            i++;
-        }
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "750", "Area")));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1170", "Area")));
+        area.windows.add(new Window(new Segment(50,200,50,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
+
+        //
+        //Penser à reporter les décalages de la zonnes dans au fenêtres
+        //reste à faire : Le placement des fenêtres sur les bords
+        //
+        //
+
+        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "0", "Area")));
+        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1960", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "980", "Area")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();

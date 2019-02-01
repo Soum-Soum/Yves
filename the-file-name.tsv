@@ -1,106 +1,98 @@
 Area
 CONTOURS
 
+Number : 1	Forme : PARALLELOGRAM1	Largeur : 5.0	Hauteur : 2000.0	Angle_Haut/Gauche : 90.0
+Number : 2	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
+Number : 3	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
 Number : 0	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 2000.0
-Number : 1	Forme : PARALLELOGRAM1	Largeur : 5.774	Hauteur : 1154.701	Angle_Haut/Gauche : 60.0
-Number : 2	Forme : PARALLELOGRAM1	Largeur : 5.774	Hauteur : 1154.701	Angle_Haut/Gauche : 120.0
-Number : 3	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 189.226	Hmax : 192.113	Angle_Haut/Gauche : 30.0
-Number : 4	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 189.226	Hmax : 192.113	Angle_Haut/Gauche : 30.0
 
 POUTRES
 
 A-Area P-1
 
-Number : 21	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 503.882	Hmax : 506.769	SumTop : 629.312	SumButtom : 745.0	Angle_Haut/Gauche : 30.0
-Number : 23	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 24	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 25	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 26	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 27	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 28	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 29	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 30	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 449.863
-Number : 22	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 529.863	Hmax : 532.75	SumTop : 681.273	SumButtom : 790.0	Angle_Haut/Gauche : 30.0
-
-A- Area P- 02
-
-Number : 33	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 176.369	Hmax : 179.256	SumTop : 1114.286	Angle_Haut/Gauche : 30.0
-Number : 44	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 46	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 48	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 50	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 52	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 54	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 56	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 58	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 110.803
-Number : 60	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 187.916	Hmax : 190.803	SumTop : 1166.247	Angle_Haut/Gauche : 30.0
+Number : 22	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 975.0
+Number : 33	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 35	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 37	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 39	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 41	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 43	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 45	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 47	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 290.0
+Number : 49	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1020.0
 
 OUVERTURES
 
-A- Area O- 03 N- Window1
+TRAPEZIUM4
 
-Number : 5	Forme : PARALLELOGRAM1	Largeur : 5.257	Hauteur : 525.731	Angle_Haut/Gauche : 72.0
-Number : 12	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 510.0
-Number : 10	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 645.333	Hmax : 648.22	SumTop : 912.214	SumButtom : 990.0	Angle_Haut/Gauche : 30.0
-Number : 8	Forme : TRAPEZIUM4	Largeur : 5.0	Hauteur : 545.0
-Number : 62	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 39.743	Hmax : 41.368	Angle_Haut/Gauche : 18.0
-Number : 63	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
-Number : 64	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 200.578	Hmax : 202.203	Angle_Haut/Gauche : 18.0
-Number : 65	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
-Number : 66	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 245.0
-Number : 67	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
-Number : 68	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 287.598	Hmax : 290.485	SumTop : 1506.884	Angle_Haut/Gauche : 30.0
-Number : 69	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1505.0
+Number : 10	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
+Number : 8	Forme : TRAPEZIUM4	Largeur : 5.0	Hauteur : 545.0	SumTop : 1450.0	SumButtom : 1500.0
+Number : 4	Forme : PARALLELOGRAM1	Largeur : 5.257	Hauteur : 525.731	Angle_Haut/Gauche : 72.0
+Number : 5	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 339.743	Hmax : 341.368	Angle_Haut/Gauche : 18.0
+Number : 11	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 510.0
+Number : 9	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
+Number : 6	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 500.578	Hmax : 502.203	Angle_Haut/Gauche : 18.0
+Number : 7	Forme : TRAPEZIUM4	Largeur : 5.0	Hauteur : 545.0	SumTop : 945.0	SumButtom : 995.0
 
-A- Area O- 03 N- Window2
+RECTANGLE
 
-Number : 13	Forme : PARALLELOGRAM1	Largeur : 5.0	Hauteur : 750.0	Angle_Haut/Gauche : 90.0
-Number : 20	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 755.0
+Number : 18	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
+Number : 16	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 295.0	SumTop : 750.0	SumButtom : 800.0
+Number : 12	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 750.0
+Number : 13	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
+Number : 19	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 760.0
+Number : 17	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0
 Number : 14	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
-Number : 15	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0
-Number : 17	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 295.0
-Number : 19	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 443.26	Hmax : 446.147	SumTop : 1795.559	SumButtom : 1755.0	Angle_Haut/Gauche : 30.0
+Number : 15	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 295.0	SumTop : 5.0	SumButtom : 45.0
 
 AUTRE
 
-Number : 70	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 223.868	Hmax : 226.755	SumTop : 69.282	SumButtom : 260.0	Angle_Haut/Gauche : 30.0
-Number : 71	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 258.509	Hmax : 261.396	SumTop : 138.564	SumButtom : 320.0	Angle_Haut/Gauche : 30.0
-Number : 72	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 293.15	Hmax : 296.037	SumTop : 207.846	SumButtom : 380.0	Angle_Haut/Gauche : 30.0
-Number : 73	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 327.791	Hmax : 330.678	SumTop : 277.128	SumButtom : 440.0	Angle_Haut/Gauche : 30.0
-Number : 74	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 362.432	Hmax : 365.319	SumTop : 346.41	SumButtom : 500.0	Angle_Haut/Gauche : 30.0
-Number : 75	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 397.073	Hmax : 399.96	SumTop : 415.692	SumButtom : 560.0	Angle_Haut/Gauche : 30.0
-Number : 76	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 431.714	Hmax : 434.601	SumTop : 484.974	SumButtom : 620.0	Angle_Haut/Gauche : 30.0
-Number : 77	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 466.355	Hmax : 469.242	SumTop : 554.256	SumButtom : 680.0	Angle_Haut/Gauche : 30.0
-Number : 78	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 486.562	Hmax : 489.449	SumTop : 594.671	SumButtom : 715.0	Angle_Haut/Gauche : 30.0
-Number : 79	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 564.504	Hmax : 567.391	SumTop : 750.556	SumButtom : 850.0	Angle_Haut/Gauche : 30.0
-Number : 80	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 599.145	Hmax : 602.032	SumTop : 819.838	SumButtom : 910.0	Angle_Haut/Gauche : 30.0
-Number : 81	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 622.239	Hmax : 625.126	SumTop : 866.026	SumButtom : 950.0	Angle_Haut/Gauche : 30.0
-Number : 83	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 115.748	Hmax : 118.635	SumTop : 993.042	Angle_Haut/Gauche : 30.0
-Number : 85	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 59.238	Hmax : 60.863	Angle_Haut/Gauche : 18.0
-Number : 86	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1060.0
-Number : 88	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.774	Hmin : 147.502	Hmax : 150.389	SumTop : 1056.551	Angle_Haut/Gauche : 30.0
-Number : 90	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 77.108	Hmax : 78.733	Angle_Haut/Gauche : 18.0
-Number : 91	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1115.0
-Number : 93	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 153.275	Hmax : 156.162	SumTop : 1235.529	Angle_Haut/Gauche : 30.0
-Number : 95	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 127.471	Hmax : 129.096	Angle_Haut/Gauche : 18.0
-Number : 96	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1270.0
-Number : 98	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 118.634	Hmax : 121.521	SumTop : 1304.811	Angle_Haut/Gauche : 30.0
-Number : 100	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 146.966	Hmax : 148.591	Angle_Haut/Gauche : 18.0
-Number : 101	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1330.0
-Number : 103	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 83.993	Hmax : 86.88	SumTop : 1374.093	Angle_Haut/Gauche : 30.0
-Number : 105	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 166.461	Hmax : 168.086	Angle_Haut/Gauche : 18.0
-Number : 106	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1390.0
-Number : 108	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 53.682	Hmax : 56.569	SumTop : 1434.715	Angle_Haut/Gauche : 30.0
-Number : 110	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 183.52	Hmax : 185.145	Angle_Haut/Gauche : 18.0
-Number : 111	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1442.5
-Number : 113	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 252.957	Hmax : 255.844	SumTop : 1576.166	Angle_Haut/Gauche : 30.0
-Number : 114	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1565.0
-Number : 116	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 218.316	Hmax : 221.203	SumTop : 1645.448	Angle_Haut/Gauche : 30.0
-Number : 117	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 1625.0
-Number : 118	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 408.619	Hmax : 411.506	SumTop : 1864.841	SumButtom : 1815.0	Angle_Haut/Gauche : 30.0
-Number : 119	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 373.978	Hmax : 376.865	SumTop : 1934.123	SumButtom : 1875.0	Angle_Haut/Gauche : 30.0
-Number : 120	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 339.337	Hmax : 342.224	SumTop : 2003.405	SumButtom : 1935.0	Angle_Haut/Gauche : 30.0
-Number : 121	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 304.696	Hmax : 307.583	SumTop : 2072.687	SumButtom : 1995.0	Angle_Haut/Gauche : 30.0
-Number : 122	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 270.055	Hmax : 272.942	SumTop : 2141.969	SumButtom : 2055.0	Angle_Haut/Gauche : 30.0
-Number : 123	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 235.414	Hmax : 238.301	SumTop : 2211.251	SumButtom : 2115.0	Angle_Haut/Gauche : 30.0
-Number : 124	Forme : TRAPEZIUM2	Lmin : 5.0	Lmax : 5.774	Hmin : 212.32	Hmax : 215.207	SumTop : 2257.439	SumButtom : 2155.0	Angle_Haut/Gauche : 30.0
+Number : 52	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 60.0
+Number : 53	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 110.0
+Number : 55	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 120.0
+Number : 56	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 170.0
+Number : 58	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 180.0
+Number : 59	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 230.0
+Number : 61	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 240.0
+Number : 62	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 290.0
+Number : 64	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 300.0
+Number : 65	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 350.0
+Number : 67	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 360.0
+Number : 68	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 410.0
+Number : 70	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 420.0
+Number : 71	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 470.0
+Number : 73	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 480.0
+Number : 74	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 530.0
+Number : 76	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 540.0
+Number : 77	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 590.0
+Number : 79	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 600.0
+Number : 80	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 650.0
+Number : 82	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 660.0
+Number : 83	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 710.0
+Number : 85	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 640.0	SumTop : 702.5
+Number : 86	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 140.0	SumButtom : 752.5
+Number : 87	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 815.0	SumButtom : 865.0
+Number : 88	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 875.0	SumButtom : 925.0
+Number : 89	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 907.5	SumButtom : 957.5
+Number : 91	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1080.0
+Number : 92	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 381.982	Hmax : 383.607	SumButtom : 1130.0	Angle_Haut/Gauche : 18.0
+Number : 94	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1140.0
+Number : 95	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 401.477	Hmax : 403.102	SumButtom : 1190.0	Angle_Haut/Gauche : 18.0
+Number : 97	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1200.0
+Number : 98	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 420.973	Hmax : 422.598	SumButtom : 1250.0	Angle_Haut/Gauche : 18.0
+Number : 100	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1260.0
+Number : 101	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 440.468	Hmax : 442.093	SumButtom : 1310.0	Angle_Haut/Gauche : 18.0
+Number : 103	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1320.0
+Number : 104	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 459.963	Hmax : 461.588	SumButtom : 1370.0	Angle_Haut/Gauche : 18.0
+Number : 106	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1380.0
+Number : 107	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 479.458	Hmax : 481.083	SumButtom : 1430.0	Angle_Haut/Gauche : 18.0
+Number : 109	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 370.0	SumTop : 1412.5
+Number : 110	Forme : TRAPEZIUM1	Lmin : 5.0	Lmax : 5.257	Hmin : 490.018	Hmax : 491.643	SumButtom : 1462.5	Angle_Haut/Gauche : 18.0
+Number : 111	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1515.0	SumButtom : 1565.0
+Number : 112	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1575.0	SumButtom : 1625.0
+Number : 113	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1635.0	SumButtom : 1685.0
+Number : 114	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1695.0	SumButtom : 1745.0
+Number : 115	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1755.0	SumButtom : 1805.0
+Number : 116	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1815.0	SumButtom : 1865.0
+Number : 117	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1875.0	SumButtom : 1925.0
+Number : 118	Forme : RECTANGLE	Largeur : 5.0	Hauteur : 940.0	SumTop : 1935.0	SumButtom : 1985.0

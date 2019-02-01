@@ -2,6 +2,7 @@ package view.obj;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import util.Utilies;
 
 import java.util.Objects;
 
@@ -24,6 +25,12 @@ public class ViewArea {
         this.isOnRightSide=isOnRightSide;
         if (!thetaDeg.equals("")){
             theta = Double.parseDouble(thetaDeg)*((Math.PI*2)/360);
+        }else {
+            if (!type.equals("RECTANGLE")){
+                double radValue = Math.atan(Double.parseDouble(thetaPercent)/100);
+                thetaDeg=(String.valueOf(Utilies.round3(radValue*(360/(Math.PI*2)))));
+                theta = Double.parseDouble(thetaDeg)*((Math.PI*2)/360);
+            }
         }
     }
 

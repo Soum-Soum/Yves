@@ -72,6 +72,8 @@ public abstract class Polygone {
 
     public abstract Point getTopPoint();
 
+    public abstract boolean isPentagon();
+
     public double getHeight(double x){
         return this.getVerticalSegment(x).tail.y;
     }

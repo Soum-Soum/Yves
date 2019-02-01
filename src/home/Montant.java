@@ -4,11 +4,11 @@ import data.DATACONTAINER;
 import math.*;
 import util.Utilies;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Montant extends Quadrilateral implements Comparable<Montant>{
 
-    public String ref="";
     public int number;
     public double topSum=-1, buttomSum=-1;
     public boolean numberWritable = true;
@@ -78,6 +78,12 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
 
     public boolean isUnderBeam(List<Beam> list , List<Window> list2){
         return  this.buttomLeft.isUnderObstacle(list,list2) && this.buttomRight.isUnderObstacle(list,list2);
+    }
+
+    public LinkedList<Montant> montant2List(){
+        LinkedList tempList = new LinkedList();
+        tempList.add(this);
+        return tempList;
     }
 
     public String printMontant(){

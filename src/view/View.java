@@ -60,6 +60,9 @@ public class View extends Application {
         Scene finalScene = new Scene(rootFinal);
         finalControler.init();
         beamControler.nextScene=finalScene;
+        finalControler.areaControler=controler;
+        finalControler.beamControler=beamControler;
+        finalControler.windowsControler=windowsControler;
         finalControler.appManager=appManager;
         finalControler.prevScene=beamScene;
 

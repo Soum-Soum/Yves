@@ -101,10 +101,15 @@ public class Segment {
         return new Segment( verticalSegment.intersect(buttomLine), verticalSegment.intersect(topLine));
     }
 
+    public void print(){
+        head.print();
+        tail.print();
+    }
+
     public static void main(String[] args){
         Segment s1 = new Segment(800,375.88,1555,173.58);
         Segment s2 = new Segment(800,55,800,527.95);
-        System.out.println(s1.intersect(s2).print());
+        s1.intersect(s2).print();
     }
 
 }

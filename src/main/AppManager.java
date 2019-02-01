@@ -2,14 +2,17 @@ package main;
 
 import file.FileWriter;
 import home.*;
+import home.Window;
 import img.ImageDrawer;
 import javafx.collections.ObservableList;
 import math.*;
+import math.Point;
 import view.controler.FinalControler;
 import view.obj.ViewArea;
 import view.obj.ViewBeam;
 import view.obj.ViewWindow;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,7 +53,7 @@ public class AppManager {
         for (ViewBeam beam : list){
             double x = Double.parseDouble(beam.x.getValue());
             Area temp = getAreaByName(beam.dependance.getValue());
-            if (temp!=null && x>temp.getShape().buttomLeft.x && x<temp.getShape().buttomRight.x){
+            if (temp!=null && x>=temp.getShape().buttomLeft.x && x<=temp.getShape().buttomRight.x){
                 Beam b = Beam.BuildBeam(temp, beam);
                 temp.beams.add(b);
                 beams.add(b);
@@ -80,7 +83,6 @@ public class AppManager {
             System.out.println("Bad Windows");
         }else {
             areas.get(i).windows.add(w);
-            w.ref = "A- " + areas.get(i).name + " O- 0" + String.valueOf(areas.get(i).windows.size()+1) + " N- "+ w.name;
         }
     }
 
@@ -98,7 +100,11 @@ public class AppManager {
     }
 
     public void generateImage(FinalControler controler){
-        ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200),controler.scaleValue);
+        double factor = controler.scaleFactor.getText().equals("") ? 1 :  Double.parseDouble(controler.scaleFactor.getText());
+        ImageDrawer imageDrawer = new ImageDrawer((int)(getAreaMaxX()+200),(int)(getAreaMaxY()+200),factor);
+        Stroke stroke = new BasicStroke((float) factor);
+        imageDrawer.graph.setStroke(stroke);
+        imageDrawer.updateFontSize(factor);
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }

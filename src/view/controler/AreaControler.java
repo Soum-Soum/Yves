@@ -108,7 +108,6 @@ public class AreaControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
-            appManager.generateAreas(data);
         });
 
         prev.setOnAction(event -> {
@@ -153,6 +152,16 @@ public class AreaControler {
                leftRight.setText("Droite ->");
            }
         });
+        setDefault();
+    }
+
+    public void setDefault(){
+        areaType.setValue("PENTAGON");
+        heightxWidth.setText("200x500");
+        xY.setText("0x0");
+        faitageValue.setText("0.5");
+        thetaPercent.setText("30");
+        name.setText("Test");
     }
 
     public void setErrorMessage(String errorMessage){

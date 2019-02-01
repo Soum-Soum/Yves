@@ -1,5 +1,6 @@
 package view.controler;
 
+import data.DATACONTAINER;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -29,15 +30,16 @@ public class FinalControler {
 
     public Scene prevScene;
     public AppManager appManager;
+    public AreaControler areaControler;
+    public WindowsControler windowsControler;
+    public BeamControler beamControler;
     private static final int MIN_PIXELS = 10;
     public String strPathImg="", strPathFile="";
-    public double scaleValue = 1.0;
-
 
     @FXML
     Button prev, validate;
     @FXML
-    TextField pathImg, pathFile, scaleFactor ;
+    public TextField pathImg, pathFile, scaleFactor ;
     @FXML
     Button browseImg, browseFile;
     @FXML
@@ -55,6 +57,10 @@ public class FinalControler {
         });
 
         validate.setOnAction(event -> {
+            DATACONTAINER.MONTANTCOUNT=0;
+            appManager.generateAreas(areaControler.getData());
+            appManager.generateWindows(windowsControler.getData());
+            appManager.generateBeam(beamControler.getData());
             appManager.buildMontants();
             appManager.generateImage(this);
             appManager.generateFile(this);
@@ -73,16 +79,16 @@ public class FinalControler {
             }
         });
 
-        scaleFactor.setOnAction(event -> {
-            this.scaleValue = Double.parseDouble(scaleFactor.getText());
-        });
-
         browseFile.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             DirectoryChooser directoryChooser = new DirectoryChooser();
             File selectedDirectory = directoryChooser.showDialog(stage);
             pathFile.setText(selectedDirectory.getAbsolutePath());
             strPathFile = pathFile.getText() +"/";
+            if (sameDir.isSelected()){
+                pathImg.setText(selectedDirectory.getAbsolutePath());
+                strPathImg = pathFile.getText() +"/";
+            }
         });
 
         browseImg.setOnAction(event -> {
@@ -92,11 +98,11 @@ public class FinalControler {
             pathImg.setText(selectedDirectory.getAbsolutePath());
             strPathImg = pathImg.getText()+"/";
         });
+        setDefault();
     }
 
     public void upgradeImg(String path){
         Image image = new Image(new File(path).toURI().toString());
-        //Image image = new Image(new File("src/view/resources/generatedimg/lol.jpg").toURI().toString());
         Stage imageStage = new Stage();
         double width = image.getWidth();
         double height = image.getHeight();
@@ -134,18 +140,6 @@ public class FinalControler {
 
             double newWidth = viewport.getWidth() * scale;
             double newHeight = viewport.getHeight() * scale;
-
-            // To keep the visual point under the mouse from moving, we need
-            // (x - newViewportMinX) / (x - currentViewportMinX) = scale
-            // where x is the mouse X coordinate in the image
-
-            // solving this for newViewportMinX gives
-
-            // newViewportMinX = x - (x - currentViewportMinX) * scale
-
-            // we then clamp this value so the image never scrolls out
-            // of the imageview:
-
             double newMinX = clamp(mouse.getX() - (mouse.getX() - viewport.getMinX()) * scale,
                     0, width - newWidth);
             double newMinY = clamp(mouse.getY() - (mouse.getY() - viewport.getMinY()) * scale,
@@ -230,6 +224,14 @@ public class FinalControler {
         return new Point2D(
                 viewport.getMinX() + xProportion * viewport.getWidth(),
                 viewport.getMinY() + yProportion * viewport.getHeight());
+    }
+
+    public void setDefault(){
+        pathImg.setText("/home/pierre/Dev/Java/demo");
+        pathFile.setText("/home/pierre/Dev/Java/demo");
+        strPathImg = pathImg.getText()+"/";
+        strPathFile = pathFile.getText()+"/";
+
     }
 
     public static void main(String[] args){

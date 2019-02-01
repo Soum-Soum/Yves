@@ -32,5 +32,12 @@ public class StartControler {
             }}
             next.setDisable(false);
         });
+        setDefault();
+    }
+
+    public void setDefault(){
+        montantWidth.setText("4.5");
+        montantDist.setText("57");
+        traverseWidth.setText("20");
     }
 }

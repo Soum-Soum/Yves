@@ -7,41 +7,32 @@ import math.ShapeType;
 import math.Segment;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Window extends Quadrilateral {
 
-    public ArrayList<Montant> montants;
-    public Montant buttomMontant,topMontant,leftMontant,rightMontant,buttomLeftMontant,buttomRightMontant, midLeftMontant, midRightMontant;
+    public Hashtable <String, Montant> montantsBeforCut;
+    public Hashtable <String, LinkedList<Montant>> montantsAfterCut;
     public Quadrilateral outLines;
-    public String name, ref;
+    public String name;
     public boolean haveTraverse = false;
     public Quadrilateral traverse;
 
     public Window(Segment segment, double width, boolean isOnRightSide, ShapeType type, String name,double thetaTop, double thetaButtom) {
         super(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
-        montants = new ArrayList<>();
+        montantsAfterCut = new Hashtable<>();
+        montantsBeforCut = new Hashtable<>();
         this.name=name;
     }
 
     public void generateTraverse(){
         haveTraverse=true;
         if (this.type == ShapeType.TRAPEZIUM1 || this.type == ShapeType.TRAPEZIUM2){
-            this.traverse = new Montant(new Segment(this.topMontant.topLeft,this.topMontant.topRight), DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.PARALLELOGRAM1);
+            this.traverse = new Montant(new Segment(montantsBeforCut.get("topMontant").topLeft,montantsBeforCut.get("topMontant").topRight), DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.PARALLELOGRAM1);
         }else {
-            this.traverse = new Montant(new Segment(this.topMontant.topLeft,this.topMontant.topRight),DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.RECTANGLE, 0,0);
+            this.traverse = new Montant(new Segment(montantsBeforCut.get("topMontant").topLeft,montantsBeforCut.get("topMontant").topRight),DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.RECTANGLE, 0,0);
         }
-        this.outLines = new Quadrilateral(this.buttomMontant.buttomLeft,this.buttomMontant.buttomRight,this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
+        this.outLines = new Quadrilateral(montantsBeforCut.get("buttomMontant").buttomLeft,montantsBeforCut.get("buttomMontant").buttomRight,this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
     }
 
-    public void setRefMontants(){
-        this.leftMontant.ref = this.ref + " M-01";
-        this.midLeftMontant.ref = this.ref + " M-02";
-        this.buttomLeftMontant.ref = this.ref + " M-03";
-        this.buttomMontant.ref = this.ref + " M-04";
-        this.topMontant.ref = this.ref + " M-05";
-        this.buttomRightMontant.ref = this.ref + " M-06";
-        this.midRightMontant.ref = this.ref + " M-07";
-        this.rightMontant.ref = this.ref + " M-08";
-    }
 }

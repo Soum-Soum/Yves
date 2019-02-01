@@ -4,19 +4,16 @@ import math.*;
 import view.obj.ViewBeam;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class PentagonalBeam extends Beam {
     public Pentagon shape;
 
-    public PentagonalBeam(Point buttomLeft, double width, double height ,double theta, double faitageValue, String ref) {
-        this.shape = new Pentagon(buttomLeft, width, height, theta, faitageValue );
-        montants = new ArrayList<>();
-        this.ref=ref;
-    }
-
     public PentagonalBeam(Area area, ViewBeam viewBeam){
-        montants = new ArrayList<>();
-        double x = Double.parseDouble(viewBeam.x.getValue());
+        leftMontant = new LinkedList<>();
+        rightMontant = new LinkedList<>();
+        midsMontants = new LinkedList<>();
+        double x = area.getShape().getMinX() + Double.parseDouble(viewBeam.x.getValue());
         double width = Double.parseDouble(viewBeam.wight.getValue());
         double height = Double.parseDouble(viewBeam.height.getValue());
         this.shape=new Pentagon();

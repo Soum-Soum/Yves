@@ -4,19 +4,16 @@ import math.*;
 import view.obj.ViewBeam;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class QuadrialteralBeam extends Beam {
     public Quadrilateral shape;
 
-    public QuadrialteralBeam(Segment segment, double width, boolean isOnRightSide, ShapeType type, String ref, double thetaTop, double thetaButtom) {
-        this.shape = new Quadrilateral(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
-        montants = new ArrayList<>();
-        this.ref=ref;
-    }
-
     public QuadrialteralBeam(Area area, ViewBeam viewBeam){
-        montants = new ArrayList<>();
-        double x = Double.parseDouble(viewBeam.x.getValue());
+        leftMontant = new LinkedList<>();
+        rightMontant = new LinkedList<>();
+        midsMontants = new LinkedList<>();
+        double x = area.getShape().getMinX() + Double.parseDouble(viewBeam.x.getValue());
         double width = Double.parseDouble(viewBeam.wight.getValue());
         double height = Double.parseDouble(viewBeam.height.getValue());
         shape = new Quadrilateral();

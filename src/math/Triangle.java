@@ -1,7 +1,5 @@
 package math;
 
-import java.util.ArrayList;
-
 public class Triangle {
 
     Point A,B,C;
@@ -11,6 +9,7 @@ public class Triangle {
         A = a;
         B = b;
         C = c;
+        setSegment();
     }
 
     public void setSegment(){
@@ -28,7 +27,16 @@ public class Triangle {
         b1 = sign(pt, A, B) < 0.0f;
         b2 = sign(pt, B, C) < 0.0f;
         b3 = sign(pt, C, A) < 0.0f;
-        return ((b1 == b2) && (b2 == b3));
+        return ((b1 == b2) && (b2 == b3)) || isOnTheBorder(AB,pt) || isOnTheBorder(AC,pt) || isOnTheBorder(BC,pt);
+    }
+
+
+    private boolean isOnTheBorder(Segment s , Point p){
+        Segment s1 = new Segment(s.head,p), s2 = new Segment(p,s.tail);
+        if (s1.getLenght()+s2.getLenght()<=s.getLenght()){
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args){

@@ -9,7 +9,7 @@ public abstract class Area {
 
     public ArrayList<Window> windows;
     public ArrayList<Beam> beams;
-    public LinkedList<Montant> outlinesMontants;
+    public HashMap<String,Montant> outlinesMontants;
     public LinkedList<Montant> verticalMontant;
     public LinkedList<Montant> midMontant;
     public String name;
@@ -17,7 +17,7 @@ public abstract class Area {
     public Area(){
         this.windows = new ArrayList<>();
         this.beams = new ArrayList<>();
-        this.outlinesMontants = new LinkedList<>();
+        this.outlinesMontants = new HashMap<>();
         this.verticalMontant = new LinkedList<>();
         this.midMontant = new LinkedList<>();
     }
@@ -33,27 +33,27 @@ public abstract class Area {
     public void setWindowsMontants(){
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
-            if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
-                w.buttomMontant = new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0);
+            if (w.type == ShapeType.TRAPEZIUM3 || w.type == ShapeType.TRAPEZIUM4){
+                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom,DATACONTAINER.MONTANTWITH,true, ShapeType.PARALLELOGRAM1));
             }else {
-                w.buttomMontant = new Montant(w.buttom,DATACONTAINER.MONTANTWITH,true, ShapeType.PARALLELOGRAM1);
+                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0));
             }
             double thetaTop = w.type == ShapeType.TRAPEZIUM3 || w.type == ShapeType.TRAPEZIUM4  ?  w.thetaButtom : w.thetaTop;
-            w.buttomLeftMontant = new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.buttomMontant.buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
-                   true,Montant.setMontantType(w.buttomMontant.buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0);
-            w.buttomRightMontant = new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.buttomMontant.buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
-                    false,Montant.setMontantType(w.buttomMontant.buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0);
-            w.midLeftMontant =  new Montant(new Segment(w.buttomLeftMontant.buttomLeft,w.topLeft),DATACONTAINER.MONTANTWITH,
-                    false,w.type,thetaTop,0);
-            w.midRightMontant =  new Montant(new Segment(w.buttomRightMontant.buttomRight,w.topRight),DATACONTAINER.MONTANTWITH,
-                    true,w.type, thetaTop,0);
-            w.leftMontant = new Montant(this.getInerShape().getVerticalSegment(w.midLeftMontant.buttomLeft.x),DATACONTAINER.MONTANTWITH,
-                    false,this.getInerShape().getType(w.midLeftMontant.buttomLeft.x),this.getInerShape().getTheta(w.midLeftMontant.buttomLeft.x), 0);
-            setSums(w.leftMontant);
-            w.rightMontant = new Montant(this.getInerShape().getVerticalSegment(w.midRightMontant.buttomRight.x),DATACONTAINER.MONTANTWITH,
-                    true,this.getInerShape().getType(w.midRightMontant.buttomRight.x),this.getInerShape().getTheta(w.midRightMontant.buttomRight.x), 0);
-            setSums(w.rightMontant);
-            Segment topSegment = new Segment(w.midLeftMontant.topLeft,w.midRightMontant.topRight);
+            w.montantsBeforCut.put("buttomLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+                   true,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
+            w.montantsBeforCut.put("buttomRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+                    false,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
+            w.montantsBeforCut.put("midLeftMontant", new Montant(new Segment(w.montantsBeforCut.get("buttomLeftMontant").buttomLeft,w.topLeft),DATACONTAINER.MONTANTWITH,
+                    false,w.type,thetaTop,0));
+            w.montantsBeforCut.put("midRightMontant", new Montant(new Segment(w.montantsBeforCut.get("buttomRightMontant").buttomRight,w.topRight),DATACONTAINER.MONTANTWITH,
+                    true,w.type, thetaTop,0));
+            w.montantsBeforCut.put("leftMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),DATACONTAINER.MONTANTWITH,
+                    false,this.getInerShape().getType(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x), 0));
+            setSums(w.montantsBeforCut.get("midLeftMontant"));
+            w.montantsBeforCut.put("rightMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midRightMontant").buttomRight.x),DATACONTAINER.MONTANTWITH,
+                    true,this.getInerShape().getType(w.montantsBeforCut.get("midRightMontant").buttomRight.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midRightMontant").buttomRight.x), 0));
+            setSums(w.montantsBeforCut.get("midRightMontant"));
+            Segment topSegment = new Segment(w.montantsBeforCut.get("midLeftMontant").topLeft,w.montantsBeforCut.get("midRightMontant").topRight);
             if (leftUnderBeam){
                 topSegment = new Segment(w.topLeft,topSegment.tail);
             }
@@ -61,34 +61,44 @@ public abstract class Area {
                 topSegment = new Segment(topSegment.head,w.topRight);
             }
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
-                w.topMontant = new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1);
+                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1));
             }else {
-                w.topMontant = new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.RECTANGLE, 0,0);
+                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.RECTANGLE, 0,0));
             }
             if (leftUnderBeam && rightUnderBeam){
-                w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,w.buttomMontant.buttomRight,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
+                w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttomLeft,w.montantsBeforCut.get("buttomMontant").buttomRight,w.montantsBeforCut.get("topMontant").topLeft,
+                        w.montantsBeforCut.get("topMontant").topRight, w.type,w.thetaTop, w.thetaButtom);
             }else if (leftUnderBeam){
-                w.outLines = new Quadrilateral(w.buttomMontant.buttomLeft,new Point(w.buttomMontant.buttomRight,+DATACONTAINER.MONTANTWITH,0)
-                        ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
+                w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttomLeft,new Point(w.montantsBeforCut.get("buttomMontant").buttomRight,+DATACONTAINER.MONTANTWITH,0)
+                        ,w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
             }else if (rightUnderBeam){
-                w.outLines = new Quadrilateral(new Point(w.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),w.buttomMontant.buttomRight
-                        ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
+                w.outLines = new Quadrilateral(new Point(w.montantsBeforCut.get("buttomMontant").buttomLeft,-DATACONTAINER.MONTANTWITH,0),w.montantsBeforCut.get("buttomMontant").buttomRight
+                        ,w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
             }else {
-                w.outLines = new Quadrilateral(new Point(w.buttomMontant.buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(w.buttomMontant.buttomRight,+DATACONTAINER.MONTANTWITH,0)
-                        ,w.topMontant.topLeft,w.topMontant.topRight,w.type,w.thetaTop, w.thetaButtom);
+                w.outLines = new Quadrilateral(new Point(w.montantsBeforCut.get("buttomMontant").buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(w.montantsBeforCut.get("buttomMontant").buttomRight,
+                        +DATACONTAINER.MONTANTWITH,0),w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
             }
-            w.setRefMontants();
         }
     }
 
     public void setBeamMontants(){
         for (Beam b : beams){
-            Montant leftMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWITH,
-                    false,this.getShape().getType(b.getShape().buttomLeft.x),this.getShape().getTheta(b.getShape().buttomLeft.x),0);
-            setSums(leftMontant);
-            addMontantToList(b.montants,leftMontant,true, false,CollisionBehaviour.STOP_FIRTS_TOP);
-            Montant rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWITH,
-                    true,this.getShape().getType(b.getShape().buttomRight.x),this.getShape().getTheta(b.getShape().buttomRight.x),0);
+            Montant leftMontant=null, rightMontant=null;
+            if(b.getShape().buttomLeft.x!=this.getShape().buttomLeft.x){
+                leftMontant= new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWITH,
+                        false,this.getShape().getType(b.getShape().buttomLeft.x),this.getShape().getTheta(b.getShape().buttomLeft.x),0);
+                setSums(leftMontant);
+                b.leftMontant = handleCollision(leftMontant,true, true,CollisionBehaviour.STOP_FIRTS_TOP);
+            }else {
+                this.outlinesMontants.remove("leftMontant");
+            }
+            if(b.getShape().buttomRight.x!=this.getShape().buttomRight.x){
+                rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWITH,
+                        true,this.getShape().getType(b.getShape().buttomRight.x),this.getShape().getTheta(b.getShape().buttomRight.x),0);
+                setSums(rightMontant);
+            }else {
+                this.outlinesMontants.remove("rightMontant");
+            }
             double x = b.getShape().buttomLeft.x;
             ArrayList<Montant> tempMontants = new ArrayList<>();
             while (b.getShape().buttomRight.x-x>=DATACONTAINER.MONTANTWITH){
@@ -99,39 +109,50 @@ public abstract class Area {
                 x += DATACONTAINER.MONTANTWITH;
             }
             if (x!=b.getShape().buttomRight.x){
-                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),rightMontant.buttomRight.x-x,
+                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),b.getShape().buttomRight.x-x,
                         true,ShapeType.RECTANGLE, 0,0);
                 buttomMontant.numberWritable=false;
                 tempMontants.add(buttomMontant);
             }
             tempMontants.get(tempMontants.size()/2).numberWritable=true;
-            addMontantToList(b.montants, tempMontants,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
-            setSums(rightMontant);
-            addMontantToList(b.montants,rightMontant,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
+            b.midsMontants = handleCollision(tempMontants,true, true, CollisionBehaviour.STOP_FIRTS_TOP);
+            if (rightMontant != null) {
+                b.rightMontant= handleCollision(rightMontant, true, true, CollisionBehaviour.STOP_FIRTS_TOP);
+            }
         }
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
             if (leftUnderBeam && rightUnderBeam){
-                w.montants.addAll(Arrays.asList( w.buttomMontant, w.topMontant ));
-                //w.leftMontant, w.midLeftMontant, ... ,w.midRightMontant, w.rightMontant
-                addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
             }else if (leftUnderBeam){
-                w.montants.addAll(Arrays.asList( w.buttomMontant, w.topMontant));
-                //w.leftMontant, w.midLeftMontant,...
-                addMontantToList(w.montants, Arrays.asList(w.buttomLeftMontant,w.buttomRightMontant,w.midRightMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
             }else if (rightUnderBeam){
-                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant));
-                //...,w.midRightMontant, w.rightMontant
-                addMontantToList(w.montants, Arrays.asList(w.leftMontant,w.midLeftMontant,w.buttomLeftMontant,w.buttomRightMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
             }else {
-                w.montants.addAll(Arrays.asList(w.buttomMontant, w.topMontant));
-                addMontantToList(w.montants, Arrays.asList(w.leftMontant,w.midLeftMontant,w.buttomLeftMontant,w.buttomRightMontant,w.midRightMontant,w.rightMontant),false, true, CollisionBehaviour.NEVER_STOP);
+                w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+            }
+            for (String s : w.montantsBeforCut.keySet()){
+                if (w.montantsAfterCut.get(s)==null){
+                    w.montantsAfterCut.put(s,w.montantsBeforCut.get(s).montant2List());
+                }
             }
         }
     }
 
     public void setVerticalMontant(){
-        for (Montant montant : outlinesMontants){
+        for (Montant montant : outlinesMontants.values()){
             if (montant.isVertical()){
                 this.verticalMontant.add(montant);
             }
@@ -144,7 +165,7 @@ public abstract class Area {
             double dist = verticalMontant.get(i+1).buttomLeft.x - verticalMontant.get(i).buttomLeft.x;
             double x;
             Montant m = null;
-            if ( dist > DATACONTAINER.MONTANTDIST && dist < 2 * DATACONTAINER.MONTANTDIST){
+            if ( dist > DATACONTAINER.MONTANTDIST && dist <= 2 * DATACONTAINER.MONTANTDIST){
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x), this.getInerShape().getTheta(x),0);
@@ -257,44 +278,36 @@ public abstract class Area {
         return q;
     }
 
-    public void addMontantToList(List<Montant> list, Montant m, boolean needTraverse,  boolean addToVerticalList, CollisionBehaviour behaviour){
+    public LinkedList<Montant> handleCollision(Montant m, boolean needTraverse, boolean addToVerticalMontantList, CollisionBehaviour behaviour){
         LinkedList<Window> colider = this.getColider(m,needTraverse);
+        LinkedList<Montant> tempList;
         if (colider.size()!=0){
-            LinkedList<Montant> tempList = recursivDivision(m,colider, behaviour);
-            if (addToVerticalList){
-                verticalMontant.addAll(tempList);
-            }
-            list.addAll(tempList);
-        }else{
-            if (addToVerticalList){
-                verticalMontant.add(m);
-            }
-            if (list!=null){
-                list.add(m);
-            }
+            tempList = recursivDivision(m,colider, behaviour);
+        }else {
+            tempList = m.montant2List();
         }
+        if (addToVerticalMontantList){
+            verticalMontant.addAll(tempList);
+        }
+        return tempList;
+
     }
 
-    public void addMontantToList(List<Montant> list, List<Montant> listMontant, boolean needTraverse, boolean addToVerticalList, CollisionBehaviour behaviour){
-        for(int i=0;i<listMontant.size();i++){
-            Montant m =listMontant.get(i);
+    public LinkedList<LinkedList<Montant>> handleCollision(ArrayList<Montant> listMontant, boolean needTraverse, boolean addToVerticalMontantList, CollisionBehaviour behaviour){
+        LinkedList<LinkedList<Montant>> tempList = new LinkedList<>();
+        for(Montant m : listMontant){
             LinkedList<Window> colider = this.getColider(m, needTraverse);
-            if (colider.size()!=0){
-                LinkedList<Montant> tempList = recursivDivision(m,colider, behaviour);
-                if (addToVerticalList){
-                    verticalMontant.addAll(tempList);
-                }
-                if (list!=null){
-                    list.addAll(tempList);
-                }
-            }else{
-                if (addToVerticalList){
-                    verticalMontant.add(m);
-                }
-                if (list!=null){
-                    list.add(m);
-                }
+            LinkedList<Montant> temp2List;
+            if (colider.size()!=0) {
+                temp2List = recursivDivision(m, colider, behaviour);
+            }else {
+                temp2List = m.montant2List();
             }
+            if (addToVerticalMontantList){
+                verticalMontant.addAll(temp2List);
+            }
+            tempList.add(temp2List);
         }
+        return tempList;
     }
 }

@@ -99,7 +99,6 @@ public class WindowsControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
-            appManager.generateWindows(data);
         });
 
         prev.setOnAction(event -> {
@@ -124,6 +123,17 @@ public class WindowsControler {
                 leftRight.setText("Droite ->");
             }
         });
+        setDefault();
+    }
 
+    public void setDefault(){
+        windowType.setValue("RECTANGLE");
+        heightxWidth.setText("100x140");
+        xY.setText("50x50");
+        name.setText("F1");
+    }
+
+    public ObservableList<ViewWindow> getData() {
+        return data;
     }
 }

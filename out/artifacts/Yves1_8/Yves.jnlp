@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Yves.jnlp">
+  <information>
+    <title>Yves1.8</title>
+    <vendor>Unknown</vendor>
+    <description>Yves1.8</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Jama-1.0.3 .jar" size="35981" download="eager" />
+    <jar href="Yves.jar" size="130821" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="1200" height="800" main-class="view.View"  name="Yves1.8" />
+  <update check="background"/>
+</jnlp>

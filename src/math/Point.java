@@ -19,7 +19,11 @@ public class Point {
         y = point.y + dy;
     }
 
-    public String print(){
+    public void print(){
+         System.out.print("(" + x + "," + y + ")");
+    }
+
+    public String toString(){
         return "(" + x + "," + y + ")";
     }
 

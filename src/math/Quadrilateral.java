@@ -2,13 +2,11 @@ package math;
 
 
 import home.Montant;
-import jdk.jshell.execution.Util;
 import util.InsertionSort;
 import util.Utilies;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 
 
 public class Quadrilateral extends Polygone {
@@ -324,10 +322,10 @@ public class Quadrilateral extends Polygone {
 
     @Override
     public void print(){
-        System.out.println("butomLeft : " + buttomLeft.print());
-        System.out.println("topLeft : " + topLeft.print());
-        System.out.println("buttomRight : " + buttomRight.print());
-        System.out.println("topRight : " + topRight.print());
+        System.out.println("butomLeft : " + buttomLeft.toString());
+        System.out.println("topLeft : " + topLeft.toString());
+        System.out.println("buttomRight : " + buttomRight.toString());
+        System.out.println("topRight : " + topRight.toString());
     }
 
     @Override
@@ -381,6 +379,11 @@ public class Quadrilateral extends Polygone {
             return topRight;
         }
         return topLeft;
+    }
+
+    @Override
+    public boolean isPentagon() {
+        return false;
     }
 
     public Point getCenter(){

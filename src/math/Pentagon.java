@@ -68,11 +68,11 @@ public class Pentagon extends Polygone {
 
     @Override
     public void print() {
-        System.out.println("butomLeft : " + buttomLeft.print());
-        System.out.println("mediumLeft : " + mediumLeft.print());
-        System.out.println("buttomRight : " + buttomRight.print());
-        System.out.println("mediumRight : " + mediumRight.print());
-        System.out.println("top : " + top.print());
+        System.out.println("butomLeft : " + buttomLeft.toString());
+        System.out.println("mediumLeft : " + mediumLeft.toString());
+        System.out.println("buttomRight : " + buttomRight.toString());
+        System.out.println("mediumRight : " + mediumRight.toString());
+        System.out.println("top : " + top.toString());
     }
 
     @Override
@@ -113,6 +113,11 @@ public class Pentagon extends Polygone {
     @Override
     public Point getTopPoint() {
         return top;
+    }
+
+    @Override
+    public boolean isPentagon() {
+        return true;
     }
 
 }

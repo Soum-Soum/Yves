@@ -71,7 +71,6 @@ public class BeamControler {
         next.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(nextScene);
-            appManager.generateBeam(data);
         });
 
         prev.setOnAction(event -> {
@@ -86,6 +85,15 @@ public class BeamControler {
             }
             dependance.setItems(list);
         });
+        setDefault();
     }
 
+    public void setDefault(){
+        heightxWidth.setText("36x14");
+        x.setText("250");
+    }
+
+    public ObservableList<ViewBeam> getData() {
+        return data;
+    }
 }
