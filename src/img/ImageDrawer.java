@@ -138,7 +138,7 @@ public class ImageDrawer {
         QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");
         area.setOutLines();
         area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
-        area.windows.add(new Window(new Segment(50,200,50,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
+        area.windows.add(new Window(new Segment(60,200,60,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
 
         //
         //Penser à reporter les décalages de la zonnes dans au fenêtres

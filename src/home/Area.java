@@ -2,6 +2,7 @@ package home;
 
 import data.DATACONTAINER;
 import math.*;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.*;
 
@@ -121,33 +122,48 @@ public abstract class Area {
             }
         }
         for (Window w : windows){
+            handleSideWindows(w);
             boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
             if (leftUnderBeam && rightUnderBeam){
-                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
             }else if (leftUnderBeam){
-                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
             }else if (rightUnderBeam){
-                w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
             }else {
-                w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
-                w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));
+                try {w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
             }
             for (String s : w.montantsBeforCut.keySet()){
                 if (w.montantsAfterCut.get(s)==null){
                     w.montantsAfterCut.put(s,w.montantsBeforCut.get(s).montant2List());
                 }
             }
+        }
+    }
+
+    public void handleSideWindows(Window w){
+        if (w.buttomLeft.x <= this.getInerShape().buttomLeft.x + 2*DATACONTAINER.MONTANTWITH){
+            w.montantsBeforCut.remove("leftMontant");
+        }
+        if (w.buttomRight.x >= this.getInerShape().buttomRight.x - 2*DATACONTAINER.MONTANTWITH){
+            w.montantsBeforCut.remove("rightMontant");
+        }
+        if(w.buttomLeft.y <= this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
+            w.montantsBeforCut.remove("buttomRightMontant");
+            w.montantsBeforCut.remove("buttomLeftMontant");
+            w.montantsBeforCut.remove("buttomMontant");
         }
     }
 
@@ -279,18 +295,21 @@ public abstract class Area {
     }
 
     public LinkedList<Montant> handleCollision(Montant m, boolean needTraverse, boolean addToVerticalMontantList, CollisionBehaviour behaviour){
-        LinkedList<Window> colider = this.getColider(m,needTraverse);
-        LinkedList<Montant> tempList;
-        if (colider.size()!=0){
-            tempList = recursivDivision(m,colider, behaviour);
-        }else {
-            tempList = m.montant2List();
+        try {
+            LinkedList<Window> colider = this.getColider(m,needTraverse);
+            LinkedList<Montant> tempList;
+            if (colider.size()!=0){
+                tempList = recursivDivision(m,colider, behaviour);
+            }else {
+                tempList = m.montant2List();
+            }
+            if (addToVerticalMontantList){
+                verticalMontant.addAll(tempList);
+            }
+            return tempList;
+        }catch (NullPointerException e){
+            return null;
         }
-        if (addToVerticalMontantList){
-            verticalMontant.addAll(tempList);
-        }
-        return tempList;
-
     }
 
     public LinkedList<LinkedList<Montant>> handleCollision(ArrayList<Montant> listMontant, boolean needTraverse, boolean addToVerticalMontantList, CollisionBehaviour behaviour){
