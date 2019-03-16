@@ -15,24 +15,24 @@
             <TableColumn prefWidth="195.0" text="X" fx:id="xCol" />
         </columns>
       </TableView>
-      <ChoiceBox fx:id="dependance" layoutX="271.0" layoutY="125.0" prefWidth="150.0" />
-      <Label layoutX="70.0" layoutY="120.0" prefHeight="35.0" prefWidth="201.0" text="Dépendance">
+      <ChoiceBox fx:id="dependance" layoutX="272.0" layoutY="238.0" prefWidth="150.0" />
+      <Label layoutX="71.0" layoutY="233.0" prefHeight="35.0" prefWidth="201.0" text="Dépendance">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="heightxWidth" layoutX="272.0" layoutY="175.0" />
-      <Label layoutX="70.0" layoutY="170.0" prefHeight="35.0" prefWidth="201.0" text="HxL(cm)">
+      <TextField fx:id="heightxWidth" layoutX="273.0" layoutY="288.0" />
+      <Label layoutX="71.0" layoutY="283.0" prefHeight="35.0" prefWidth="201.0" text="HxL(cm)">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="219.0" prefHeight="35.0" prefWidth="201.0" text="Abscisse">
+      <Label layoutX="71.0" layoutY="332.0" prefHeight="35.0" prefWidth="201.0" text="Abscisse">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="272.0" layoutY="224.0" fx:id="x" />
+      <TextField layoutX="273.0" layoutY="337.0" fx:id="x" />
       <Button fx:id="add" layoutX="71.0" layoutY="582.0" mnemonicParsing="false" text="Ajouter">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -58,5 +58,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="21.0" prefHeight="95.0" prefWidth="399.0" text="Insertion des Poutres" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

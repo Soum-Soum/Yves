@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: daebf3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controler.FinalControler">
    <children>
-      <Button fx:id="validate" layoutX="600.0" layoutY="154.0" mnemonicParsing="false" text="Validate">
+      <Button fx:id="validate" layoutX="605.0" layoutY="311.0" mnemonicParsing="false" text="Validate">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="prev" layoutX="481.0" layoutY="154.0" mnemonicParsing="false" text="&lt;- Prev">
+      <Button fx:id="prev" layoutX="486.0" layoutY="311.0" mnemonicParsing="false" text="&lt;- Prev">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -44,5 +44,16 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="386.0" layoutY="98.0" prefHeight="95.0" prefWidth="399.0" text="Ecrans d'export" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="86.0" layoutY="519.0" prefHeight="35.0" prefWidth="235.0" text="Nom du ficher : ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fileName" layoutX="321.0" layoutY="524.0" prefHeight="25.0" prefWidth="707.0" />
    </children>
 </AnchorPane>

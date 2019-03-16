@@ -89,7 +89,7 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
     public String printMontant(){
         String str ="";
         double temp[] = this.getWidthHMinHMax();
-        str += "Number : " + this.number +"\tForme : " + this.type.toString();
+        str += "Numero : " + this.number;
         if (temp[0]==temp[1]){
             str+= "\tLargeur : " + temp[0];
         }else{
@@ -101,10 +101,10 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
             str += "\tHmin : " + temp[2] + "\tHmax : " + temp[3];
         }
         if (this.topSum!=-1){
-            str += "\tSumTop : " + this.topSum;
+            str += "\tCumul_Haut : " + this.topSum;
         }
         if (this.buttomSum!=-1){
-            str += "\tSumButtom : " + this.buttomSum;
+            str += "\tCumul_Bas : " + this.buttomSum;
         }
         if (this.thetaButtom != 0){
             str += "\tAngle_Bas/Droite : " + Utilies.round3((this.thetaButtom/(Math.PI*2))*360);

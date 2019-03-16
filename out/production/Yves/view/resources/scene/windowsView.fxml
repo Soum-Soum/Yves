@@ -20,42 +20,42 @@
             <TableColumn fx:id="nameCol" prefWidth="164.0" text="Nom" />
         </columns>
       </TableView>
-      <ChoiceBox fx:id="windowType" layoutX="271.0" layoutY="125.0" prefWidth="150.0" />
-      <Label layoutX="70.0" layoutY="120.0" prefHeight="35.0" prefWidth="201.0" text="Type de ">
+      <ChoiceBox fx:id="windowType" layoutX="272.0" layoutY="189.0" prefWidth="150.0" />
+      <Label layoutX="71.0" layoutY="184.0" prefHeight="35.0" prefWidth="201.0" text="Type de ">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="heightxWidth" layoutX="272.0" layoutY="175.0" />
-      <Label layoutX="70.0" layoutY="170.0" prefHeight="35.0" prefWidth="201.0" text="HxL(cm)">
+      <TextField fx:id="heightxWidth" layoutX="273.0" layoutY="239.0" />
+      <Label layoutX="71.0" layoutY="234.0" prefHeight="35.0" prefWidth="201.0" text="HxL(cm)">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="219.0" prefHeight="35.0" prefWidth="201.0" text="Position">
+      <Label layoutX="71.0" layoutY="283.0" prefHeight="35.0" prefWidth="201.0" text="Position">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="272.0" layoutY="224.0" fx:id="xY" />
-      <Label layoutX="70.0" layoutY="266.0" prefHeight="35.0" prefWidth="201.0" text="Angle(Deg)">
+      <TextField layoutX="273.0" layoutY="288.0" fx:id="xY" />
+      <Label layoutX="71.0" layoutY="330.0" prefHeight="35.0" prefWidth="201.0" text="Angle(Deg)">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="311.0" prefHeight="35.0" prefWidth="201.0" text="Angle(%)">
+      <Label layoutX="71.0" layoutY="375.0" prefHeight="35.0" prefWidth="201.0" text="Angle(%)">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="thetaDeg" layoutX="272.0" layoutY="271.0" />
-      <TextField fx:id="thetaPercent" layoutX="272.0" layoutY="316.0" />
-      <Label layoutX="70.0" layoutY="359.0" prefHeight="35.0" prefWidth="201.0" text="Nom">
+      <TextField fx:id="thetaDeg" layoutX="273.0" layoutY="335.0" />
+      <TextField fx:id="thetaPercent" layoutX="273.0" layoutY="380.0" />
+      <Label layoutX="71.0" layoutY="423.0" prefHeight="35.0" prefWidth="201.0" text="Nom">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="276.0" layoutY="359.0" />
+      <TextField fx:id="name" layoutX="277.0" layoutY="423.0" />
       <Button fx:id="add" layoutX="71.0" layoutY="582.0" mnemonicParsing="false" text="Ajouter">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -81,12 +81,12 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="70.0" layoutY="400.0" prefHeight="35.0" prefWidth="212.0" text="Sense D'extrusion">
+      <Label layoutX="71.0" layoutY="464.0" prefHeight="35.0" prefWidth="212.0" text="Sense D'extrusion">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <ToggleButton fx:id="leftRight" layoutX="302.0" layoutY="402.0" mnemonicParsing="false" text="Droite -&gt;">
+      <ToggleButton fx:id="leftRight" layoutX="303.0" layoutY="466.0" mnemonicParsing="false" text="Droite -&gt;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -94,6 +94,11 @@
       <Label fx:id="error" alignment="CENTER" layoutY="696.0" prefHeight="105.0" prefWidth="435.0" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="26.0" prefHeight="95.0" prefWidth="435.0" text="Insertion des Ouvertures" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
    </children>

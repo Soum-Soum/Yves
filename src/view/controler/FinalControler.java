@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import main.AppManager;
 
@@ -39,7 +40,7 @@ public class FinalControler {
     @FXML
     Button prev, validate;
     @FXML
-    public TextField pathImg, pathFile, scaleFactor ;
+    public TextField pathImg, pathFile, scaleFactor, fileName;
     @FXML
     Button browseImg, browseFile;
     @FXML
@@ -81,7 +82,7 @@ public class FinalControler {
 
         browseFile.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            DirectoryChooser directoryChooser = new DirectoryChooser();
+            DirectoryChooser directoryChooser= new DirectoryChooser();
             File selectedDirectory = directoryChooser.showDialog(stage);
             pathFile.setText(selectedDirectory.getAbsolutePath());
             strPathFile = pathFile.getText() +"/";
@@ -92,11 +93,12 @@ public class FinalControler {
         });
 
         browseImg.setOnAction(event -> {
+            //DirectoryChooser directoryChooser = new DirectoryChooser();
             DirectoryChooser directoryChooser = new DirectoryChooser();
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             File selectedDirectory = directoryChooser.showDialog(stage);
             pathImg.setText(selectedDirectory.getAbsolutePath());
-            strPathImg = pathImg.getText()+"/";
+            strPathImg = pathImg.getText();
         });
         setDefault();
     }

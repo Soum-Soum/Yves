@@ -108,14 +108,14 @@ public class AppManager {
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }
-        String path = imageDrawer.saveIMG(controler.strPathImg + "Generated_Img.jpg");
+        String path = imageDrawer.saveIMG(controler.strPathImg + controler.fileName.getText() +".jpg");
         controler.upgradeImg(path);
     }
 
     public void generateFile(FinalControler controler){
         FileWriter fileWriter = new FileWriter();
         try {
-            fileWriter.writeFile(areas, controler.strPathFile);
+            fileWriter.writeFile(areas, controler.strPathFile, controler.fileName.getText() + ".tsv");
         } catch (IOException e) {
             e.printStackTrace();
         }

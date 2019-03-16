@@ -158,6 +158,6 @@ public class ImageDrawer {
         FileWriter fileWriter = new FileWriter();
         ArrayList<Area> mdr = new ArrayList<>();
         mdr.add(area);
-        fileWriter.writeFile(mdr,"");
+        //fileWriter.writeFile(mdr,"");
     }
 }
