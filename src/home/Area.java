@@ -29,7 +29,7 @@ public abstract class Area {
 
     public abstract Polygone getInerShape();
 
-    public abstract void setSums(Montant m);
+    public abstract void setSums(Montant m, Boolean justButtom);
 
     public void setWindowsMontants(){
         for (Window w : windows){
@@ -44,16 +44,18 @@ public abstract class Area {
                    true,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
             w.montantsBeforCut.put("buttomRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
                     false,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
-            w.montantsBeforCut.put("midLeftMontant", new Montant(new Segment(w.montantsBeforCut.get("buttomLeftMontant").buttomLeft,w.topLeft),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("midLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
                     false,w.type,thetaTop,0));
-            w.montantsBeforCut.put("midRightMontant", new Montant(new Segment(w.montantsBeforCut.get("buttomRightMontant").buttomRight,w.topRight),DATACONTAINER.MONTANTWITH,
+            setSums(w.montantsBeforCut.get("midLeftMontant"),true);
+            w.montantsBeforCut.put("midRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
                     true,w.type, thetaTop,0));
+            setSums(w.montantsBeforCut.get("midRightMontant"),true);
             w.montantsBeforCut.put("leftMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),DATACONTAINER.MONTANTWITH,
                     false,this.getInerShape().getType(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x), 0));
-            setSums(w.montantsBeforCut.get("midLeftMontant"));
+            setSums(w.montantsBeforCut.get("leftMontant"),false);
             w.montantsBeforCut.put("rightMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midRightMontant").buttomRight.x),DATACONTAINER.MONTANTWITH,
                     true,this.getInerShape().getType(w.montantsBeforCut.get("midRightMontant").buttomRight.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midRightMontant").buttomRight.x), 0));
-            setSums(w.montantsBeforCut.get("midRightMontant"));
+            setSums(w.montantsBeforCut.get("rightMontant"),false);
             Segment topSegment = new Segment(w.montantsBeforCut.get("midLeftMontant").topLeft,w.montantsBeforCut.get("midRightMontant").topRight);
             if (leftUnderBeam){
                 topSegment = new Segment(w.topLeft,topSegment.tail);
@@ -88,7 +90,7 @@ public abstract class Area {
             if(b.getShape().buttomLeft.x!=this.getShape().buttomLeft.x){
                 leftMontant= new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWITH,
                         false,this.getShape().getType(b.getShape().buttomLeft.x),this.getShape().getTheta(b.getShape().buttomLeft.x),0);
-                setSums(leftMontant);
+                setSums(leftMontant,false);
                 b.leftMontant = handleCollision(leftMontant,true, true,CollisionBehaviour.STOP_FIRTS_TOP);
             }else {
                 this.outlinesMontants.remove("leftMontant");
@@ -96,7 +98,7 @@ public abstract class Area {
             if(b.getShape().buttomRight.x!=this.getShape().buttomRight.x){
                 rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWITH,
                         true,this.getShape().getType(b.getShape().buttomRight.x),this.getShape().getTheta(b.getShape().buttomRight.x),0);
-                setSums(rightMontant);
+                setSums(rightMontant,false);
             }else {
                 this.outlinesMontants.remove("rightMontant");
             }
@@ -123,7 +125,13 @@ public abstract class Area {
         }
         for (Window w : windows){
             handleSideWindows(w);
-            boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
+            Boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows), midleftUnderBeam = null, midrighttUnderBeam = null;
+            if (w.montantsBeforCut.get("midLeftMontant") != null){
+                midleftUnderBeam = w.montantsBeforCut.get("midLeftMontant").buttomLeft.isUnderObstacle(beams,windows);
+            }
+            if (w.montantsBeforCut.get("midRightMontant") != null){
+                midrighttUnderBeam = w.montantsBeforCut.get("midRightMontant").buttomRight.isUnderObstacle(beams,windows);
+            }
             if (leftUnderBeam && rightUnderBeam){
                 try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
@@ -131,20 +139,37 @@ public abstract class Area {
                 try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                if (midrighttUnderBeam!= null && !midrighttUnderBeam){
+                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                }else if (midrighttUnderBeam!= null && midrighttUnderBeam){
+                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
+                }
             }else if (rightUnderBeam){
-                try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                if (midleftUnderBeam!= null && !midleftUnderBeam){
+                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                }else if (midleftUnderBeam!= null && midleftUnderBeam){
+                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
+                }
                 try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
             }else {
-                try {w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+
+                if (midleftUnderBeam!= null && !midleftUnderBeam){
+                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                }else if (midleftUnderBeam!= null && midleftUnderBeam){
+                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
+                }
                 try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
                 try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-            }
+                if (midrighttUnderBeam!= null && !midrighttUnderBeam){
+                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                }else if (midrighttUnderBeam!= null && midrighttUnderBeam){
+                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
+                }
+            }// On ingnore les exeption nule pour ne pas à avoir à vérifuer si le montant existe toujour ou si il a été suprimé car on est sur un bord de la facade
             for (String s : w.montantsBeforCut.keySet()){
                 if (w.montantsAfterCut.get(s)==null){
                     w.montantsAfterCut.put(s,w.montantsBeforCut.get(s).montant2List());
@@ -160,10 +185,13 @@ public abstract class Area {
         if (w.buttomRight.x >= this.getInerShape().buttomRight.x - 2*DATACONTAINER.MONTANTWITH){
             w.montantsBeforCut.remove("rightMontant");
         }
-        if(w.buttomLeft.y <= this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
+        if(w.buttomLeft.y < this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
             w.montantsBeforCut.remove("buttomRightMontant");
             w.montantsBeforCut.remove("buttomLeftMontant");
             w.montantsBeforCut.remove("buttomMontant");
+        }else if(w.buttomLeft.y == this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
+            w.montantsBeforCut.remove("buttomRightMontant");
+            w.montantsBeforCut.remove("buttomLeftMontant");
         }
     }
 
@@ -185,12 +213,12 @@ public abstract class Area {
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x), this.getInerShape().getTheta(x),0);
-                setSums(m);
+                setSums(m, false);
             }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
                 x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
                 m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
                         true,this.getInerShape().getType(x),this.getInerShape().getTheta(x),0);
-                setSums(m);
+                setSums(m, false);
             }
             if (m!=null){
                 LinkedList<Window> colider = this.getColider(m,false);
@@ -236,7 +264,7 @@ public abstract class Area {
                         temp = m.substract(intersection);
                         montantPart.add(temp[0]);
                     }
-                    if (coliders.size()!=1){
+                    if (coliders.size()>1){
                         //montantPart.addAll(recursivDivision(m,coliders,behaviour));
                         montantPart.addAll(recursivDivision(temp[1],coliders,behaviour));
                     }
@@ -256,7 +284,7 @@ public abstract class Area {
                         temp = m.substract(intersection);
                         montantPart.add(temp[1]);
                     }
-                    if (coliders.size()!=1){
+                    if (coliders.size()>1){
                         montantPart.addAll(recursivDivision(temp[0],coliders,behaviour));
                         //montantPart.addAll(recursivDivision(m,coliders,behaviour));
                     }
@@ -290,7 +318,7 @@ public abstract class Area {
                 }
             }
         }
-        if (q.size()!= 0 && !q.get(0).haveTraverse && needTraverse){q.get(0).generateTraverse();}
+        if (q.size()> 0 && !q.get(0).haveTraverse && needTraverse){q.get(0).generateTraverse();}
         return q;
     }
 
@@ -298,7 +326,7 @@ public abstract class Area {
         try {
             LinkedList<Window> colider = this.getColider(m,needTraverse);
             LinkedList<Montant> tempList;
-            if (colider.size()!=0){
+            if (colider.size()>0){
                 tempList = recursivDivision(m,colider, behaviour);
             }else {
                 tempList = m.montant2List();

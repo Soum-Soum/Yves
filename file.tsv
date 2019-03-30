@@ -1,0 +1,191 @@
+Area
+CONTOURS
+
+Numero : 1	Largeur : 5.176	Hauteur : 1035.276	Angle_Haut/Gauche : 75.0
+Numero : 0	Largeur : 5.0	Hauteur : 2000.0
+Numero : 2	Largeur : 5.176	Hauteur : 1035.276	Angle_Haut/Gauche : 105.0
+
+POUTRES
+
+A-Area P-1
+
+Numero : 30	Largeur : 5.0	Hauteur : 420.542
+Numero : 31	Largeur : 5.0	Hauteur : 420.542
+Numero : 32	Largeur : 5.0	Hauteur : 420.542
+Numero : 33	Largeur : 5.0	Hauteur : 420.542
+Numero : 34	Largeur : 5.0	Hauteur : 420.542
+Numero : 35	Largeur : 5.0	Hauteur : 420.542
+Numero : 36	Largeur : 5.0	Hauteur : 420.542
+Numero : 37	Largeur : 5.0	Hauteur : 420.542
+Numero : 29	Lmin : 5.0	Lmax : 5.176	Hmin : 500.542	Hmax : 501.882	Cumul_Haut : 41.411	Cumul_Bas : 240.0	Angle_Haut/Gauche : 15.0
+
+A-Area P-2
+
+Numero : 38	Lmin : 5.0	Lmax : 5.176	Hmin : 555.471	Hmax : 556.811	Cumul_Haut : 253.643	Cumul_Bas : 445.0	Angle_Haut/Gauche : 15.0
+Numero : 40	Largeur : 5.0	Hauteur : 487.529
+Numero : 41	Largeur : 5.0	Hauteur : 487.529
+Numero : 42	Largeur : 5.0	Hauteur : 487.529
+Numero : 43	Largeur : 5.0	Hauteur : 487.529
+Numero : 44	Largeur : 5.0	Hauteur : 487.529
+Numero : 45	Largeur : 5.0	Hauteur : 487.529
+Numero : 46	Largeur : 5.0	Hauteur : 487.529
+Numero : 47	Largeur : 5.0	Hauteur : 487.529
+Numero : 39	Lmin : 5.0	Lmax : 5.176	Hmin : 567.529	Hmax : 568.869	Cumul_Haut : 300.23	Cumul_Bas : 490.0	Angle_Haut/Gauche : 15.0
+
+A-Area P-3
+
+Numero : 50	Lmin : 5.098	Lmax : 5.176	Hmin : 342.473	Hmax : 342.818	Cumul_Haut : 512.462	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 61	Lmin : 5.0	Lmax : 5.098	Hmin : 272.542	Hmax : 273.537	Angle_Bas/Droite : 11.25
+Numero : 63	Lmin : 5.0	Lmax : 5.098	Hmin : 271.547	Hmax : 272.542	Angle_Bas/Droite : 11.25
+Numero : 65	Lmin : 5.0	Lmax : 5.098	Hmin : 270.553	Hmax : 271.548	Angle_Bas/Droite : 11.25
+Numero : 67	Lmin : 5.0	Lmax : 5.098	Hmin : 269.558	Hmax : 270.553	Angle_Bas/Droite : 11.25
+Numero : 69	Lmin : 5.0	Lmax : 5.098	Hmin : 268.563	Hmax : 269.558	Angle_Bas/Droite : 11.25
+Numero : 71	Lmin : 5.0	Lmax : 5.098	Hmin : 267.569	Hmax : 268.564	Angle_Bas/Droite : 11.25
+Numero : 73	Lmin : 5.0	Lmax : 5.098	Hmin : 266.574	Hmax : 267.569	Angle_Bas/Droite : 11.25
+Numero : 75	Lmin : 5.0	Lmax : 5.098	Hmin : 265.58	Hmax : 266.575	Angle_Bas/Droite : 11.25
+Numero : 77	Lmin : 5.098	Lmax : 5.176	Hmin : 345.58	Hmax : 345.925	Cumul_Haut : 559.049	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+
+A-Area P-4
+
+Numero : 80	Lmin : 5.098	Lmax : 5.176	Hmin : 359.733	Hmax : 360.078	Cumul_Haut : 771.281	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 91	Lmin : 5.0	Lmax : 5.098	Hmin : 289.801	Hmax : 290.796	Angle_Bas/Droite : 11.25
+Numero : 93	Lmin : 5.0	Lmax : 5.098	Hmin : 288.806	Hmax : 289.801	Angle_Bas/Droite : 11.25
+Numero : 95	Lmin : 5.0	Lmax : 5.098	Hmin : 287.812	Hmax : 288.807	Angle_Bas/Droite : 11.25
+Numero : 97	Lmin : 5.0	Lmax : 5.098	Hmin : 286.817	Hmax : 287.812	Angle_Bas/Droite : 11.25
+Numero : 99	Lmin : 5.0	Lmax : 5.098	Hmin : 285.822	Hmax : 286.817	Angle_Bas/Droite : 11.25
+Numero : 101	Lmin : 5.0	Lmax : 5.098	Hmin : 284.828	Hmax : 285.823	Angle_Bas/Droite : 11.25
+Numero : 103	Lmin : 5.0	Lmax : 5.098	Hmin : 283.833	Hmax : 284.828	Angle_Bas/Droite : 11.25
+Numero : 105	Lmin : 5.0	Lmax : 5.098	Hmin : 282.839	Hmax : 283.834	Angle_Bas/Droite : 11.25
+Numero : 107	Lmin : 5.098	Lmax : 5.176	Hmin : 362.839	Hmax : 363.184	Cumul_Haut : 817.868	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+
+A-Area P-5
+
+Numero : 111	Lmin : 5.098	Lmax : 5.176	Hmin : 360.079	Hmax : 360.424	Cumul_Haut : 1288.919	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 122	Lmin : 5.0	Lmax : 5.098	Hmin : 280.079	Hmax : 281.074	Angle_Bas/Droite : 11.25
+Numero : 124	Lmin : 5.0	Lmax : 5.098	Hmin : 281.073	Hmax : 282.068	Angle_Bas/Droite : 11.25
+Numero : 126	Lmin : 5.0	Lmax : 5.098	Hmin : 282.068	Hmax : 283.063	Angle_Bas/Droite : 11.25
+Numero : 128	Lmin : 5.0	Lmax : 5.098	Hmin : 283.062	Hmax : 284.057	Angle_Bas/Droite : 11.25
+Numero : 130	Lmin : 5.0	Lmax : 5.098	Hmin : 284.057	Hmax : 285.052	Angle_Bas/Droite : 11.25
+Numero : 132	Lmin : 5.0	Lmax : 5.098	Hmin : 285.051	Hmax : 286.046	Angle_Bas/Droite : 11.25
+Numero : 134	Lmin : 5.0	Lmax : 5.098	Hmin : 286.046	Hmax : 287.041	Angle_Bas/Droite : 11.25
+Numero : 136	Lmin : 5.0	Lmax : 5.098	Hmin : 287.041	Hmax : 288.036	Angle_Bas/Droite : 11.25
+Numero : 138	Lmin : 5.098	Lmax : 5.176	Hmin : 356.972	Hmax : 357.317	Cumul_Haut : 1335.506	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+
+A-Area P-6
+
+Numero : 141	Lmin : 5.098	Lmax : 5.176	Hmin : 342.819	Hmax : 343.164	Cumul_Haut : 1547.738	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 152	Lmin : 5.0	Lmax : 5.098	Hmin : 262.819	Hmax : 263.814	Angle_Bas/Droite : 11.25
+Numero : 154	Lmin : 5.0	Lmax : 5.098	Hmin : 263.813	Hmax : 264.808	Angle_Bas/Droite : 11.25
+Numero : 156	Lmin : 5.0	Lmax : 5.098	Hmin : 264.808	Hmax : 265.803	Angle_Bas/Droite : 11.25
+Numero : 158	Lmin : 5.0	Lmax : 5.098	Hmin : 265.802	Hmax : 266.797	Angle_Bas/Droite : 11.25
+Numero : 160	Lmin : 5.0	Lmax : 5.098	Hmin : 266.797	Hmax : 267.792	Angle_Bas/Droite : 11.25
+Numero : 162	Lmin : 5.0	Lmax : 5.098	Hmin : 267.791	Hmax : 268.786	Angle_Bas/Droite : 11.25
+Numero : 164	Lmin : 5.0	Lmax : 5.098	Hmin : 268.786	Hmax : 269.781	Angle_Bas/Droite : 11.25
+Numero : 166	Lmin : 5.0	Lmax : 5.098	Hmin : 269.781	Hmax : 270.776	Angle_Bas/Droite : 11.25
+Numero : 168	Lmin : 5.098	Lmax : 5.176	Hmin : 339.712	Hmax : 340.057	Cumul_Haut : 1594.325	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+
+A-Area P-7
+
+Numero : 170	Lmin : 5.0	Lmax : 5.176	Hmin : 556.811	Hmax : 558.151	Cumul_Haut : 1806.557	Cumul_Bas : 1945.0	Angle_Haut/Gauche : 15.0
+Numero : 172	Largeur : 5.0	Hauteur : 476.811
+Numero : 173	Largeur : 5.0	Hauteur : 476.811
+Numero : 174	Largeur : 5.0	Hauteur : 476.811
+Numero : 175	Largeur : 5.0	Hauteur : 476.811
+Numero : 176	Largeur : 5.0	Hauteur : 476.811
+Numero : 177	Largeur : 5.0	Hauteur : 476.811
+Numero : 178	Largeur : 5.0	Hauteur : 476.811
+Numero : 179	Largeur : 5.0	Hauteur : 476.811
+Numero : 171	Lmin : 5.0	Lmax : 5.176	Hmin : 544.753	Hmax : 546.093	Cumul_Haut : 1853.144	Cumul_Bas : 1990.0	Angle_Haut/Gauche : 15.0
+
+A-Area P-8
+
+Numero : 180	Lmin : 5.0	Lmax : 5.176	Hmin : 500.542	Hmax : 501.882	Cumul_Haut : 2023.965	Cumul_Bas : 2155.0	Angle_Haut/Gauche : 15.0
+Numero : 181	Largeur : 5.0	Hauteur : 420.542
+Numero : 182	Largeur : 5.0	Hauteur : 420.542
+Numero : 183	Largeur : 5.0	Hauteur : 420.542
+Numero : 184	Largeur : 5.0	Hauteur : 420.542
+Numero : 185	Largeur : 5.0	Hauteur : 420.542
+Numero : 186	Largeur : 5.0	Hauteur : 420.542
+Numero : 187	Largeur : 5.0	Hauteur : 420.542
+Numero : 188	Largeur : 5.0	Hauteur : 420.542
+
+A-Area P-9
+
+Numero : 189	Lmin : 5.0	Lmax : 5.176	Hmin : 751.074	Hmax : 752.414	Cumul_Haut : 1009.394	Cumul_Bas : 1175.0	Angle_Haut/Gauche : 15.0
+Numero : 191	Largeur : 5.0	Hauteur : 672.414
+Numero : 192	Largeur : 5.0	Hauteur : 672.414
+Numero : 193	Largeur : 5.0	Hauteur : 672.414
+Numero : 194	Largeur : 5.0	Hauteur : 672.414
+Numero : 195	Largeur : 5.0	Hauteur : 672.414
+Numero : 196	Largeur : 5.0	Hauteur : 672.414
+Numero : 197	Largeur : 5.0	Hauteur : 672.414
+Numero : 198	Largeur : 5.0	Hauteur : 672.414
+Numero : 190	Lmin : 5.0	Lmax : 5.176	Hmin : 751.074	Hmax : 752.414	Cumul_Haut : 1055.982	Cumul_Bas : 1220.0	Angle_Haut/Gauche : 15.0
+
+OUVERTURES
+
+TRAPEZIUM2
+
+Numero : 11	Lmin : 5.0	Lmax : 5.176	Hmin : 607.721	Hmax : 609.061	Cumul_Haut : 1609.855	Cumul_Bas : 1755.0	Angle_Haut/Gauche : 15.0
+Numero : 9	Lmin : 5.0	Lmax : 5.098	Hmin : 244.549	Hmax : 245.544	Cumul_Bas : 1750.0	Angle_Haut/Gauche : 11.25
+Numero : 5	Largeur : 5.0	Hauteur : 500.0
+Numero : 6	Largeur : 5.0	Hauteur : 140.0
+Numero : 12	Largeur : 5.098	Hauteur : 519.991	Angle_Haut/Gauche : 101.25
+Numero : 10	Lmin : 5.0	Lmax : 5.176	Hmin : 745.715	Hmax : 747.055	Cumul_Haut : 1076.687	Cumul_Bas : 1240.0	Angle_Haut/Gauche : 15.0
+Numero : 7	Largeur : 5.0	Hauteur : 140.0
+Numero : 8	Lmin : 5.0	Lmax : 5.098	Hmin : 345.0	Hmax : 345.995	Cumul_Bas : 1245.0	Angle_Haut/Gauche : 11.25
+
+TRAPEZIUM1
+
+Numero : 19	Lmin : 5.0	Lmax : 5.176	Hmin : 745.715	Hmax : 747.055	Cumul_Haut : 988.689	Cumul_Bas : 1155.0	Angle_Haut/Gauche : 15.0
+Numero : 17	Lmin : 5.0	Lmax : 5.098	Hmin : 345.0	Hmax : 345.995	Cumul_Bas : 1150.0	Angle_Haut/Gauche : 11.25
+Numero : 13	Largeur : 5.0	Hauteur : 500.0
+Numero : 14	Largeur : 5.0	Hauteur : 140.0
+Numero : 20	Largeur : 5.098	Hauteur : 519.991	Angle_Haut/Gauche : 78.75
+Numero : 18	Lmin : 5.0	Lmax : 5.176	Hmin : 607.721	Hmax : 609.061	Cumul_Haut : 455.522	Cumul_Bas : 640.0	Angle_Haut/Gauche : 15.0
+Numero : 15	Largeur : 5.0	Hauteur : 140.0
+Numero : 16	Lmin : 5.0	Lmax : 5.098	Hmin : 244.549	Hmax : 245.544	Cumul_Bas : 645.0	Angle_Haut/Gauche : 11.25
+
+Rectangle
+
+Numero : 27	Lmin : 5.0	Lmax : 5.176	Hmin : 551.452	Hmax : 552.792	Cumul_Haut : 238.113	Cumul_Bas : 430.0	Angle_Haut/Gauche : 15.0
+Numero : 25	Largeur : 5.0	Hauteur : 195.0	Cumul_Bas : 425.0
+Numero : 21	Largeur : 5.0	Hauteur : 75.0
+Numero : 28	Largeur : 5.0	Hauteur : 85.0
+Numero : 26	Lmin : 5.0	Lmax : 5.176	Hmin : 527.336	Hmax : 528.676	Cumul_Haut : 144.939	Cumul_Bas : 340.0	Angle_Haut/Gauche : 15.0
+Numero : 24	Largeur : 5.0	Hauteur : 195.0	Cumul_Bas : 345.0
+
+AUTRE
+
+Numero : 199	Lmin : 5.0	Lmax : 5.176	Hmin : 513.939	Hmax : 515.279	Cumul_Haut : 93.175	Cumul_Bas : 290.0	Angle_Haut/Gauche : 15.0
+Numero : 201	Lmin : 5.0	Lmax : 5.176	Hmin : 339.394	Hmax : 340.734	Cumul_Haut : 191.526	Angle_Haut/Gauche : 15.0
+Numero : 202	Largeur : 0.0	Hauteur : 5.0	Cumul_Bas : 385.0
+Numero : 203	Lmin : 5.0	Lmax : 5.176	Hmin : 583.606	Hmax : 584.946	Cumul_Haut : 362.347	Cumul_Bas : 550.0	Angle_Haut/Gauche : 15.0
+Numero : 204	Lmin : 5.0	Lmax : 5.176	Hmin : 595.664	Hmax : 597.004	Cumul_Haut : 408.934	Cumul_Bas : 595.0	Angle_Haut/Gauche : 15.0
+Numero : 206	Lmin : 5.098	Lmax : 5.176	Hmin : 349.722	Hmax : 350.067	Cumul_Haut : 621.166	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 207	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 800.0
+Numero : 209	Lmin : 5.098	Lmax : 5.176	Hmin : 353.865	Hmax : 354.21	Cumul_Haut : 683.282	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 210	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 860.0
+Numero : 212	Lmin : 5.098	Lmax : 5.176	Hmin : 356.799	Hmax : 357.144	Cumul_Haut : 727.281	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 213	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 902.5
+Numero : 215	Lmin : 5.098	Lmax : 5.176	Hmin : 366.981	Hmax : 367.326	Cumul_Haut : 879.985	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 216	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1050.0
+Numero : 218	Lmin : 5.098	Lmax : 5.176	Hmin : 370.261	Hmax : 370.606	Cumul_Haut : 929.16	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 219	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1097.5
+Numero : 221	Lmin : 5.098	Lmax : 5.176	Hmin : 369.398	Hmax : 369.743	Cumul_Haut : 1149.157	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 222	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1310.0
+Numero : 224	Lmin : 5.098	Lmax : 5.176	Hmin : 365.256	Hmax : 365.601	Cumul_Haut : 1211.273	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 225	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1370.0
+Numero : 227	Lmin : 5.098	Lmax : 5.176	Hmin : 362.667	Hmax : 363.012	Cumul_Haut : 1250.096	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 228	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1407.5
+Numero : 230	Lmin : 5.098	Lmax : 5.176	Hmin : 352.83	Hmax : 353.175	Cumul_Haut : 1397.623	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 231	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1550.0
+Numero : 233	Lmin : 5.098	Lmax : 5.176	Hmin : 348.688	Hmax : 349.033	Cumul_Haut : 1459.739	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 234	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1610.0
+Numero : 236	Lmin : 5.098	Lmax : 5.176	Hmin : 345.753	Hmax : 346.098	Cumul_Haut : 1503.739	Angle_Bas/Droite : 11.25	Angle_Haut/Gauche : 15.0
+Numero : 237	Largeur : 5.0	Hauteur : 140.0	Cumul_Bas : 1652.5
+Numero : 238	Lmin : 5.0	Lmax : 5.176	Hmin : 591.644	Hmax : 592.984	Cumul_Haut : 1671.971	Cumul_Bas : 1815.0	Angle_Haut/Gauche : 15.0
+Numero : 239	Lmin : 5.0	Lmax : 5.176	Hmin : 575.567	Hmax : 576.907	Cumul_Haut : 1734.088	Cumul_Bas : 1875.0	Angle_Haut/Gauche : 15.0
+Numero : 240	Lmin : 5.0	Lmax : 5.176	Hmin : 566.189	Hmax : 567.529	Cumul_Haut : 1770.322	Cumul_Bas : 1910.0	Angle_Haut/Gauche : 15.0
+Numero : 241	Lmin : 5.0	Lmax : 5.176	Hmin : 528.676	Hmax : 530.016	Cumul_Haut : 1915.261	Cumul_Bas : 2050.0	Angle_Haut/Gauche : 15.0
+Numero : 242	Lmin : 5.0	Lmax : 5.176	Hmin : 514.609	Hmax : 515.949	Cumul_Haut : 1969.613	Cumul_Bas : 2102.5	Angle_Haut/Gauche : 15.0

@@ -1,5 +1,6 @@
 package home;
 
+import com.sun.istack.internal.Nullable;
 import data.DATACONTAINER;
 import math.Point;
 import math.Quadrilateral;
@@ -14,11 +15,12 @@ public class Window extends Quadrilateral {
     public Hashtable <String, Montant> montantsBeforCut;
     public Hashtable <String, LinkedList<Montant>> montantsAfterCut;
     public Quadrilateral outLines;
+    public boolean isNoOutLines;
     public String name;
     public boolean haveTraverse = false;
     public Quadrilateral traverse;
 
-    public Window(Segment segment, double width, boolean isOnRightSide, ShapeType type, String name,double thetaTop, double thetaButtom) {
+    public Window(Segment segment, double width, boolean isOnRightSide, ShapeType type, String name, double thetaTop, double thetaButtom) {
         super(segment, width, isOnRightSide, type, thetaTop, thetaButtom);
         montantsAfterCut = new Hashtable<>();
         montantsBeforCut = new Hashtable<>();

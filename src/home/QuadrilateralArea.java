@@ -46,9 +46,11 @@ public class QuadrilateralArea extends Area {
     }
 
     @Override
-    public void setSums(Montant m) {
+    public void setSums(Montant m, Boolean justBottom) {
         m.buttomSum = Utilies.round3(m.getMinX());
-        m.topSum = Utilies.round3(new  Segment(this.shap.topLeft,new Line(new Segment(m.getMinX(),0,m.getMinX(),1)).intersect(new Line(this.shap.top))).getLenght());
+        if(!justBottom){
+            m.topSum = Utilies.round3(new  Segment(this.shap.topLeft,new Line(new Segment(m.getMinX(),0,m.getMinX(),1)).intersect(new Line(this.shap.top))).getLenght());
+        }
     }
 
     public static void main(String[] args){

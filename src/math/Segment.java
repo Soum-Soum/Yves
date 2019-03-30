@@ -11,6 +11,10 @@ public class Segment {
         this.tail = tail;
     }
 
+    public boolean isPoint(){
+        return this.head.x==this.tail.x && this.head.y==this.tail.y;
+    }
+
     public Segment(double x1, double y1, double x2, double y2){
         this.head = new Point(x1,y1);
         this.tail = new Point(x2,y2);
@@ -29,11 +33,11 @@ public class Segment {
         return  getVector().getLenght();
     }
     public boolean isVertical(){
-        return Math.round(head.x) == Math.round(tail.x);
+        return (Math.round(head.x) == Math.round(tail.x));
     }
 
     public boolean isHorizontal(){
-        return Math.round(head.y) == Math.round(tail.y);
+        return (Math.round(head.y) == Math.round(tail.y)) ;
     }
 
     public double getAngle(Segment s){

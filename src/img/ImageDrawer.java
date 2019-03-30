@@ -20,8 +20,8 @@ import java.util.LinkedList;
 public class ImageDrawer {
 
     BufferedImage imageBuffer;
-    int width, height;
-    double scalingValue;
+    public int width, height;
+    public double scalingValue;
     public Graphics2D graph;
     Stroke stroke;
 
@@ -36,7 +36,7 @@ public class ImageDrawer {
         graph.fill(new Rectangle(0,0,this.width,this.height));
         graph.setColor(Color.BLACK);
         graph.setFont(new Font("Arial Black", Font.PLAIN,14));
-        stroke = new BasicStroke(1);
+        stroke = new BasicStroke(3);
         graph.setStroke(stroke);
     }
 
@@ -107,13 +107,15 @@ public class ImageDrawer {
     public void drawID(Quadrilateral quadrilateral, int i){
         LinkedList<Integer> l = Utilies.intToVerticalString(i);
         Point p =  quadrilateral.getCenter();
-        p.x -= DATACONTAINER.MONTANTWITH/2;
-        for (Integer j : l ) {
-            if (quadrilateral.isVertical()){
-                this.graph.drawString(j.toString(),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
-                p.y -=10;
-            }else {
-                this.graph.drawString(String.valueOf(i),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
+        if (p!=null){
+            p.x -= DATACONTAINER.MONTANTWITH/2;
+            for (Integer j : l ) {
+                if (quadrilateral.isVertical()){
+                    this.graph.drawString(j.toString(),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
+                    p.y -=10;
+                }else {
+                    this.graph.drawString(String.valueOf(i),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));
+                }
             }
         }
     }
@@ -131,14 +133,15 @@ public class ImageDrawer {
     }
 
     public static void main(String[] args) throws IOException {
-        ImageDrawer imageDrawer = new ImageDrawer(2400,1200,1.5);
-        Pentagon pentagon = new Pentagon(new Point(200,50),200,2000,Math.PI/6,0.5);
-        //PentagonalArea area = new PentagonalArea(pentagon,"Area");
-        Quadrilateral rectangle = new Quadrilateral(new Segment(50,50,50,1000),2000,true,ShapeType.RECTANGLE,0,0);
-        QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");
+        ImageDrawer imageDrawer = new ImageDrawer(2400,1200,2);
+        Pentagon pentagon = new Pentagon(new Point(200,50),500,2000,Math.PI/12,0.5);
+        PentagonalArea area = new PentagonalArea(pentagon,"Area");
+        //Quadrilateral rectangle = new Quadrilateral(new Segment(50,50,50,1000),2000,true,ShapeType.RECTANGLE,0,0);
+        //QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");
         area.setOutLines();
-        area.windows.add(new Window(new Segment(1000,400,1000,600),500,true, ShapeType.TRAPEZIUM4,"TRAPEZIUM4",  0, Math.PI/10));
-        area.windows.add(new Window(new Segment(60,200,60,350),750,true, ShapeType.RECTANGLE,"RECTANGLE", 0,0));
+        area.windows.add(new Window(new Segment(1250,200,1250,400),500,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2",  Math.PI/16, Math.PI/10));
+        area.windows.add(new Window(new Segment(1150,200,1150,400),500,false, ShapeType.TRAPEZIUM1,"TRAPEZIUM1",  Math.PI/16, Math.PI/10));
+        area.windows.add(new Window(new Segment(350, 60,350,250),75,true, ShapeType.RECTANGLE,"Rectangle",  0, 0));
 
         //
         //Penser à reporter les décalages de la zonnes dans au fenêtres
@@ -146,8 +149,14 @@ public class ImageDrawer {
         //
         //
 
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "0", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1960", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "0", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "250", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "500", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1250", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1500", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1960", "Area")));
         area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "980", "Area")));
         area.setWindowsMontants();
         area.setBeamMontants();
@@ -158,6 +167,6 @@ public class ImageDrawer {
         FileWriter fileWriter = new FileWriter();
         ArrayList<Area> mdr = new ArrayList<>();
         mdr.add(area);
-        //fileWriter.writeFile(mdr,"");
+        fileWriter.writeFile(mdr,"", "file.tsv");
     }
 }
