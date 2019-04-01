@@ -15,7 +15,6 @@ public class Window extends Quadrilateral {
     public Hashtable <String, Montant> montantsBeforCut;
     public Hashtable <String, LinkedList<Montant>> montantsAfterCut;
     public Quadrilateral outLines;
-    public boolean isNoOutLines;
     public String name;
     public boolean haveTraverse = false;
     public Quadrilateral traverse;
@@ -34,7 +33,9 @@ public class Window extends Quadrilateral {
         }else {
             this.traverse = new Montant(new Segment(montantsBeforCut.get("topMontant").topLeft,montantsBeforCut.get("topMontant").topRight),DATACONTAINER.TRAVERSEWIDTH,false,ShapeType.RECTANGLE, 0,0);
         }
-        this.outLines = new Quadrilateral(montantsBeforCut.get("buttomMontant").buttomLeft,montantsBeforCut.get("buttomMontant").buttomRight,this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
+        this.outLines = new Quadrilateral(montantsBeforCut.get("buttomMontant").buttom.getSegIntersection(montantsBeforCut.get("topMontant").left),
+                montantsBeforCut.get("buttomMontant").buttom.getSegIntersection(montantsBeforCut.get("topMontant").right),
+                this.traverse.topLeft,this.traverse.topRight,this.type,this.thetaTop, this.thetaButtom);
     }
 
 }

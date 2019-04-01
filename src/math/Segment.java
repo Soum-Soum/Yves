@@ -45,7 +45,7 @@ public class Segment {
     }
 
     public Point intersect(Segment s){
-        if (this.getMaxAbs() < s.getMinAbs() || s.getMaxAbs() < this.getMinAbs() ){
+        if (this.getMaxAbs() < s.getMinAbs() || s.getMaxAbs() < this.getMinAbs()){
             return null;
         }else{
             Line l1 = new Line(this);
@@ -105,14 +105,19 @@ public class Segment {
         return new Segment( verticalSegment.intersect(buttomLine), verticalSegment.intersect(topLine));
     }
 
+    //Diffère de intersect car elle prolonge les segments en droite
+    public Point getSegIntersection(Segment b){
+        return  new Line(this).intersect(new Line(b));
+    }
+
     public void print(){
         head.print();
         tail.print();
     }
 
     public static void main(String[] args){
-        Segment s1 = new Segment(800,375.88,1555,173.58);
-        Segment s2 = new Segment(800,55,800,527.95);
+        Segment s1 = new Segment(4,4,8,6);
+        Segment s2 = new Segment(8,6,2,3);
         s1.intersect(s2).print();
     }
 

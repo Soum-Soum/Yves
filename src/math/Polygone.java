@@ -47,7 +47,13 @@ public abstract class Polygone {
     }
 
     public double getMaxX(){
-        return buttomRight.x;
+        double max = Double.NEGATIVE_INFINITY;
+        for (Point p : getPoints()){
+            if (max < p.x){
+                max = p.x;
+            }
+        }
+        return max;
     }
 
     public abstract double getMinY();

@@ -58,29 +58,26 @@ public abstract class Area {
             setSums(w.montantsBeforCut.get("rightMontant"),false);
             Segment topSegment = new Segment(w.montantsBeforCut.get("midLeftMontant").topLeft,w.montantsBeforCut.get("midRightMontant").topRight);
             if (leftUnderBeam){
-                topSegment = new Segment(w.topLeft,topSegment.tail);
+                topSegment = new Segment(w.montantsBeforCut.get("midLeftMontant").topLeft,topSegment.tail);
             }
             if (rightUnderBeam){
-                topSegment = new Segment(topSegment.head,w.topRight);
+                topSegment = new Segment(topSegment.head,w.montantsBeforCut.get("midRightMontant").topRight);
             }
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
                 w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1));
             }else {
                 w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.RECTANGLE, 0,0));
             }
-            if (leftUnderBeam && rightUnderBeam){
-                w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttomLeft,w.montantsBeforCut.get("buttomMontant").buttomRight,w.montantsBeforCut.get("topMontant").topLeft,
-                        w.montantsBeforCut.get("topMontant").topRight, w.type,w.thetaTop, w.thetaButtom);
-            }else if (leftUnderBeam){
-                w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttomLeft,new Point(w.montantsBeforCut.get("buttomMontant").buttomRight,+DATACONTAINER.MONTANTWITH,0)
-                        ,w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
-            }else if (rightUnderBeam){
-                w.outLines = new Quadrilateral(new Point(w.montantsBeforCut.get("buttomMontant").buttomLeft,-DATACONTAINER.MONTANTWITH,0),w.montantsBeforCut.get("buttomMontant").buttomRight
-                        ,w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
-            }else {
-                w.outLines = new Quadrilateral(new Point(w.montantsBeforCut.get("buttomMontant").buttomLeft,-DATACONTAINER.MONTANTWITH,0),new Point(w.montantsBeforCut.get("buttomMontant").buttomRight,
-                        +DATACONTAINER.MONTANTWITH,0),w.montantsBeforCut.get("topMontant").topLeft,w.montantsBeforCut.get("topMontant").topRight,w.type,w.thetaTop, w.thetaButtom);
-            }
+
+            w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttom.getSegIntersection(w.montantsBeforCut.get("topMontant").left),
+                    w.montantsBeforCut.get("buttomMontant").buttom.getSegIntersection(w.montantsBeforCut.get("topMontant").right),
+                    w.montantsBeforCut.get("topMontant").topLeft,
+                    w.montantsBeforCut.get("topMontant").topRight,
+                    w.type,
+                    w.thetaTop,
+                    w.thetaButtom);
+
+            //To replace
         }
     }
 
@@ -126,53 +123,19 @@ public abstract class Area {
         for (Window w : windows){
             handleSideWindows(w);
             Boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows), midleftUnderBeam = null, midrighttUnderBeam = null;
-            if (w.montantsBeforCut.get("midLeftMontant") != null){
-                midleftUnderBeam = w.montantsBeforCut.get("midLeftMontant").buttomLeft.isUnderObstacle(beams,windows);
-            }
-            if (w.montantsBeforCut.get("midRightMontant") != null){
-                midrighttUnderBeam = w.montantsBeforCut.get("midRightMontant").buttomRight.isUnderObstacle(beams,windows);
-            }
-            if (leftUnderBeam && rightUnderBeam){
-                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-            }else if (leftUnderBeam){
-                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                if (midrighttUnderBeam!= null && !midrighttUnderBeam){
-                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                }else if (midrighttUnderBeam!= null && midrighttUnderBeam){
-                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
-                }
-            }else if (rightUnderBeam){
-                if (midleftUnderBeam!= null && !midleftUnderBeam){
-                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                }else if (midleftUnderBeam!= null && midleftUnderBeam){
-                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
-                }
-                try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-            }else {
-
-                if (midleftUnderBeam!= null && !midleftUnderBeam){
-                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                }else if (midleftUnderBeam!= null && midleftUnderBeam){
-                    try{w.montantsAfterCut.put("leftMontant", handleCollision(w.montantsBeforCut.get("leftMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
-                }
-                try{w.montantsAfterCut.put("midLeftMontant", handleCollision(w.montantsBeforCut.get("midLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomLeftMontant", handleCollision(w.montantsBeforCut.get("buttomLeftMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("buttomRightMontant", handleCollision(w.montantsBeforCut.get("buttomRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                try{w.montantsAfterCut.put("midRightMontant", handleCollision(w.montantsBeforCut.get("midRightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                if (midrighttUnderBeam!= null && !midrighttUnderBeam){
-                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
-                }else if (midrighttUnderBeam!= null && midrighttUnderBeam){
-                    try{w.montantsAfterCut.put("rightMontant", handleCollision(w.montantsBeforCut.get("rightMontant"),false,true,CollisionBehaviour.STOP_LAST_BUTTOM));}catch (NullPointerException e){}
-                }
-            }// On ingnore les exeption nule pour ne pas à avoir à vérifuer si le montant existe toujour ou si il a été suprimé car on est sur un bord de la facade
+            LinkedList<String> bannedMontants = new LinkedList();
+            if(leftUnderBeam){bannedMontants.add("leftMontant");}
+            if(rightUnderBeam){bannedMontants.add("rightMontant");}
+            // On ingnore les exeption nule pour ne pas à avoir à vérifuer si le montant existe toujour ou si il a été suprimé car on est sur un bord de la facade
+            //Commentaire déprécié
+            //Le code précédent est dans le fichier lol.txt
             for (String s : w.montantsBeforCut.keySet()){
-                if (w.montantsAfterCut.get(s)==null){
-                    w.montantsAfterCut.put(s,w.montantsBeforCut.get(s).montant2List());
+                if (w.montantsAfterCut.get(s)==null && !bannedMontants.contains(s)){
+                    if (!s.equals("topMontant") && !s.equals("buttomMontant")){
+                        try{w.montantsAfterCut.put(s, handleCollision(w.montantsBeforCut.get(s),false,true,CollisionBehaviour.NEVER_STOP));}catch (NullPointerException e){}
+                    }else{
+                        w.montantsAfterCut.put(s,w.montantsBeforCut.get(s).montant2List());
+                    }
                 }
             }
         }
@@ -189,6 +152,11 @@ public abstract class Area {
             w.montantsBeforCut.remove("buttomRightMontant");
             w.montantsBeforCut.remove("buttomLeftMontant");
             w.montantsBeforCut.remove("buttomMontant");
+            w.outLines = new Quadrilateral(w.buttom.getSegIntersection(w.montantsBeforCut.get("topMontant").left),
+                    w.buttom.getSegIntersection(w.montantsBeforCut.get("topMontant").right),
+                    w.montantsBeforCut.get("topMontant").topLeft,
+                    w.montantsBeforCut.get("topMontant").topRight,
+                    w.type,w.thetaTop, w.thetaButtom);
         }else if(w.buttomLeft.y == this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
             w.montantsBeforCut.remove("buttomRightMontant");
             w.montantsBeforCut.remove("buttomLeftMontant");
@@ -308,7 +276,7 @@ public abstract class Area {
     public LinkedList<Window> getColider(Quadrilateral quadrilateral, boolean needTraverse){
         LinkedList<Window> q = new LinkedList<>();
         for (Window w : windows){
-            if (w.outLines.getMinX()<=quadrilateral.getMinX() && w.outLines.getMaxX()>=quadrilateral.getMaxX()){
+            if (w.outLines.getMinX()-DATACONTAINER.MONTANTWITH<=quadrilateral.getMinX() && w.outLines.getMaxX()+DATACONTAINER.MONTANTWITH>=quadrilateral.getMaxX()){
                 if (w.outLines.haveAnIntersection(quadrilateral)){
                     int i = 0;
                     while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){
@@ -345,7 +313,7 @@ public abstract class Area {
         for(Montant m : listMontant){
             LinkedList<Window> colider = this.getColider(m, needTraverse);
             LinkedList<Montant> temp2List;
-            if (colider.size()!=0) {
+            if (colider.size()>0) {
                 temp2List = recursivDivision(m, colider, behaviour);
             }else {
                 temp2List = m.montant2List();
