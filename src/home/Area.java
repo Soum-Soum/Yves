@@ -33,7 +33,7 @@ public abstract class Area {
 
     public void setWindowsMontants(){
         for (Window w : windows){
-            boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows);
+            boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows,false,true) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows,true,false);
             if (w.type == ShapeType.TRAPEZIUM3 || w.type == ShapeType.TRAPEZIUM4){
                 w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom,DATACONTAINER.MONTANTWITH,true, ShapeType.PARALLELOGRAM1));
             }else {
@@ -122,7 +122,8 @@ public abstract class Area {
         }
         for (Window w : windows){
             handleSideWindows(w);
-            Boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows), midleftUnderBeam = null, midrighttUnderBeam = null;
+            Boolean leftUnderBeam = w.montantsBeforCut.get("topMontant").buttomLeft.isUnderObstacle(beams, windows,false,true) ,
+                    rightUnderBeam = w.montantsBeforCut.get("topMontant").buttomRight.isUnderObstacle(beams, windows,true,false), midleftUnderBeam = null, midrighttUnderBeam = null;
             LinkedList<String> bannedMontants = new LinkedList();
             if(leftUnderBeam){bannedMontants.add("leftMontant");}
             if(rightUnderBeam){bannedMontants.add("rightMontant");}
@@ -191,7 +192,7 @@ public abstract class Area {
             if (m!=null){
                 LinkedList<Window> colider = this.getColider(m,false);
                 if (colider.size()!=0){
-                    if (m.isUnderBeam(beams, windows)) {
+                    if (m.isUnderBeam(beams, windows,false,false)) {
                         LinkedList temp = recursivDivision(m,colider,CollisionBehaviour.STOP_LAST_BUTTOM);
                         midMontant.addAll(temp);
                         verticalMontant.addAll(i+1, temp );
@@ -276,7 +277,7 @@ public abstract class Area {
     public LinkedList<Window> getColider(Quadrilateral quadrilateral, boolean needTraverse){
         LinkedList<Window> q = new LinkedList<>();
         for (Window w : windows){
-            if (w.outLines.getMinX()-DATACONTAINER.MONTANTWITH<=quadrilateral.getMinX() && w.outLines.getMaxX()+DATACONTAINER.MONTANTWITH>=quadrilateral.getMaxX()){
+            if (w.outLines.getMinX()-DATACONTAINER.MONTANTWITH<quadrilateral.getMinX() && w.outLines.getMaxX()+DATACONTAINER.MONTANTWITH>quadrilateral.getMaxX()){
                 if (w.outLines.haveAnIntersection(quadrilateral)){
                     int i = 0;
                     while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){

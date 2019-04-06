@@ -139,20 +139,20 @@ public class ImageDrawer {
         //Quadrilateral rectangle = new Quadrilateral(new Segment(50,50,50,1000),2000,true,ShapeType.RECTANGLE,0,0);
         //QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");
         area.setOutLines();
-        //area.windows.add(new Window(new Segment(1250,200,1250,400),500,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2",  Math.PI/16, Math.PI/10));
-        area.windows.add(new Window(new Segment(1200,200,1200,400),500,false, ShapeType.TRAPEZIUM1,"TRAPEZIUM1",  Math.PI/16, Math.PI/10));
-        //area.windows.add(new Window(new Segment(350, 55,350,250),75,true, ShapeType.RECTANGLE,"Rectangle",  0, 0));
+        area.windows.add(new Window(new Segment(1220,200,1220,400),500,true, ShapeType.TRAPEZIUM2,"TRAPEZIUM2",  Math.PI/16, Math.PI/10));
+        area.windows.add(new Window(new Segment(1180,200,1180,400),500,false, ShapeType.TRAPEZIUM1,"TRAPEZIUM1",  Math.PI/16, Math.PI/10));
+        area.windows.add(new Window(new Segment(350, 55,350,250),75,true, ShapeType.RECTANGLE,"Rectangle",  0, 0));
 
 
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "0", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "250", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "500", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "750", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1250", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1500", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1750", "Area")));
-        //area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1960", "Area")));
-        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "980", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "0", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "250", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "500", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1250", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1500", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1750", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","40", "1960", "Area")));
+        area.beams.add(Beam.BuildBeam(area,new ViewBeam("80","80", "960", "Area")));
         area.setWindowsMontants();
         area.setBeamMontants();
         area.setVerticalMontant();
