@@ -33,11 +33,11 @@ public class Segment {
         return  getVector().getLenght();
     }
     public boolean isVertical(){
-        return (Math.round(head.x) == Math.round(tail.x));
+        return (Math.round(head.x*10) == Math.round(tail.x*10));
     }
 
     public boolean isHorizontal(){
-        return (Math.round(head.y) == Math.round(tail.y)) ;
+        return (Math.round(head.y*10 ) == Math.round(tail.y*10 )) ;
     }
 
     public double getAngle(Segment s){

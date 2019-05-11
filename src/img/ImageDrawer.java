@@ -42,6 +42,7 @@ public class ImageDrawer {
 
     public String saveIMG(String path){
         try {
+            System.out.println(path);
             ImageIO.write(imageBuffer, "jpg", new File(path));
             return path;
         } catch (IOException e) {
