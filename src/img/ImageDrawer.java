@@ -135,7 +135,8 @@ public class ImageDrawer {
 
     public static void main(String[] args) throws IOException {
         ImageDrawer imageDrawer = new ImageDrawer(2400,1200,2);
-        Pentagon pentagon = new Pentagon(new Point(200,50),500,2000,Math.PI/12,0.5);
+        Pentagon pentagon = new Pentagon(new Point(200,50),500,2000,Math.PI/12,0.8,true);
+        pentagon.print();
         PentagonalArea area = new PentagonalArea(pentagon,"Area");
         //Quadrilateral rectangle = new Quadrilateral(new Segment(50,50,50,1000),2000,true,ShapeType.RECTANGLE,0,0);
         //QuadrilateralArea area = new QuadrilateralArea(rectangle,"Area");

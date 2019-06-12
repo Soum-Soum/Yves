@@ -42,7 +42,7 @@ public class AppManager {
                 }
                 areas.add(new QuadrilateralArea(q, viewArea.name.getValue()));
             } else {
-                Pentagon p = new Pentagon(butomLeft, Double.parseDouble(viewArea.height.getValue()), Double.parseDouble(viewArea.wight.getValue()), viewArea.theta, Double.parseDouble(viewArea.faitageValue.getValue()));
+                Pentagon p = new Pentagon(butomLeft, Double.parseDouble(viewArea.height.getValue()), Double.parseDouble(viewArea.wight.getValue()), viewArea.theta, Double.parseDouble(viewArea.faitageValue.getValue()),true);
                 areas.add(new PentagonalArea(p, viewArea.name.getValue()));
             }
         }

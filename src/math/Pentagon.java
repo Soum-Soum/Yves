@@ -2,13 +2,14 @@ package math;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.BinaryOperator;
 
 public class Pentagon extends Polygone {
     public Point mediumRight, mediumLeft, top;
     public Segment topLeft, topRight;
     public double faitageValue, thetaLeft, thetaRight;
 
-    public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top, double faitageValue, double thetaLeft, double thetaRight) {
+    public Pentagon(Point buttomRight, Point buttomLeft, Point mediumRight, Point mediumLeft, Point top, double faitageValue, double thetaLeft, double thetaRight){
         this.buttomRight = buttomRight;
         this.buttomLeft = buttomLeft;
         this.mediumRight = mediumRight;
@@ -23,16 +24,24 @@ public class Pentagon extends Polygone {
         thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
     }
 
-    public Pentagon(Point buttomLeft, double height, double width, double thetaLeft, double faitageValue){
+    public Pentagon(Point buttomLeft, double height, double width, double thetaLeft, double faitageValue, Boolean forceSameTheta){
         this.faitageValue = faitageValue;
         this.thetaLeft = thetaLeft;
         this.buttomLeft=buttomLeft;
         this.buttomRight = new Point(buttomLeft, width,0);
         this.mediumLeft = new Point(buttomLeft,0,height);
-        this.mediumRight = new Point(buttomRight,0,height);
         this.top = new Point(buttomLeft.x + (width*faitageValue), mediumLeft.y + (width*faitageValue)*Math.tan(thetaLeft));
-        setSegments();
-        thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
+
+        if(!forceSameTheta){
+            this.mediumRight = new Point(buttomRight,0,height);
+            this.thetaRight = Math.atan((Math.tan(thetaLeft)*faitageValue)/(1-faitageValue));
+        }else{
+            this.thetaRight = thetaLeft;
+            double delta = (Math.tan(thetaRight)*(buttomRight.x-top.x));
+            this.mediumRight = new Point(buttomRight.x,top.y-delta);
+        }
+        this.setSegments();
+
     }
 
     public Pentagon(){}

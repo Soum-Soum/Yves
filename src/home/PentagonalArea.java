@@ -52,7 +52,7 @@ public class PentagonalArea extends Area{
     }
 
     public static void main(String[] args){
-        Pentagon pentagon = new Pentagon(new Point(1,1),20,100,Math.PI/4,0.5);
+        Pentagon pentagon = new Pentagon(new Point(1,1),20,100,Math.PI/4,0.5,true);
         pentagon.print();
         PentagonalArea p = new PentagonalArea(pentagon,"lol");
         p.setOutLines();
