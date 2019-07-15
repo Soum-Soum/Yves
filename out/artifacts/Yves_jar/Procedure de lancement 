@@ -1,0 +1,8 @@
+Pour lacher le programme le temps de trouner d'ou viens le problème :
+
+1- maintenir shift + clic droit dans la fenètre 
+2- Ouvrir une fenètre powersheel
+3- normalement une fenètre bleu doit s'afficher 
+4- tapper la commande suivante : java -jar ./Yves.jar
+
+Le programme se lance alors normalement

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
 import view.obj.ViewWindow;
@@ -123,16 +124,22 @@ public class WindowsControler {
                 leftRight.setText("Droite ->");
             }
         });
-        setDefault();
-    }
 
-    public void setDefault(){
-        windowType.setValue("RECTANGLE");
-        heightxWidth.setText("100x140");
-        xY.setText("50x50");
-        name.setText("F1");
+        table.setOnMouseClicked(event -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                if(event.getClickCount() == 2){
+                    ViewWindow tempViewWindow = data.get(table.getSelectionModel().getFocusedIndex());
+                    windowType.setValue(tempViewWindow.type.getValue());
+                    heightxWidth.setText(tempViewWindow.height.getValue() + "x" + tempViewWindow.wight.getValue());
+                    xY.setText(tempViewWindow.x.getValue() + "x" + tempViewWindow.y.getValue());
+                    thetaDeg.setText(tempViewWindow.thetaDeg.getValue());
+                    thetaPercent.setText(tempViewWindow.thetaPercent.getValue());
+                    name.setText(tempViewWindow.name.getValue());
+                    data.remove(table.getSelectionModel().getFocusedIndex());
+                }
+            }
+        });
     }
-
     public ObservableList<ViewWindow> getData() {
         return data;
     }

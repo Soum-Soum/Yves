@@ -1,6 +1,6 @@
 package main;
 
-import file.FileWriter;
+import file.FileManager;
 import home.*;
 import home.Window;
 import img.ImageDrawer;
@@ -28,6 +28,20 @@ public class AppManager {
         beams=new ArrayList<>();
     }
 
+    public void generateSaveFile(FinalControler controler, ObservableList<ViewArea> areas, ObservableList<ViewWindow> windows, ObservableList<ViewBeam> beams){
+        FileManager writer = new FileManager();
+        try {
+            if (!controler.fileName.equals("")){
+                writer.writeSaveFile(controler.strPathFile + controler.fileName.getText(), areas, windows, beams);
+            }else {
+                writer.writeSaveFile(controler.strPathFile + "SAVE_FILE", areas, windows, beams);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void generateAreas(ObservableList<ViewArea> list) {
         areas = new ArrayList<>();
         for (ViewArea viewArea : list) {
@@ -53,6 +67,7 @@ public class AppManager {
         for (ViewBeam beam : list){
             double x = Double.parseDouble(beam.x.getValue());
             Area temp = getAreaByName(beam.dependance.getValue());
+            x = x + temp.getShape().getMinX();
             if (temp!=null && x>=temp.getShape().buttomLeft.x && x<=temp.getShape().buttomRight.x){
                 Beam b = Beam.BuildBeam(temp, beam);
                 temp.beams.add(b);
@@ -108,14 +123,19 @@ public class AppManager {
         for (Area area : areas){
             imageDrawer.drawArea(area);
         }
-        String path = imageDrawer.saveIMG(controler.strPathImg + controler.fileName.getText() +".jpg");
+        String path;
+        if (!controler.fileName.equals("")){
+            path = imageDrawer.saveIMG(controler.strPathImg + controler.fileName.getText());
+        }else{
+            path = imageDrawer.saveIMG(controler.strPathImg + "NOM_D'IMAGE_PAR_DEFAULT");
+        }
         controler.upgradeImg(path);
     }
 
     public void generateFile(FinalControler controler){
-        FileWriter fileWriter = new FileWriter();
+        FileManager writer = new FileManager();
         try {
-            fileWriter.writeFile(areas, controler.strPathFile, controler.fileName.getText() + ".tsv");
+            writer.writeFile(areas, controler.strPathFile, controler.fileName.getText());
         } catch (IOException e) {
             e.printStackTrace();
         }

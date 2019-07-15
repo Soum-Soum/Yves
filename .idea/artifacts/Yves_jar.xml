@@ -1,13 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Yves:jar">
+  <artifact type="jar" build-on-make="true" name="Yves:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Yves_jar</output-path>
     <root id="archive" name="Yves.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/out/Yves/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="Yves" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Jama-1.0.3.jar" path-in-jar="/" />
-      <element id="library" level="project" name="Jama-1.0.3" />
     </root>
   </artifact>
 </component>

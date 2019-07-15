@@ -4,9 +4,10 @@ import data.DATACONTAINER;
 import math.*;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
+import java.io.Serializable;
 import java.util.*;
 
-public abstract class Area {
+public abstract class Area{
 
     public ArrayList<Window> windows;
     public ArrayList<Beam> beams;

@@ -1,20 +1,26 @@
 package view.controler;
 
 import data.DATACONTAINER;
+import file.FileManager;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import main.AppManager;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.HashMap;
 
 
 public class StartControler {
     public Scene nextScene;
 
     @FXML
-    Button validate, next;
+    Button validate, next, import_data;
     @FXML
     TextField montantWidth, montantDist, traverseWidth;
 
@@ -32,12 +38,13 @@ public class StartControler {
             }}
             next.setDisable(false);
         });
-        setDefault();
-    }
-
-    public void setDefault(){
-        montantWidth.setText("4.5");
-        montantDist.setText("57");
-        traverseWidth.setText("20");
+        import_data.setOnAction(event -> {
+            Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            FileChooser fileChooser= new FileChooser();
+            File selectedDirectory = fileChooser.showOpenDialog(stage);
+            System.out.println(selectedDirectory.getAbsolutePath());
+            FileManager reader = new FileManager();
+            reader.readSaveFile(selectedDirectory.getAbsolutePath());
+        });
     }
 }

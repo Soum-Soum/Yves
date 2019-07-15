@@ -1,7 +1,7 @@
 package img;
 
 import data.DATACONTAINER;
-import file.FileWriter;
+import file.FileManager;
 import home.*;
 import home.Window;
 import math.*;
@@ -42,9 +42,9 @@ public class ImageDrawer {
 
     public String saveIMG(String path){
         try {
-            System.out.println(path);
-            ImageIO.write(imageBuffer, "jpg", new File(path));
-            return path;
+            System.out.println(path + ".jpg");
+            ImageIO.write(imageBuffer, "jpg", new File(path + ".jpg"));
+            return path + ".jpg";
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -161,9 +161,9 @@ public class ImageDrawer {
         area.generateMidMontant();
         imageDrawer.drawArea(area);
         imageDrawer.saveIMG("lol.jpg");
-        FileWriter fileWriter = new FileWriter();
+        FileManager fileManager = new FileManager();
         ArrayList<Area> mdr = new ArrayList<>();
         mdr.add(area);
-        fileWriter.writeFile(mdr,"", "file.tsv");
+        fileManager.writeFile(mdr,"", "file");
     }
 }

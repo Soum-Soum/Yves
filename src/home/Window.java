@@ -7,10 +7,11 @@ import math.Quadrilateral;
 import math.ShapeType;
 import math.Segment;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class Window extends Quadrilateral {
+public class Window extends Quadrilateral implements Serializable {
 
     public Hashtable <String, Montant> montantsBeforCut;
     public Hashtable <String, LinkedList<Montant>> montantsAfterCut;

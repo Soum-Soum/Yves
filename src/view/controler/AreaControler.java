@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
 import util.Utilies;
@@ -84,6 +85,22 @@ public class AreaControler {
             }
         });
 
+        table.setOnMouseClicked(event -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                if(event.getClickCount() == 2){
+                    ViewArea tempViewArea = data.get(table.getSelectionModel().getFocusedIndex());
+                    areaType.setValue(tempViewArea.type.getValue());
+                    heightxWidth.setText(tempViewArea.height.getValue() + "x" + tempViewArea.wight.getValue());
+                    xY.setText(tempViewArea.x.getValue() + "x" + tempViewArea.y.getValue());
+                    thetaDeg.setText(tempViewArea.thetaDeg.getValue());
+                    thetaPercent.setText(tempViewArea.thetaPercent.getValue());
+                    faitageValue.setText(tempViewArea.faitageValue.getValue());
+                    name.setText(tempViewArea.name.getValue());
+                    data.remove(table.getSelectionModel().getFocusedIndex());
+                }
+            }
+        });
+
         remove.setOnAction(event -> {
             data.remove(table.getSelectionModel().getFocusedIndex());
         });
@@ -152,16 +169,6 @@ public class AreaControler {
                leftRight.setText("Droite ->");
            }
         });
-        setDefault();
-    }
-
-    public void setDefault(){
-        areaType.setValue("PENTAGON");
-        heightxWidth.setText("200x500");
-        xY.setText("0x0");
-        faitageValue.setText("0.5");
-        thetaPercent.setText("30");
-        name.setText("Test");
     }
 
     public void setErrorMessage(String errorMessage){

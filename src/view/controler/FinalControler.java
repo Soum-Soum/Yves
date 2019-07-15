@@ -34,6 +34,7 @@ public class FinalControler {
     public AreaControler areaControler;
     public WindowsControler windowsControler;
     public BeamControler beamControler;
+    public  StartControler startControler;
     private static final int MIN_PIXELS = 10;
     public String strPathImg="", strPathFile="";
 
@@ -65,6 +66,7 @@ public class FinalControler {
             appManager.buildMontants();
             appManager.generateImage(this);
             appManager.generateFile(this);
+            appManager.generateSaveFile(this,areaControler.getData(), windowsControler.getData(), beamControler.getData());
         });
 
         sameDir.setOnMouseClicked(event -> {
@@ -100,7 +102,6 @@ public class FinalControler {
             pathImg.setText(selectedDirectory.getAbsolutePath());
             strPathImg = pathImg.getText();
         });
-        setDefault();
     }
 
     public void upgradeImg(String path){
@@ -226,14 +227,6 @@ public class FinalControler {
         return new Point2D(
                 viewport.getMinX() + xProportion * viewport.getWidth(),
                 viewport.getMinY() + yProportion * viewport.getHeight());
-    }
-
-    public void setDefault(){
-        pathImg.setText("/home/pierre/Dev/Java/demo");
-        pathFile.setText("/home/pierre/Dev/Java/demo");
-        strPathImg = pathImg.getText()+"/";
-        strPathFile = pathFile.getText()+"/";
-
     }
 
     public static void main(String[] args){

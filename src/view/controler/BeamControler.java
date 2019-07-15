@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
 import view.obj.ViewArea;
@@ -85,12 +86,17 @@ public class BeamControler {
             }
             dependance.setItems(list);
         });
-        setDefault();
-    }
 
-    public void setDefault(){
-        heightxWidth.setText("36x14");
-        x.setText("250");
+        table.setOnMouseClicked(event -> {
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                if(event.getClickCount() == 2){
+                    ViewBeam tempViewBeam = data.get(table.getSelectionModel().getFocusedIndex());
+                    heightxWidth.setText(tempViewBeam.height.getValue() + "x" + tempViewBeam.wight.getValue());
+                    x.setText(tempViewBeam.x.getValue());
+                    data.remove(table.getSelectionModel().getFocusedIndex());
+                }
+            }
+        });
     }
 
     public ObservableList<ViewBeam> getData() {

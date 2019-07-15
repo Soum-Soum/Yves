@@ -63,6 +63,7 @@ public class View extends Application {
         finalControler.areaControler=controler;
         finalControler.beamControler=beamControler;
         finalControler.windowsControler=windowsControler;
+        finalControler.startControler = startControler;
         finalControler.appManager=appManager;
         finalControler.prevScene=beamScene;
 

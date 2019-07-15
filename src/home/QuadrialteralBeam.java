@@ -3,10 +3,11 @@ package home;
 import math.*;
 import view.obj.ViewBeam;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class QuadrialteralBeam extends Beam {
+public class QuadrialteralBeam extends Beam implements Serializable {
     public Quadrilateral shape;
 
     public QuadrialteralBeam(Area area, ViewBeam viewBeam){

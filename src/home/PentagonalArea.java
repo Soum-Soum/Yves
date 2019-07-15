@@ -4,9 +4,10 @@ import data.DATACONTAINER;
 import math.*;
 import util.Utilies;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class PentagonalArea extends Area{
+public class PentagonalArea extends Area implements Serializable {
 
     Pentagon shap, inerShape;
 
@@ -50,6 +51,8 @@ public class PentagonalArea extends Area{
             }
         }
     }
+
+
 
     public static void main(String[] args){
         Pentagon pentagon = new Pentagon(new Point(1,1),20,100,Math.PI/4,0.5,true);

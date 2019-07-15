@@ -5,9 +5,10 @@ import math.*;
 import util.Utilies;
 
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class QuadrilateralArea extends Area {
+public class QuadrilateralArea extends Area implements Serializable {
 
     Quadrilateral shap, inerShape;
 

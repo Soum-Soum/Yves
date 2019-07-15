@@ -3,10 +3,11 @@ package home;
 import math.*;
 import view.obj.ViewBeam;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class PentagonalBeam extends Beam {
+public class PentagonalBeam extends Beam implements Serializable {
     public Pentagon shape;
 
     public PentagonalBeam(Area area, ViewBeam viewBeam){
