@@ -11,11 +11,12 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
 import util.Utilies;
+import view.obj.SaveView;
 import view.obj.ViewArea;
 
 import java.util.Arrays;
 
-public class AreaControler {
+public class AreaControler implements SaveViewListener{
 
     private final ObservableList<ViewArea> data = FXCollections.observableArrayList();
     public Scene nextScene, prevScene;
@@ -173,5 +174,10 @@ public class AreaControler {
 
     public void setErrorMessage(String errorMessage){
         error.setText(errorMessage);
+    }
+
+    @Override
+    public void loadSaveData(SaveView saveView){
+        data.addAll(saveView.areas);
     }
 }

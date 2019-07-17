@@ -9,11 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
+import view.obj.SaveView;
 import view.obj.ViewWindow;
 
 import java.util.Arrays;
 
-public class WindowsControler {
+public class WindowsControler implements SaveViewListener{
 
     private final ObservableList<ViewWindow> data = FXCollections.observableArrayList();
     public Scene prevScene, nextScene;
@@ -142,5 +143,10 @@ public class WindowsControler {
     }
     public ObservableList<ViewWindow> getData() {
         return data;
+    }
+
+    @Override
+    public void loadSaveData(SaveView saveView) {
+        data.addAll(saveView.windows);
     }
 }

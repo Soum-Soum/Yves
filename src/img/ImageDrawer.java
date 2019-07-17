@@ -109,7 +109,7 @@ public class ImageDrawer {
         LinkedList<Integer> l = Utilies.intToVerticalString(i);
         Point p =  quadrilateral.getCenter();
         if (p!=null){
-            p.x -= DATACONTAINER.MONTANTWITH/2;
+            p.x -= DATACONTAINER.MONTANTWIDTH/2;
             for (Integer j : l ) {
                 if (quadrilateral.isVertical()){
                     this.graph.drawString(j.toString(),(int) (100+scalingValue*p.x), (int) (height - (100+scalingValue*p.y)));

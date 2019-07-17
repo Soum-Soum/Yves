@@ -36,25 +36,25 @@ public abstract class Area{
         for (Window w : windows){
             boolean leftUnderBeam = w.buttomLeft.isUnderObstacle(beams, windows,false,true) , rightUnderBeam = w.buttomRight.isUnderObstacle(beams, windows,true,false);
             if (w.type == ShapeType.TRAPEZIUM3 || w.type == ShapeType.TRAPEZIUM4){
-                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom,DATACONTAINER.MONTANTWITH,true, ShapeType.PARALLELOGRAM1));
+                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom,DATACONTAINER.MONTANTWIDTH,true, ShapeType.PARALLELOGRAM1));
             }else {
-                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom, DATACONTAINER.MONTANTWITH,true, ShapeType.RECTANGLE,0,0));
+                w.montantsBeforCut.put("buttomMontant",new Montant(w.buttom, DATACONTAINER.MONTANTWIDTH,true, ShapeType.RECTANGLE,0,0));
             }
             double thetaTop = w.type == ShapeType.TRAPEZIUM3 || w.type == ShapeType.TRAPEZIUM4  ?  w.thetaButtom : w.thetaTop;
-            w.montantsBeforCut.put("buttomLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("buttomLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWIDTH,
                    true,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
-            w.montantsBeforCut.put("buttomRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("buttomRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.montantsBeforCut.get("buttomMontant").buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWIDTH,
                     false,Montant.setMontantType(w.montantsBeforCut.get("buttomMontant").buttom.goesUp(),this.getInerShape().buttom.goesUp()), thetaTop, 0));
-            w.montantsBeforCut.put("midLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("midLeftMontant", new Montant(Segment.getVerticalSegment(w.buttomLeft.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWIDTH,
                     false,w.type,thetaTop,0));
             setSums(w.montantsBeforCut.get("midLeftMontant"),true);
-            w.montantsBeforCut.put("midRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("midRightMontant", new Montant(Segment.getVerticalSegment(w.buttomRight.x,w.top,this.getInerShape().buttom),DATACONTAINER.MONTANTWIDTH,
                     true,w.type, thetaTop,0));
             setSums(w.montantsBeforCut.get("midRightMontant"),true);
-            w.montantsBeforCut.put("leftMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("leftMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),DATACONTAINER.MONTANTWIDTH,
                     false,this.getInerShape().getType(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midLeftMontant").buttomLeft.x), 0));
             setSums(w.montantsBeforCut.get("leftMontant"),false);
-            w.montantsBeforCut.put("rightMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midRightMontant").buttomRight.x),DATACONTAINER.MONTANTWITH,
+            w.montantsBeforCut.put("rightMontant", new Montant(this.getInerShape().getVerticalSegment(w.montantsBeforCut.get("midRightMontant").buttomRight.x),DATACONTAINER.MONTANTWIDTH,
                     true,this.getInerShape().getType(w.montantsBeforCut.get("midRightMontant").buttomRight.x),this.getInerShape().getTheta(w.montantsBeforCut.get("midRightMontant").buttomRight.x), 0));
             setSums(w.montantsBeforCut.get("rightMontant"),false);
             Segment topSegment = new Segment(w.montantsBeforCut.get("midLeftMontant").topLeft,w.montantsBeforCut.get("midRightMontant").topRight);
@@ -65,9 +65,9 @@ public abstract class Area{
                 topSegment = new Segment(topSegment.head,w.montantsBeforCut.get("midRightMontant").topRight);
             }
             if (w.type == ShapeType.TRAPEZIUM1 || w.type == ShapeType.TRAPEZIUM2){
-                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.PARALLELOGRAM1));
+                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWIDTH,false,ShapeType.PARALLELOGRAM1));
             }else {
-                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWITH,false,ShapeType.RECTANGLE, 0,0));
+                w.montantsBeforCut.put("topMontant", new Montant(topSegment,DATACONTAINER.MONTANTWIDTH,false,ShapeType.RECTANGLE, 0,0));
             }
 
             w.outLines = new Quadrilateral(w.montantsBeforCut.get("buttomMontant").buttom.getSegIntersection(w.montantsBeforCut.get("topMontant").left),
@@ -86,7 +86,7 @@ public abstract class Area{
         for (Beam b : beams){
             Montant leftMontant=null, rightMontant=null;
             if(b.getShape().buttomLeft.x!=this.getShape().buttomLeft.x){
-                leftMontant= new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWITH,
+                leftMontant= new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomLeft.x),DATACONTAINER.MONTANTWIDTH,
                         false,this.getShape().getType(b.getShape().buttomLeft.x),this.getShape().getTheta(b.getShape().buttomLeft.x),0);
                 setSums(leftMontant,false);
                 b.leftMontant = handleCollision(leftMontant,true, true,CollisionBehaviour.STOP_FIRTS_TOP);
@@ -94,7 +94,7 @@ public abstract class Area{
                 this.outlinesMontants.remove("leftMontant");
             }
             if(b.getShape().buttomRight.x!=this.getShape().buttomRight.x){
-                rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWITH,
+                rightMontant = new Montant(this.getInerShape().getVerticalSegment(b.getShape().buttomRight.x),DATACONTAINER.MONTANTWIDTH,
                         true,this.getShape().getType(b.getShape().buttomRight.x),this.getShape().getTheta(b.getShape().buttomRight.x),0);
                 setSums(rightMontant,false);
             }else {
@@ -102,12 +102,12 @@ public abstract class Area{
             }
             double x = b.getShape().buttomLeft.x;
             ArrayList<Montant> tempMontants = new ArrayList<>();
-            while (b.getShape().buttomRight.x-x>=DATACONTAINER.MONTANTWITH){
-                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWITH,
+            while (b.getShape().buttomRight.x-x>=DATACONTAINER.MONTANTWIDTH){
+                Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),DATACONTAINER.MONTANTWIDTH,
                         true,ShapeType.RECTANGLE, 0,0);
                 buttomMontant.numberWritable=false;
                 tempMontants.add(buttomMontant);
-                x += DATACONTAINER.MONTANTWITH;
+                x += DATACONTAINER.MONTANTWIDTH;
             }
             if (x!=b.getShape().buttomRight.x){
                 Montant buttomMontant = new Montant(Segment.getVerticalSegment(x,b.getShape().buttom,this.getInerShape().buttom),b.getShape().buttomRight.x-x,
@@ -144,13 +144,13 @@ public abstract class Area{
     }
 
     public void handleSideWindows(Window w){
-        if (w.buttomLeft.x <= this.getInerShape().buttomLeft.x + 2*DATACONTAINER.MONTANTWITH){
+        if (w.buttomLeft.x <= this.getInerShape().buttomLeft.x + 2*DATACONTAINER.MONTANTWIDTH){
             w.montantsBeforCut.remove("leftMontant");
         }
-        if (w.buttomRight.x >= this.getInerShape().buttomRight.x - 2*DATACONTAINER.MONTANTWITH){
+        if (w.buttomRight.x >= this.getInerShape().buttomRight.x - 2*DATACONTAINER.MONTANTWIDTH){
             w.montantsBeforCut.remove("rightMontant");
         }
-        if(w.buttomLeft.y < this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
+        if(w.buttomLeft.y < this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWIDTH){
             w.montantsBeforCut.remove("buttomRightMontant");
             w.montantsBeforCut.remove("buttomLeftMontant");
             w.montantsBeforCut.remove("buttomMontant");
@@ -159,7 +159,7 @@ public abstract class Area{
                     w.montantsBeforCut.get("topMontant").topLeft,
                     w.montantsBeforCut.get("topMontant").topRight,
                     w.type,w.thetaTop, w.thetaButtom);
-        }else if(w.buttomLeft.y == this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWITH){
+        }else if(w.buttomLeft.y == this.getInerShape().buttomLeft.y + DATACONTAINER.MONTANTWIDTH){
             w.montantsBeforCut.remove("buttomRightMontant");
             w.montantsBeforCut.remove("buttomLeftMontant");
         }
@@ -181,12 +181,12 @@ public abstract class Area{
             Montant m = null;
             if ( dist > DATACONTAINER.MONTANTDIST && dist <= 2 * DATACONTAINER.MONTANTDIST){
                 x = verticalMontant.get(i).buttomLeft.x + dist/2;
-                m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
+                m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWIDTH,
                         true,this.getInerShape().getType(x), this.getInerShape().getTheta(x),0);
                 setSums(m, false);
             }else if (dist > 2*DATACONTAINER.MONTANTDIST ){
                 x = verticalMontant.get(i).buttomLeft.x + DATACONTAINER.MONTANTDIST;
-                m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWITH,
+                m = new Montant(this.getInerShape().getVerticalSegment(x),DATACONTAINER.MONTANTWIDTH,
                         true,this.getInerShape().getType(x),this.getInerShape().getTheta(x),0);
                 setSums(m, false);
             }
@@ -278,7 +278,7 @@ public abstract class Area{
     public LinkedList<Window> getColider(Quadrilateral quadrilateral, boolean needTraverse){
         LinkedList<Window> q = new LinkedList<>();
         for (Window w : windows){
-            if (w.outLines.getMinX()-DATACONTAINER.MONTANTWITH<quadrilateral.getMinX() && w.outLines.getMaxX()+DATACONTAINER.MONTANTWITH>quadrilateral.getMaxX()){
+            if (w.outLines.getMinX()-DATACONTAINER.MONTANTWIDTH<quadrilateral.getMinX() && w.outLines.getMaxX()+DATACONTAINER.MONTANTWIDTH>quadrilateral.getMaxX()){
                 if (w.outLines.haveAnIntersection(quadrilateral)){
                     int i = 0;
                     while(i<q.size() && q.get(i).buttomLeft.y>w.outLines.buttomLeft.y){

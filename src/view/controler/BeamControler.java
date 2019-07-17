@@ -9,10 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import main.AppManager;
+import view.obj.SaveView;
 import view.obj.ViewArea;
 import view.obj.ViewBeam;
 
-public class BeamControler {
+public class BeamControler implements SaveViewListener{
 
     private final ObservableList<ViewBeam> data = FXCollections.observableArrayList();
     public ObservableList<ViewArea> areas;
@@ -101,5 +102,10 @@ public class BeamControler {
 
     public ObservableList<ViewBeam> getData() {
         return data;
+    }
+
+    @Override
+    public void loadSaveData(SaveView saveView) {
+        data.addAll(saveView.beams);
     }
 }

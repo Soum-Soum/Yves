@@ -7,17 +7,20 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import main.AppManager;
+import org.json.simple.parser.ParseException;
+import view.obj.SaveView;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.util.HashMap;
+import java.io.IOException;
 
 
 public class StartControler {
     public Scene nextScene;
+    public SaveView saveView;
+    public AppManager appManager;
 
     @FXML
     Button validate, next, import_data;
@@ -44,7 +47,17 @@ public class StartControler {
             File selectedDirectory = fileChooser.showOpenDialog(stage);
             System.out.println(selectedDirectory.getAbsolutePath());
             FileManager reader = new FileManager();
-            reader.readSaveFile(selectedDirectory.getAbsolutePath());
+            try {
+                saveView = reader.readSaveFile(selectedDirectory.getAbsolutePath());
+                montantWidth.setText(saveView.montantWidth.toString());
+                montantDist.setText(saveView.montantDist.toString());
+                traverseWidth.setText(saveView.traverseWidth.toString());
+                appManager.setSaveView(saveView);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         });
     }
 }

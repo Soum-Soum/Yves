@@ -53,6 +53,9 @@ public class FinalControler {
     }
 
     public void init(){
+
+        fileName.setText("Nom_De_Fichier_Par_Default");
+
         prev.setOnAction(event -> {
             Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.setScene(prevScene);

@@ -9,6 +9,8 @@ import main.AppManager;
 import view.controler.*;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 
 public class View extends Application {
@@ -23,15 +25,16 @@ public class View extends Application {
         FXMLLoader startLoader = new FXMLLoader(getClass().getResource("resources/scene/startView.fxml"));
         Parent startRoot = startLoader.load();
         StartControler startControler= startLoader.getController();
+        startControler.appManager=appManager;
         startControler.init();
         Scene firstScene= new Scene(startRoot);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/scene/areaView.fxml"));
         Parent root = loader.load();
-        AreaControler controler = loader.getController();
-        controler.appManager = appManager;
-        controler.prevScene = firstScene;
-        controler.init();
+        AreaControler areaControler = loader.getController();
+        areaControler.appManager = appManager;
+        areaControler.prevScene = firstScene;
+        areaControler.init();
         Scene scene1 = new Scene(root);
         startControler.nextScene = scene1;
 
@@ -41,7 +44,7 @@ public class View extends Application {
         Scene windowsScene = new Scene(rootWindow);
         windowsControler.appManager=appManager;
         windowsControler.prevScene=scene1;
-        controler.nextScene=windowsScene;
+        areaControler.nextScene=windowsScene;
         windowsControler.init();
 
         FXMLLoader loaderBeam = new FXMLLoader(getClass().getResource("resources/scene/beamView.fxml"));
@@ -50,7 +53,7 @@ public class View extends Application {
         Scene beamScene = new Scene(rootBeam);
         beamControler.appManager=appManager;
         beamControler.prevScene=windowsScene;
-        beamControler.areas=controler.getData();
+        beamControler.areas=areaControler.getData();
         windowsControler.nextScene=beamScene;
         beamControler.init();
 
@@ -60,12 +63,14 @@ public class View extends Application {
         Scene finalScene = new Scene(rootFinal);
         finalControler.init();
         beamControler.nextScene=finalScene;
-        finalControler.areaControler=controler;
+        finalControler.areaControler=areaControler;
         finalControler.beamControler=beamControler;
         finalControler.windowsControler=windowsControler;
         finalControler.startControler = startControler;
         finalControler.appManager=appManager;
         finalControler.prevScene=beamScene;
+
+        appManager.listeners.addAll(Arrays.asList(areaControler, windowsControler, beamControler));
 
         primaryStage.setScene(firstScene);
         primaryStage.show();

@@ -30,21 +30,21 @@ public class Point {
 
     public boolean isUnderObstacle(List<Beam> list, List<Window> list2, Boolean acceptLeft, Boolean acceptRight){
         for (Beam b : list){
-            if (this.x>b.getShape().getMinX()- DATACONTAINER.MONTANTWITH && this.x<b.getShape().getMaxX()+ DATACONTAINER.MONTANTWITH){
+            if (this.x>b.getShape().getMinX()- DATACONTAINER.MONTANTWIDTH && this.x<b.getShape().getMaxX()+ DATACONTAINER.MONTANTWIDTH){
                 for (Window w :list2){
-                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWITH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY())){
+                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWIDTH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWIDTH && this.y< w.getMinY())){
                         return true;
                     }
                 }
-            }else  if (!acceptLeft && (this.x>b.getShape().getMinX()- DATACONTAINER.MONTANTWITH && this.x==b.getShape().getMaxX()+ DATACONTAINER.MONTANTWITH)){
+            }else  if (!acceptLeft && (this.x>b.getShape().getMinX()- DATACONTAINER.MONTANTWIDTH && this.x==b.getShape().getMaxX()+ DATACONTAINER.MONTANTWIDTH)){
                 for (Window w :list2){
-                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWITH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY())){
+                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWIDTH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWIDTH && this.y< w.getMinY())){
                         return true;
                     }
                 }
-            }else if (!acceptRight && (this.x==b.getShape().getMinX()- DATACONTAINER.MONTANTWITH && this.x<b.getShape().getMaxX()+ DATACONTAINER.MONTANTWITH)){
+            }else if (!acceptRight && (this.x==b.getShape().getMinX()- DATACONTAINER.MONTANTWIDTH && this.x<b.getShape().getMaxX()+ DATACONTAINER.MONTANTWIDTH)){
                 for (Window w :list2){
-                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWITH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWITH && this.y< w.getMinY())){
+                    if (!(this.x>=w.getMinX()- 2*DATACONTAINER.MONTANTWIDTH && this.x<=w.getMaxX()+ 2*DATACONTAINER.MONTANTWIDTH && this.y< w.getMinY())){
                         return true;
                     }
                 }

@@ -37,11 +37,11 @@ public class Montant extends Quadrilateral implements Comparable<Montant>{
         Montant[] temp = new Montant[2];
         ShapeType topType = setMontantType(this.top.goesUp(), intersection.intersection.top.goesUp());
         ShapeType buttomTYpe = setMontantType(intersection.intersection.buttom.goesUp(),this.buttom.goesUp());
-        temp[0] = new Montant(new Segment(intersection.intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWITH,true,topType, this.thetaTop, intersection.window.thetaTop); //TOP MONTANT
+        temp[0] = new Montant(new Segment(intersection.intersection.topLeft,this.topLeft), DATACONTAINER.MONTANTWIDTH,true,topType, this.thetaTop, intersection.window.thetaTop); //TOP MONTANT
         temp[0].topSum =this.topSum;
         temp[0].buttomSum = -1;
         temp[0].numberWritable=this.numberWritable;
-        temp[1] = new Montant(new Segment(this.buttomLeft, intersection.intersection.buttomLeft),DATACONTAINER.MONTANTWITH,true, buttomTYpe, intersection.window.thetaButtom, this.thetaTop); //BUTTOM MONTANT
+        temp[1] = new Montant(new Segment(this.buttomLeft, intersection.intersection.buttomLeft),DATACONTAINER.MONTANTWIDTH,true, buttomTYpe, intersection.window.thetaButtom, this.thetaTop); //BUTTOM MONTANT
         temp[1].topSum = -1;
         temp[1].buttomSum = buttomSum;
         temp[1].numberWritable=this.numberWritable;

@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import math.*;
 import math.Point;
 import view.controler.FinalControler;
+import view.controler.SaveViewListener;
+import view.obj.SaveView;
 import view.obj.ViewArea;
 import view.obj.ViewBeam;
 import view.obj.ViewWindow;
@@ -15,14 +17,18 @@ import view.obj.ViewWindow;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class AppManager {
 
     ArrayList<Area> areas;
     ArrayList<Window> windows;
     ArrayList<Beam> beams;
+    public SaveView saveView;
+    public LinkedList<SaveViewListener> listeners;
 
     public AppManager() {
+        listeners = new LinkedList<>();
         areas=new ArrayList<>();
         windows=new ArrayList<>();
         beams=new ArrayList<>();
@@ -167,5 +173,12 @@ public class AppManager {
             }
         }
         return max;
+    }
+
+    public void setSaveView(SaveView saveView){
+        this.saveView=saveView;
+        for(SaveViewListener listener : listeners){
+            listener.loadSaveData(saveView);
+        }
     }
 }
