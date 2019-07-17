@@ -63,13 +63,13 @@ public class FinalControler {
 
         validate.setOnAction(event -> {
             DATACONTAINER.MONTANTCOUNT=0;
+            appManager.generateSaveFile(this,areaControler.getData(), windowsControler.getData(), beamControler.getData());
             appManager.generateAreas(areaControler.getData());
             appManager.generateWindows(windowsControler.getData());
             appManager.generateBeam(beamControler.getData());
             appManager.buildMontants();
             appManager.generateImage(this);
             appManager.generateFile(this);
-            appManager.generateSaveFile(this,areaControler.getData(), windowsControler.getData(), beamControler.getData());
         });
 
         sameDir.setOnMouseClicked(event -> {

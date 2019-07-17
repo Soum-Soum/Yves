@@ -11,53 +11,26 @@ POUTRES
 
 A-Test P-1
 
-Numero : 20	Lmin : 4.569	Lmax : 5.196	Hmin : 117.04	Hmax : 118.845	Cumul_Haut : 110.274	Angle_Bas/Droite : 10.0	Angle_Haut/Gauche : 30.0
-Numero : 28	Lmin : 4.5	Lmax : 4.569	Hmin : 109.599	Hmax : 110.392	Angle_Bas/Droite : 10.0
-Numero : 24	Largeur : 4.5	Hauteur : 239.586
-Numero : 25	Largeur : 4.5	Hauteur : 239.586
-Numero : 26	Largeur : 4.5	Hauteur : 239.586
-Numero : 27	Largeur : 2.0	Hauteur : 239.586
-Numero : 22	Lmin : 4.5	Lmax : 5.196	Hmin : 259.586	Hmax : 262.184	Cumul_Haut : 138.564	Cumul_Bas : 320.0	Angle_Haut/Gauche : 30.0
+Numero : 15	Lmin : 4.569	Lmax : 5.196	Hmin : 117.04	Hmax : 118.845	Cumul_Haut : 110.274	Angle_Bas/Droite : 10.0	Angle_Haut/Gauche : 30.0
+Numero : 23	Lmin : 4.5	Lmax : 4.569	Hmin : 109.599	Hmax : 110.392	Angle_Bas/Droite : 10.0
+Numero : 19	Largeur : 4.5	Hauteur : 239.586
+Numero : 20	Largeur : 4.5	Hauteur : 239.586
+Numero : 21	Largeur : 4.5	Hauteur : 239.586
+Numero : 22	Largeur : 2.0	Hauteur : 239.586
+Numero : 17	Lmin : 4.5	Lmax : 5.196	Hmin : 259.586	Hmax : 262.184	Cumul_Haut : 138.564	Cumul_Bas : 320.0	Angle_Haut/Gauche : 30.0
 
 OUVERTURES
 
 F1
 
-Numero : 14	Lmin : 4.5	Lmax : 4.569	Hmin : 104.316	Hmax : 105.109	Cumul_Bas : 300.0	Angle_Haut/Gauche : 10.0
-Numero : 10	Largeur : 4.5	Hauteur : 50.0
-Numero : 11	Largeur : 4.5	Hauteur : 41.0
-Numero : 15	Lmin : 4.5	Lmax : 5.196	Hmin : 213.975	Hmax : 216.573	Cumul_Haut : 47.343	Cumul_Bas : 241.0	Angle_Haut/Gauche : 30.0
-Numero : 17	Largeur : 4.569	Hauteur : 59.91	Angle_Haut/Gauche : 80.0
-Numero : 12	Largeur : 4.5	Hauteur : 41.0
-Numero : 13	Lmin : 4.5	Lmax : 4.569	Hmin : 94.707	Hmax : 95.5	Cumul_Bas : 245.5	Angle_Haut/Gauche : 10.0
+Numero : 9	Lmin : 4.5	Lmax : 4.569	Hmin : 104.316	Hmax : 105.109	Cumul_Bas : 300.0	Angle_Haut/Gauche : 10.0
+Numero : 5	Largeur : 4.5	Hauteur : 50.0
+Numero : 6	Largeur : 4.5	Hauteur : 41.0
+Numero : 10	Lmin : 4.5	Lmax : 5.196	Hmin : 213.975	Hmax : 216.573	Cumul_Haut : 47.343	Cumul_Bas : 241.0	Angle_Haut/Gauche : 30.0
+Numero : 12	Largeur : 4.569	Hauteur : 59.91	Angle_Haut/Gauche : 80.0
+Numero : 7	Largeur : 4.5	Hauteur : 41.0
+Numero : 8	Lmin : 4.5	Lmax : 4.569	Hmin : 94.707	Hmax : 95.5	Cumul_Bas : 245.5	Angle_Haut/Gauche : 10.0
 
 AUTRE
 
-Numero : 30	Lmin : 4.5	Lmax : 5.196	Hmin : 246.74	Hmax : 249.338	Cumul_Haut : 182.154	Cumul_Bas : 357.75	Angle_Haut/Gauche : 30.0
-Test2
-CONTOURS
-
-Numero : 6	Largeur : 5.196	Hauteur : 150.111	Angle_Haut/Gauche : 60.0
-Numero : 5	Largeur : 4.5	Hauteur : 200.0
-Numero : 7	Largeur : 5.196	Hauteur : 80.829	Angle_Haut/Gauche : 120.0
-Numero : 8	Lmin : 4.5	Lmax : 5.196	Hmin : 190.304	Hmax : 192.902	Angle_Haut/Gauche : 30.0
-Numero : 9	Lmin : 4.5	Lmax : 5.196	Hmin : 224.945	Hmax : 227.543	Angle_Haut/Gauche : 30.0
-
-POUTRES
-
-A-Test2 P-1
-
-Numero : 31	Lmin : 4.5	Lmax : 5.196	Hmin : 245.441	Hmax : 248.039	Cumul_Haut : 110.274	Cumul_Bas : 595.5	Angle_Haut/Gauche : 30.0
-Numero : 33	Largeur : 4.5	Hauteur : 239.586
-Numero : 34	Largeur : 4.5	Hauteur : 239.586
-Numero : 35	Largeur : 4.5	Hauteur : 239.586
-Numero : 36	Largeur : 4.5	Hauteur : 239.586
-Numero : 37	Largeur : 2.0	Hauteur : 239.586
-Numero : 32	Lmin : 4.5	Lmax : 5.196	Hmin : 259.586	Hmax : 262.184	Cumul_Haut : 138.564	Cumul_Bas : 620.0	Angle_Haut/Gauche : 30.0
-
-OUVERTURES
-
-AUTRE
-
-Numero : 38	Lmin : 4.5	Lmax : 5.196	Hmin : 217.872	Hmax : 220.47	Cumul_Haut : 55.137	Cumul_Bas : 547.75	Angle_Haut/Gauche : 30.0
-Numero : 39	Lmin : 4.5	Lmax : 5.196	Hmin : 246.74	Hmax : 249.338	Cumul_Haut : 182.154	Cumul_Bas : 657.75	Angle_Haut/Gauche : 30.0
+Numero : 25	Lmin : 4.5	Lmax : 5.196	Hmin : 246.74	Hmax : 249.338	Cumul_Haut : 182.154	Cumul_Bas : 357.75	Angle_Haut/Gauche : 30.0
